@@ -1,0 +1,275 @@
+body{
+    border-width: 0px;
+    padding: 0px;
+    margin:0px;
+}
+
+#div_bili_zy{
+    width: 980px;
+    height: 2200px;
+    /*background-color: papayawhip;*/
+    margin-left: 180px;
+}
+#gc{
+    width: 980px;
+    height: 400px;
+    background-color: #a6cbe7;
+
+}
+/*推广………………………………………………………………………………………………*/
+/*#div_implement{*/
+    /*width: 980px;*/
+    /*height: 228px;*/
+    /*background-color: white;*/
+    /*padding-bottom: 15px;*/
+/*}*/
+/*#div_implement_left{*/
+    /*width: 720px;*/
+    /*height: 213px;*/
+    /*float: left;*/
+    /*!*background-color: lavender;*!*/
+    /*padding-bottom: 15px;*/
+/*}*/
+/*#div_implement_left_top{*/
+    /*width: 720px;*/
+    /*height: 45px;*/
+    /*padding-bottom: 15px;*/
+/*}*/
+/*#div_implement_right{*/
+    /*width: 260px;*/
+    /*height: 194px;*/
+    /*float: right;*/
+    /*padding-bottom: 15px;*/
+/*}*/
+/*番剧主体——————————————————————————————————*/
+/*#div_fanju{
+    width: 980px;
+    height: 400px;
+    background-color: aliceblue;
+}
+#div_fanju_comlift{
+    width: 720px;
+    height: 400px;
+    float: left;
+}
+#div_fanju_comright{
+    width: 260px;
+    height: 400px;
+    float: right;
+}*/
+/*评论————————————————————————————————————*/
+#div_common{
+    width: 638px;
+    height: 1100px;
+    /*background-color: #a6cbe7;*/
+
+}
+#div_common_head{
+    width: 638px;
+    height: 37px;
+    /*background-color: #337ab7;*/
+}
+#div_common_view{
+    font: 16px 微软雅黑;
+    float: left;
+}
+#span_common_head_left{
+    font: 20px 微软雅黑;
+    float: left;
+}
+#span_common_head_right{
+    float: right;
+    position: relative;
+    top: 10px;
+}
+#span_common_ys{
+    font: 15px 微软雅黑;
+    float: right;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+/*圆形头像大号*/
+.sa_img{
+    width: 48px;
+    height: 48px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    /*显示圆形头像*/
+    display:inline-block;
+    margin:5px auto;
+    border-radius:100px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    border:2px solid #fff;
+    box-shadow:0 0 4px #ccc;overflow:hidden;
+}
+/*圆形头像小号*/
+.sa_img_min{
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 20px;
+    top: 20px;
+    /*显示圆形头像*/
+    display:inline-block;
+    margin:5px auto;
+    border-radius:100px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    border:2px solid #fff;
+    box-shadow:0 0 4px #ccc;overflow:hidden;
+}
+
+.div_common_com{
+    width: 638px;
+    height: 99px;
+    margin-top: 20px;
+    /*background-color: lavender;*/
+}
+
+.div_common_com2{
+    width: 638px;
+    height: 99px;
+    margin-top: 20px;
+}
+
+.div_hf{
+    font: 15px 微软雅黑;
+    color: #444444;
+    line-height: 25px;
+}
+.area_com{
+    width: 450px;
+    height: 60px;
+    position: relative;
+    left: 70px;
+    resize: none;
+}
+.area_coms{
+    width: 400px;
+    height: 60px;
+    position: relative;
+    left: 70px;
+    top: 10px;
+    resize: none;
+}
+
+.span_line{
+    font: 16px 微软雅黑;
+    color: #337ab7;
+    line-height: 20px;
+    padding: 10px;
+}
+#button_com{
+    float: right;
+    position: relative;
+    left: -30px;
+    top: -30px;
+}
+
+.sdiv_sa_view{
+    margin: 30px 30px 30px 30px;
+}
+
+.span_view_id{
+    padding-right: 20px;
+}
+/*评论时间*/
+.span_view_time{
+    padding-right: 20px;
+}
+/*回复时间*/
+.span_view_times{
+    margin-left: 90px;
+    padding-right: 20px;
+}
+.span_div_up{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../image/icons-comment.png) no-repeat;
+    background-position: -153px -25px;
+    position: relative;
+    top: 11px;
+    padding-left: 20px;
+    padding-top: -20px;
+}
+.span_div_up:hover{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../image/icons-comment.png) no-repeat;
+    background-position: -218px -25px;
+}
+.sa_view_dz{
+    color: #888;
+    margin-left: 35px;
+}
+.sa_view_dz:hover{
+    color: #888;
+    text-decoration: none;
+}
+.span_div_down{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../image/icons-comment.png) no-repeat;
+    background-position: -153px -153px;
+    position: relative;
+    top: 11px;
+    padding-left: 20px;
+    padding-top: -20px;
+}
+.span_div_down:hover{
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: url(../image/icons-comment.png) no-repeat;
+    background-position: -217px -153px;
+}
+.span_view_hf{
+    color: #888;
+    margin-left: 30px;
+}
+.span_view_hf:hover{
+    color: blue;
+    background-color: #f0f3ef;
+}
+.span_view_hf a:hover{
+    text-decoration: none;
+}
+
+.box{
+    position: relative;
+    left: 600px;
+    top: -66px;
+    width: 60px;
+    height: 60px;
+    line-height: 25px;
+    padding-top: 5px;
+    background-color: #b8c0cc;
+    color: #fff;
+    text-align: center;
+}
+.boxs{
+    position: relative;
+    left: 550px;
+    top: -56px;
+    width: 60px;
+    height: 60px;
+    line-height: 25px;
+    padding-top: 5px;
+    background-color: #b8c0cc;
+    color: #fff;
+    text-align: center;
+}
+.input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    opacity: 0;
+}
+

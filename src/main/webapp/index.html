@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="Author" content="">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <style type="text/css" id="content_nav_css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        body {
+            font-family: "Microsoft yahei";
+        }
+
+        #content {
+            position: relative;
+            width: 980px;
+            margin: 0 auto;
+            height: 100%;
+        }
+
+        #content .nav {
+            width: 980px;
+            height: 405px;
+        }
+
+        #content .slide-wrap {
+            position: absolute;
+            right: -60px;
+            width: 52px;
+        }
+
+        #slide {
+            position: fixed;
+            top: 235px;
+            width: 50px;
+            background: #f6faf9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #slide li {
+            position: relative;
+            width: 50px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            font-size: 12px;
+            z-index: 2;
+            cursor: pointer;
+        }
+
+        #slide li:hover {
+            background: #00A1D6;
+            color: #fff;
+        }
+
+        #slide li.on {
+            background: #00A1D6;
+            color: #fff;
+        }
+
+        #slide li.blue {
+            display: none;
+            position: absolute;
+            top: 0;
+            background: #00A1D6;
+            z-index: 1;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/base_rwc.css">
+    <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script>
+        $(function () {
+            setTimeout("change_img()", 100);
+            header_list_show();
+            header_code_show();
+        })
+        var index_carousel_i = -1;
+        var index_carousel_image = new Array("image/index_carousel1.jpg", "image/index_carousel2.jpg", "image/index_carousel3.jpg", "image/index_carousel4.jpg", "image/index_carousel5.jpg");
+
+        function change_img() {
+            index_carousel_i++;
+            $("#index_carousel_image").attr("src", index_carousel_image[index_carousel_i]);
+            if (index_carousel_i == 4) {
+                index_carousel_i = -1;
+            }
+            setTimeout("change_img()", 3000);
+        }
+
+        function header_list_show() {
+            $(".header_list_show").hover(function () {
+                $(this).children().eq(1).show()
+            }, function () {
+                $(this).children().eq(1).hide()
+            })
+        }
+
+        function header_code_show() {
+            $("#nav_web_download").hover(function () {
+                $("#download_code").show()
+            }, function () {
+                $("#download_code").hide()
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="header">
+    <div id="header_nav_background">
+        <div id="header_background_bottom"></div>
+        <div id="header_background_top"></div>
+    </div>
+    <div id="header_nav">
+        <div id="header_nav_web">
+            <ul>
+                <li id="nav_web_main">
+                    <a href="index.html" title="主站" class="t">
+                        <i class="bili-icon"></i>
+                        主站
+                    </a>
+                </li>
+                <li id="nav_web_draw"><a href="" title="画友" class="t">画友</a></li>
+                <li id="nav_web_music"><a href="" title="音频" class="t">音频</a></li>
+                <li id="nav_web_game"><a href="" title="游戏中心" class="t">游戏中心</a></li>
+                <li id="nav_web_live"><a href="" title="直播" class="t">直播</a></li>
+                <li id="nav_web_buy"><a href="" title="会员购" class="t">会员购</a></li>
+                <li id="nav_web_BML"><a href="" title="BML" class="t">BML</a></li>
+                <li id="nav_web_moe"><a href="" title="萌战" class="t">萌战</a></li>
+                <li id="nav_web_download">
+                    <a href="header_footer.html" title="下载APP" class="t">
+                        <i id="download_icon"></i>
+                        <p id="download_text">下载APP</p>
+                    </a>
+                    <div id="download_code"></div>
+                </li>
+            </ul>
+        </div>
+        <div id="header_nav_contribution">
+            <a href="" target="_blank" class="u-link">投 稿</a>
+        </div>
+        <div id="header_nav_history">
+            <a href="" target="_blank" title="历史记录">历史</a>
+        </div>
+        <div id="header_nav_personal">
+            <a href="login.html" class="t">
+                <div id="nav_personal_image">
+                    <img src="image/origin_image.jpg" class="face">
+                </div>
+            </a>
+        </div>
+        <div id="header_back_logo">
+            <a href="index.html"><img src="image/header_logo.png"></a>
+        </div>
+        <div id="header_back_search">
+            <form id="header_search_form" action="" method="get">
+                <input type="text" placeholder="谁说男生不会扭腰" class="header_search_keyword">
+                <button type="submit" class="header_search_submit"></button>
+                <a href="" target="_blank" title="排行榜" class="header_search_ranking">
+                    <span>排行榜</span>
+                </a>
+            </form>
+        </div>
+    </div>
+    <div id="header_background"></div>
+    <div id="header_menu">
+        <div id="header_menu_list">
+            <ul class="header_list_ul">
+                <li id="header_list_home">
+                    <a href="index.html" class="header_list_home_icon">
+                        <div class="header_list_name">首页</div>
+                    </a>
+                    <ul class="header_list_hidden"></ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">动画</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>MAD·AMV</span></a></li>
+                        <li><a href=""><span>MMD·3D</span></a></li>
+                        <li><a href=""><span>短片·手书·配音</span></a></li>
+                        <li><a href=""><span>综合</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>165</span>
+                        </div>
+                        <div class="header_list_name">番剧</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>连载动画</span></a></li>
+                        <li><a href=""><span>完结动画</span></a></li>
+                        <li><a href=""><span>资讯</span></a></li>
+                        <li><a href=""><span>官方延伸</span></a></li>
+                        <li><a href=""><span>新番时间表</span></a></li>
+                        <li><a href=""><span>番剧索引</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>176</span>
+                        </div>
+                        <div class="header_list_name">国创</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>国产动画</span></a></li>
+                        <li><a href=""><span>国产原创相关</span></a></li>
+                        <li><a href=""><span>布袋戏</span></a></li>
+                        <li><a href=""><span>资讯</span></a></li>
+                        <li><a href=""><span>新番时间表</span></a></li>
+                        <li><a href=""><span>国产动画索引</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">音乐</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>原创音乐</span></a></li>
+                        <li><a href=""><span>翻唱</span></a></li>
+                        <li><a href=""><span>VOCALOID·UTAU</span></a></li>
+                        <li><a href=""><span>演奏</span></a></li>
+                        <li><a href=""><span>三次元音乐</span></a></li>
+                        <li><a href=""><span>OP/ED/OST</span></a></li>
+                        <li><a href=""><span>音乐选集</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>560</span>
+                        </div>
+                        <div class="header_list_name">舞蹈</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>宅舞</span></a></li>
+                        <li><a href=""><span>三次元舞蹈</span></a></li>
+                        <li><a href=""><span>舞蹈教程</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">游戏</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>单机游戏</span></a></li>
+                        <li><a href=""><span>电子竞技</span></a></li>
+                        <li><a href=""><span>手机游戏</span></a></li>
+                        <li><a href=""><span>网络游戏</span></a></li>
+                        <li><a href=""><span>桌游棋牌</span></a></li>
+                        <li><a href=""><span>GMV</span></a></li>
+                        <li><a href=""><span>音游</span></a></li>
+                        <li><a href=""><span>Mugen</span></a></li>
+                        <li><a href=""><span>游戏赛事</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">科技</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>趣味科普人文</span></a></li>
+                        <li><a href=""><span>野生技术协会</span></a></li>
+                        <li><a href=""><span>演讲·公开课</span></a></li>
+                        <li><a href=""><span>星海</span></a></li>
+                        <li><a href=""><span>数码</span></a></li>
+                        <li><a href=""><span>机械</span></a></li>
+                        <li><a href=""><span>汽车</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">生活</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>搞笑</span></a></li>
+                        <li><a href=""><span>日常</span></a></li>
+                        <li><a href=""><span>美食圈</span></a></li>
+                        <li><a href=""><span>动物圈</span></a></li>
+                        <li><a href=""><span>手工</span></a></li>
+                        <li><a href=""><span>绘画</span></a></li>
+                        <li><a href=""><span>运动</span></a></li>
+                        <li><a href=""><span>其他</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>317</span>
+                        </div>
+                        <div class="header_list_name">鬼畜</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>鬼畜调教</span></a></li>
+                        <li><a href=""><span>音MAD</span></a></li>
+                        <li><a href=""><span>人力VOCALOID</span></a></li>
+                        <li><a href=""><span>教程演示</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">时尚</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>美妆</span></a></li>
+                        <li><a href=""><span>服饰</span></a></li>
+                        <li><a href=""><span>健身</span></a></li>
+                        <li><a href=""><span>资讯</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>263</span>
+                        </div>
+                        <div class="header_list_name">广告</div>
+                    </a>
+                    <ul class="header_list_hidden"><!----></ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">娱乐</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>综艺</span></a></li>
+                        <li><a href=""><span>明星</span></a></li>
+                        <li><a href=""><span>Korea相关</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>999+</span>
+                        </div>
+                        <div class="header_list_name">影视</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>影视杂谈</span></a></li>
+                        <li><a href=""><span>影视剪辑</span></a></li>
+                        <li><a href=""><span>短片</span></a></li>
+                        <li><a href=""><span>预告·资讯</span></a></li>
+                        <li><a href=""><span>特摄</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_show">
+                    <a href="">
+                        <div class="header_list_num">
+                            <span>397</span>
+                        </div>
+                        <div class="header_list_name">放映厅</div>
+                    </a>
+                    <ul class="header_list_hidden">
+                        <li><a href=""><span>纪录片</span></a></li>
+                        <li><a href=""><span>电影</span></a></li>
+                        <li><a href=""><span>电视剧</span></a></li>
+                    </ul>
+                </li>
+                <li class="header_list_side">
+                    <a href="" class="header_side_link">
+                        <i id="side_zhuanlan"></i>
+                        <span>专栏</span>
+                    </a>
+                </li>
+                <li class="header_list_side">
+                    <a href="" class="header_side_link">
+                        <i id="side_square"></i>
+                        <span>广场</span>
+                    </a>
+                </li>
+                <li class="header_list_side">
+                    <a href="" class="header_side_link">
+                        <i id="side_live"></i>
+                        <span>直播</span>
+                    </a>
+                </li>
+                <li class="header_list_side">
+                    <a href="" class="header_side_link">
+                        <i id="side_blackroom"></i>
+                        <span>小黑屋</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="header_menu_gif">
+            <img src="image/header_list_gif.gif">
+        </div>
+    </div>
+</div>
+<div id="content">
+    <div id="content_recommend">
+        <div id="content_recommend_carousel">
+            <img src="image/index_carousel1.jpg" id="index_carousel_image">
+            <ul id="index_carousel_title">
+                <a href="" class="index_carousel_title_on">
+                    快来送上生日祝福吧！
+                </a>
+                <a href="" class="index_carousel_title_off">
+                    限定舰船、泳装皮肤来袭！
+                </a>
+                <a href="" class="index_carousel_title_off">
+                    每天做梦都想上学
+                </a>
+                <a href="" class="index_carousel_title_off">
+                    【小宇宙】清华大学美术学院毕设展 ！
+                </a>
+                <a href="" class="index_carousel_title_off">
+                    2018网民网络安全感和满意度调查 ！
+                </a>
+            </ul>
+            <ul id="index_carousel_points">
+                <span class="index_carousel_off index_carousel_on"></span>
+                <span class="index_carousel_off"></span>
+                <span class="index_carousel_off"></span>
+                <span class="index_carousel_off"></span>
+                <span class="index_carousel_off"></span>
+            </ul>
+        </div>
+        <div id="content_recommend_right">
+            <div class="content_recommend_member"></div>
+            <div class="content_recommend_member"></div>
+            <div class="content_recommend_member"></div>
+            <div class="content_recommend_member"></div>
+            <div class="content_recommend_member"></div>
+            <div class="content_recommend_member"></div>
+        </div>
+    </div>
+    <!--动画-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -908px"></i>
+                    <a href="" class="content_list_title_name">动画</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--番剧-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -140px"></i>
+                    <a href="" class="content_list_title_name">番剧</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--国创-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -140px -1611px"></i>
+                    <a href="" class="content_list_title_name">国创</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--音乐-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -140px -266px"></i>
+                    <a href="" class="content_list_title_name">音乐</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--音频-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -140px -1675px"></i>
+                    <a href="" class="content_list_title_name">音频</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--舞蹈-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -461px"></i>
+                    <a href="" class="content_list_title_name">舞蹈</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--游戏-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -203px"></i>
+                    <a href="" class="content_list_title_name">游戏</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--科技-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -525px"></i>
+                    <a href="" class="content_list_title_name">科技</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--生活-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -137px -970px"></i>
+                    <a href="" class="content_list_title_name">生活</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--鬼畜-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -332px"></i>
+                    <a href="" class="content_list_title_name">鬼畜</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--时尚-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -141px -718px"></i>
+                    <a href="" class="content_list_title_name">时尚</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <!--广告-->
+    <div class="nav">
+        <div class="content_member">
+            <div class="content_member_list">
+                <div class="content_list_title">
+                    <i class="content_list_title_icon" style="background-position: -140px -1228px"></i>
+                    <a href="" class="content_list_title_name">广告</a>
+                </div>
+                <div class="content_list_video">
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                    <div class="content_list_video_member">
+                        <a href="" target="_blank">
+                            <div class="content_video_member_1">
+                                <img src="image/6ad60fe02a4dee383d5010f9bd2778b20e22905d.jpg@160w_100h.webp"
+                                     style="height: 100px;width: 160px;">
+                            </div>
+                            <p title="【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情"
+                               class="content_video_member_2">
+                                【720*480p】家庭教师reborn未来篇第二战：假·六吊花＆彩虹印记【日语版/字幕】精简op/ed 剧情</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="content_member_ranking"></div>
+        </div>
+    </div>
+    <div class="slide-wrap">
+        <div id="slide">
+            <ul>
+                <li class="control">动画</li>
+                <li class="control">番剧</li>
+                <li class="control">国创</li>
+                <li class="control">音乐</li>
+                <li class="control">音频</li>
+                <li class="control">舞蹈</li>
+                <li class="control">游戏</li>
+                <li class="control">科技</li>
+                <li class="control">生活</li>
+                <li class="control">鬼畜</li>
+                <li class="control">时尚</li>
+                <li class="control">广告</li>
+                <li class="blue"></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <ul id="footer_tips">
+        <li id="footer_tips_left">
+            <div class="footer_tips_tip">bilibili</div>
+            <div class="footer_tips_cards"><a href="">关于我们</a></div>
+            <div class="footer_tips_cards"><a href="">联系我们</a></div>
+            <div class="footer_tips_cards"><a href="">加入我们</a></div>
+            <div class="footer_tips_cards"><a href="">友情链接</a></div>
+            <div class="footer_tips_cards"><a href="">bilibili认证</a></div>
+            <div class="footer_tips_cards"><a href="">Investor Relations</a></div>
+        </li>
+        <li id="footer_tips_middle">
+            <div class="footer_tips_tip">传送门</div>
+            <div class="footer_tips_cards"><a href="">帮助中心</a></div>
+            <div class="footer_tips_cards"><a href="">高级弹幕</a></div>
+            <div class="footer_tips_cards"><a href="">活动专题页</a></div>
+            <div class="footer_tips_cards"><a href="">侵权申诉</a></div>
+            <div class="footer_tips_cards"><a href="">活动中心</a></div>
+            <div class="footer_tips_cards"><a href="">用户反馈论坛</a></div>
+            <div class="footer_tips_cards"><a href="">壁纸站</a></div>
+            <div class="footer_tips_cards"><a href="">名人堂</a></div>
+        </li>
+        <li id="footer_tips_right">
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_phone"></div>
+                    <span>客户端下载</span>
+                </div>
+            </a>
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weibo"></div>
+                    <span>新浪微博</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weixin"></div>
+                    <span>官方微信</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div id="footer_partner">
+        <div class="block left" style="margin: 0px 68px 0 115px;line-height:24px;float: none;"><p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span>
+            | 网络文化经营许可证：<span>沪网文[2016]2296-134号</span> | 信息网络传播视听节目许可证：<span>0910417</span> | 互联网ICP备案：<a
+                    href="" target="_blank">沪ICP备13002172号-3</a>
+            沪ICP证：<span>沪B2-20100043</span> | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3
+            | <a href="" target="_blank">营业执照</a></p>
+            <p><a href="" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a>
+                |<a href="" target="_blank">12318 全国文化市场举报网站</a> |<a target="_blank" href=""><img
+                        src="image/footer_beiantubiao.png" style="vertical-align: top;"> 沪公网安备
+                    31011002002436号 |</a><a href="">儿童色情信息举报专区</a></p>
+            <p><a href="" target="_blank">网上有害信息举报专区：<img
+                    src="image/footer_12377.png" width="16" height="16" style="vertical-align: sub;">
+                中国互联网违法和不良信息举报中心</a></p>
+            <p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    // 解决slide定位问题
+    (function () {
+        var $slide = $("#slide");
+        var sildeH = $slide.height();
+        var minus = ($(window).height() - sildeH) / 2;
+        minus = Math.max(minus, 0);
+        $(window).resize(function () {//页面高度变化.
+            minus = ($(window).height() - sildeH) / 2;//minus可能小于0==> 页面高度小于slide高度.
+            minus = Math.max(minus, 0); //取最大值.
+            $slide.css("top", minus + "px");
+        }).scroll(function () {//页面滚动.让slide 居中
+            if ($(this).scrollTop() > 100) {
+                $slide.css("top", minus + "px");
+            } else {
+                $slide.css("top", "230px");
+            }
+        })
+    })();
+
+    // 导航条操作.
+    (function () {
+        var $control = $("#slide .control"),
+            height = $control.height(),
+            $nav = $("#content .nav"),
+            length = $nav.length,
+            index = 0,
+            $blue = $("#slide .blue"),
+            mark = true;
+        // slide的点击跳转.
+        $control.click(function () {
+            mark = !mark;
+            var This = this;
+            index = $(this).index();
+            // 替换样式.
+            $(this).addClass("on").siblings().removeClass("on");
+            // 跳转.
+            $("body,html").stop().animate({//会执行两次
+                "scrollTop": $nav.eq(index).offset().top + "px"
+            }, 300);
+            // 小块跟随.
+            $blue.show().stop().animate({
+                top: height * index + "px"
+            }, 300, function () {
+                $(this).hide();
+                // 跳转结束让开关开启
+                mark = !mark;
+            });
+        });
+        // 页面滚动,让slide跟随.
+        $(window).scroll(function () {
+            // 点击跳转时不用检测.
+            if (mark) {
+                for (var i = 0; i < length; i++) { //检测滚轮高度
+                    if ($nav.eq(i).offset().top > $(this).scrollTop()) { // 让上一个control 显示.
+                        index = i - 1;
+                        if (index < 0) { //i=0时.  不显示.
+                            index = 0;
+                            $control.removeClass("on");
+                        } else { //当i>=1时. 才开始显示.
+                            $control.eq(index).addClass("on").siblings().removeClass("on");
+                            // $blue 同步.
+                            $blue.css("top", height * index + "px");
+                        }
+
+                        break;//检测到一个就退出.
+                    }
+                }
+                // 最后一个.
+                if ($nav.last().offset().top < $(this).scrollTop()) {
+                    $control.last().addClass("on").siblings().removeClass("on");
+                    // $blue 同步.
+                    $blue.css("top", (length - 1) * index + "px");
+                }
+            }
+        })
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*头部*/
+#content{
+    width: 1100px;
+    height: 600px;
+    margin-left: 120px;
+    margin-top: 50px;
+    clear: both;
+    border: #a6cbe7 5px;
+    border-style: double;
+}
+#div_centre_head{
+    width: 100%;
+    height: 200px;
+    background: url("../image/usercentre02.png") no-repeat;
+    background-size: 100% 100%;
+}
+#div_menu{
+    background: #a6cbe7;
+}
+#head_top{
+    width: 100%;
+    height: 116px;
+}
+#head_bottom{
+    width: 100%;
+    height: 84px;
+}
+.div_userimg{
+    width: 60px;
+    height: 60px;
+    position: relative;
+    left: 20px;
+    top: 10px;
+    /*显示圆形头像*/
+    display:inline-block;
+    margin:5px auto;
+    border-radius:100px;
+    -webkit-border-radius:100px;
+    -moz-border-radius:100px;
+    border:2px solid #f0f3ef;
+    box-shadow:0 0 4px #ccc;overflow:hidden;
+}
+#user_span_font{
+    font: 20px 微软雅黑;
+    color: white;
+    margin-left: 30px;
+    font-weight:bold;
+    position: relative;
+    left: 30px;
+    top: -40px;
+}
+#input_qm{
+    font: 15px 微软雅黑;
+    width: 600px;
+    height: 30px;
+    background:transparent;
+    border:0px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+    left: 130px;
+    top: -30px;
+}
+#div_li_style li{
+    background-color: white;
+    border: 1px #888888 solid;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+#div_cencent{
+    width: 800px;
+    height: 300px;
+    font: 15px 微软雅黑;
+    position: relative;
+    left: 200px;
+    top: -210px;
+}
+#div_cencent span{
+   position: relative;
+    left: -100px;
+    line-height: 30px;
+}
+#span_nc{
+    margin-left: -210px;
+}
+#span_id{
+    margin-left: -450px;
+    margin-top: 10px;
+}
+#span_sex{
+    margin-left: -300px;
+    position: relative;
+    top: 50px;
+}
+#input_cencent_nc{
+    width: 250px;
+    height: 30px;
+    font: 15px 微软雅黑;
+    position: relative;
+    left: 35px;
+}
+#area_com{
+    width: 450px;
+    height: 60px;
+    resize: none;
+    position: relative;
+    top: 40px;
+    left: 10px;
+}
+#sex-man{
+    background: url("../image/sex01.png") no-repeat;
+    background-size: 20px 40px;
+    display: inline-block;
+    line-height: 20px;
+    text-indent: 20px;
+}

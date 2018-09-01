@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>消息</title>
+    <style type="text/css">
+body{
+            width: 1364px;
+            height: 500px;
+            padding: 0;
+            margin: 0;
+            background: url("image/icon4.jpg") no-repeat center;
+        }
+
+.middle{
+     width: 1364px;
+     height: 600px;
+     float: left;
+    }
+.left{
+            width: 192px;
+            height: 408px;
+            float: left;
+        }
+.center{
+            width: 980px;
+            height:600px;
+            float: left;
+            background-color: white;
+            opacity: 0.5;
+        }
+.center1{
+            width: 980px;
+            height:408px ;
+            float: left;
+            background-color: white;
+        }
+.center11 {
+            width: 140px;
+            height: 273px;
+            float: left;
+        }
+.message1{
+            width: 140px;
+            height: 62px;
+            float: left;
+            background-color: white;
+            text-align: center;
+            margin-top: 20px;
+        }
+.message2{
+            top: -20px;
+            width: 140px;
+            height: 240px;
+            float: left;
+            background-color: white;
+            opacity: initial;
+        }
+ul li{
+            font-size: 16px;
+            color: black;
+            line-height: 40px;
+            text-decoration: none;
+            position: relative;
+        }
+li a{
+            text-decoration:none;
+            clear: both;
+            color: #000;
+        }
+a:hover{
+            color: red;
+        }
+.center12{
+            width: 840px;
+            height: 408px;
+            float: left;
+        }
+.center3{
+            width: 192px;
+            height: 408px;
+            float: right;
+        }
+.right{
+            width: 192px;
+            height: 408px;
+            float: right;
+        }
+.body {
+            width: 840px;
+            height: 408px;
+            position: relative;
+            left: 332px;
+            top: 42px;
+            display: none;
+        }
+#body1{
+            width:800px ;
+            height: 42px;
+            margin-left: 20px;
+            margin-top: 10px;
+            background-color: white;
+        }
+.li1{
+            position: absolute;
+            list-style: none;
+            top: 10px;
+            left: 30px;
+        }
+#body2{
+            width:800px;
+            height: 332px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background: url("image/icon1.JPG") no-repeat center;
+            background-color: #fff;
+        }
+.menu{
+            width: 840px;
+            height: 408px;
+            position: relative;
+            left: 332px;
+            top: 42px;
+            display: none;
+        }
+.menu1{
+            width:800px ;
+            height: 42px;
+            margin-left: 20px;
+            margin-top: 10px;
+            background-color: white;
+        }
+.menu2{
+            width:800px;
+            height: 332px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+.menu2x{
+            width: 240px;
+            height: 332px;
+            border: 1px lightgrey none;
+            border-right-style:solid;
+        }
+.menu2x_1{
+            width: 239px;
+            height: 36px;
+        }
+.menu2x_2{
+     width: 239px;
+     height: 296px;
+        }
+.smallShow{
+            position: absolute;
+            list-style: none;
+            color: #000;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+.menu2y{
+            width: 450px;
+            height: 332px;
+            position: relative;
+            left:240px;
+            top: -332px;
+            background-color: black;
+            background: url("image/icon2.JPG") no-repeat center;
+        }
+.cart {
+            width: 840px;
+            height: 408px;
+            position: relative;
+            left: 332px;
+            top: 42px;
+            display: none;
+        }
+.cart1{
+            width:800px ;
+            height: 42px;
+           margin-left: 20px;
+            margin-top: 10px;
+            background-color: white;
+        }
+.cart2{
+            width:800px;
+            height: 332px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background: url("image/icon3.JPG") no-repeat center;
+            background-color: #fff;
+        }
+.node {
+            width: 840px;
+            height: 408px;
+            position: relative;
+            left: 332px;
+            top: 42px;
+            display: none;
+        }
+.node1{
+            width:800px ;
+            height: 42px;
+            margin-left: 20px;
+            margin-top: 10px;
+            background-color: white;
+        }
+.node2{
+            width:800px;
+            height: 332px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background: url("image/icon1.JPG") no-repeat center;
+            background-color: #fff;
+        }
+hr{
+            position: relative;
+            bottom: 550px;
+        }
+
+</style>
+<script type="application/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="application/javascript" src="js/jquery.validate.js"></script>
+<script>
+        $(function () {
+            $(".text1").click("li",function () {
+                $(".body").show();
+                $(".menu").hide();
+                $(".cart").hide();
+                $(".node").hide();
+            });
+            $(".text2").click("li",function () {
+                $(".menu").show();
+                $(".body").hide();
+                $(".cart").hide();
+                $(".node").hide();
+            });
+            $(".text3").click("li",function () {
+                $(".menu").hide();
+                $(".body").hide();
+                $(".cart").show();
+                $(".node").hide();
+            });
+            $(".text4").click("li",function () {
+                $(".node").show();
+                $(".menu").hide();
+                $(".body").hide();
+                $(".cart").hide();
+            });
+
+            $(".smallShow").click(function(){
+                alert("dfg");
+                $.ajax({
+                    url:"/MsgReceiver",
+                    type:"post",
+                    dataType:"json",
+                    success:function (list) {
+                        alert(list);
+                        for (var i = 0; i < list.length; i++) {
+                            var $node = $('<div class="msgSender " style="color: greenyellow;">发送者:' + list[i].msgSender + '</div>');
+                            $(".menu2x_21").append($node);
+                            var $node1 = $('<div style="color: blue;display: block;top: -200px">' + list[i].msgContent + '</div>');
+                            $(".receiver").append($node1);
+                        }
+                    }
+                })
+            });
+            $("#button111").click(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    url : "/MesSender",
+                    type : "post",
+                    data: {
+                        "msgContent":$("textarea[name='msgContent']").val(),
+                        "msgSender":$("input[name='msgSender']").val(),
+                        "msgReceiver":$("input[name='msgReceiver']").val(),
+                    },
+                    dataType : "json",
+                    success: function(ret) {
+                        alert(ret);
+                        if(ret=="1"){
+                            layer.msg("发送成功!",{Time:2000},function () {
+                            })
+                        }else{
+                            alert("发送失败！");
+                        }
+                    }
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+<div class="middle">
+<div class="left"></div>
+<div class="center">
+    <div class="center1">
+        <div class="center11">
+            <div class="message1">消息中心</div>
+            <div class="message2">
+            <ul class="message">
+                <li class="text1">
+                    <a href="#">系统通知</a>
+                </li>
+                <li class="text2">
+                    <a href="#">我的消息</a>
+                </li>
+                <li class="text3">
+                    <a href="#">回复我的</a>
+                </li>
+                <li class="text4">
+                    <a href="#">收到的赞</a>
+                </li>
+            </ul>
+            </div>
+        </div>
+        <div class="center12">
+        </div>
+    </div>
+    <div class="center3">
+
+    </div>
+
+</div>
+<div class="right"></div>
+</div>
+
+<div class="body">
+    <div id="body1">
+        <li class="li1">系统通知</li>
+    </div>
+    <div id="body2">
+    </div>
+</div>
+
+<div class="menu">
+    <div class="menu1">
+        <li class="li1">我的消息</li>
+    </div>
+    <div class="menu2">
+        <div class="menu2x">
+            <div class="menu2x_1">
+                <li class="smallShow">近期消息</li>
+            </div>
+            <!--<hr size="1px" color="lightgrey"/>-->
+            <div class="menu2x_2">
+                <div class="menu2x_21" style="width: 239px; height: 0px;"></div>
+            </div>
+        </div>
+        <div class="menu2y">
+            <div class="receiver" style="width: 560px; height: 220px; "></div>
+            <hr style="width: 558px; height:20px; float: left; "/>
+            <div class="textsender" style="width: 560px; height: 110px; border-top:1px solid gray; ">
+                <form>
+                <div class="textarea" >
+                    <textarea name="msgContent" style="width: 390px; height: 110px;float: left;margin-top: -40px;"></textarea>
+                    <input name="msgSender"/>
+                    <input name="msgReceiver"/>
+                    <button id="button111" style="width: 100px; height: 50px; margin-left: 20px">发送</button>
+                </div>
+                </form>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+<div class="cart">
+    <div class="cart1">
+        <li class="li1">回复我的</li>
+    </div>
+    <div class="cart2">
+    </div>
+</div>
+
+<div class="node">
+    <div class="node1">
+        <li class="li1">收到的赞</li>
+    </div>
+    <div class="node2"></div>
+</div>
+</body>
+</html>

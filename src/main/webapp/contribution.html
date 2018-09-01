@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contribution</title>
+    <link rel="stylesheet"type="text/css"href="css/contribute.css">
+    <link rel="stylesheet"type="text/css"href="css/base.css">
+    <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script src="js/jquery.validate.js" type="application/javascript"></script>
+    <script src="js/jquery.validate.messages_cn.js" type="application/javascript"></script>
+    <script>
+        $(function () {
+           $("#download_text").mousemove(function () {
+               $("#app").show();
+           })
+            $("#app").mouseout(function () {
+                $("#app").hide();
+            })
+
+            $(".t4").mousemove(function () {
+                $("#bml").show();
+            })
+            $("#bml").mouseout(function () {
+                $("#bml").hide();
+            })
+
+            $("#nui_send_btn").mousemove(function () {
+                $("#send_txt").show();
+                $("#send_txt").mousemove(function () {
+                    $("#send_txt").show();
+                })
+            })
+            $("#send_txt").mouseout(function () {
+                $("#send_txt").hide();
+                $(".aa1").hide();
+                $(".aa2").hide();
+            })
+
+            $("#send_txt").next(".r1").click(function () {
+               $(".if_root").attr("name","myframe1");
+            })
+            $("#send_txt").next(".r2").click(function () {
+                $(".if_root").attr("name","myframe1");
+            });
+        })
+
+    </script>
+</head>
+<body>
+<div id="head">
+    <div id="header_nav_web">
+        <ul>
+            <li id="nav_web_main" title="主站">
+                <a href="index.html"  class="t">
+                    <i class="bili-icon"></i>
+                    主站
+                </a>
+            </li>
+            <li id="nav_web_draw"><a href="index.html" title="画友" class="t">画友</a></li>
+            <li id="nav_web_music"><a href="" title="来探索bilibili的音乐世界吧～" class="t">音频</a></li>
+            <li id="nav_web_game"><a href="" title="游戏中心" class="t">游戏中心</a></li>
+            <li id="nav_web_live"><a href="" title="直播" class="t">直播</a></li>
+            <li id="nav_web_buy"><a href="" title="会员购" class="t">会员购</a></li>
+            <li id="nav_web_BML"><a href="" title="BML" class="t4">BML
+                <div id="bml">
+                    <a href="#" class="aa1"><img src="image/bmlbj.png" class="bmlbj"title="bmlbj.png"></a>
+                    <a href="#" class="aa2"><img src="image/bmlsh.png" class="bmlsh"title="bmlsh.png"></a>
+                </div></a>
+            </li>
+            <li id="nav_web_moe"><a href="" title="萌战" class="t">萌战</a></li>
+            <li id="nav_web_download">
+                <a href=" "  class="t">
+                    <i id="download_icon"></i>
+                    <p id="download_text">下载APP</p>
+                    <div id="app"><img src="image/app-orcode.png" class="app_wm"></div>
+                </a></li>
+        </ul>
+    </div>
+    <div id="header_nav_msg">
+        <ul>
+            <li id="header_nav_contribution">
+                <a href="" target="_blank" class="u-link">投 稿</a>
+            </li>
+            <li id="header_nav_message">
+                <a href="" target="_blank" title="消息">消息</a>
+            </li>
+            <li id="header_nav_collection">
+                <a href="" target="_blank" title="收藏夹">收藏夹</a>
+            </li>
+            <li id="header_nav_history">
+                <a href="" target="_blank" title="历史记录">历史</a>
+            </li>
+            <li id="header_nav_personal">
+                <a href="login.html" class="t">
+                    <p id="nav_personal_image">
+                        <img src="image/noface.gif" class="face">
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="bili">
+    <div id="root">
+        <div class="nui_scroll">
+            <a href=""id="icon" target="_blank"></a>
+            <div id="nui_old">
+                <a href=""target="_blank">回到旧版</a>
+            </div>
+            <div id="nui_send">
+                <a href="right_send.html" id="nui_send_btn"target="myframe1">投稿</a>
+            </div>
+            <div id="send_txt">
+                <a href="right_send.html" class="r1" target="myframe1"><img src="image/vid.png" class="txt1"><p>视频投稿</p></a>
+                <a href="right_send1.html" class="r2" target="myframe1"><img src="image/photo.png" class="txt1"><p>相簿投稿</p></a>
+            </div>
+            <ul id="nui_menu">
+                <li>
+                    <a href="contribute_index.html"class="nui_menu_a1"target="myframe1">
+                        <i class="nui_menu_icon1"></i>
+                        <span>首页管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="right_send2.html"class="nui_menu_a2"target="myframe1">
+                        <i class="nui_menu_icon2"></i>
+                        <span>内容管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=""class="nui_menu_a3">
+                        <i class="nui_menu_icon3"></i>
+                        <span>数据管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=""class="nui_menu_a4">
+                        <i class="nui_menu_icon4"></i>
+                        <span>粉丝管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href=""class="nui_menu_a5">
+                        <i class="nui_menu_icon5"></i>
+                        <span>互动管理</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="underline">
+            </div>
+            <ul id="nui_menu_tool">
+                <li>
+                    <a href="exe/bilibiliuploader-release-20170725-1006.exe"target="_blank" class="tool1">
+                        <img src="image/tool1.PNG" alt="投稿工具">
+                        <div class="send">
+                            <div class="title">投稿工具</div>
+                            <div class="version">1.6.0.1006</div>
+                            <div></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="exe/bilibiliuploader-release-20170901-1054.exe"class="tool1">
+                        <img src="image/tool1.PNG" alt="投稿工具">
+                        <div class="send">
+                            <div class="title">投稿工具</div>
+                            <div class="version">1.6.0.1006</div>
+                            <div></div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="exe/weiquanliucheng.docx"class="tool1">
+                        <img src="image/tool2.PNG" alt="点我维权">
+                        <div class="send">
+                            <div class="title">点我维权</div>
+                            <div class="version">1.6.0.1006</div>
+                            <div></div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="underline">
+            </div>
+            <div id="help">
+                    <a>帮助中心</a><br/>
+                    <a>在线客服</a><br/>
+                    <a>bilibili认证</a><br/>
+
+            </div>
+        </div>
+        <div class="root_right">
+            <iframe src="right_send.html"name="myframe1"class="if_root" scrolling="yes"></iframe>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+</body>
+</html>

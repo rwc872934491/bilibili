@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="css/jigsaw.css">
+    <link rel="stylesheet" href="css/jquery.slider.css"/>
+    <link rel="stylesheet" type="text/css" href="css/base_rwc.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <script type="application/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="application/javascript" src="js/jquery.validate.js" ></script>
+    <script type="application/javascript" src="js/layer.js"></script>
+    <script type="application/javascript" src="js/drag.js"></script>
+    <script type="text/javascript" src="js/jquery.slider.min.js"></script>
+    <script src="js/jigsaw.js"></script>
+    <script>
+        $(function () {
+            $("#myForm").validate({
+                rules:{
+                    username:{
+                        required: true,
+                        minlength: 11,
+                        regex: "^1[3|4|5|8][0-9][0-9]{8}$"
+                    },
+                    password:{
+                        required: true,
+                        minlength: 8,
+                        maxlength: 19,
+                        regex: "^[a-zA-Z][a-zA-Z0-9_]+$"
+                    },
+                },
+                messages:{　　　　//验证错误信息
+                    username: {
+                        minlength: "用户名为11位有效数字",
+                        regex: "Please enter the correct phone number , the format is (^1[3|4|5|8][0-9][0-9]{8})"
+                    },
+                    password: {
+                        minlength: "密码的最小长度必须大于6bit",
+                        maxlength: "密码最大长度不超过19bit",
+                        regex: "密码格式不正确"
+                    }
+                },
+            });
+            jigsaw.init(document.getElementById('captcha'), function () {
+                alert("tyywert")
+                $("#msg").innerHTML='nihao!';
+            });
+   })
+        $(function () {
+            if($("#msg").innerHTML="nihao!"){
+                $(".btn-box1").click(function (e) {
+                    e.preventDefault();
+                    $.post("/Check",{"userName":$("input[name='username']").val(),"password":$("input[name='password']").val()},function (ret) {
+                        if(ret=="1"){
+                            layer.msg("登录成功!",{time:10000},function () {
+
+                            });
+                        }else {
+                            alert("登录失败");
+                        }
+                    },'json');
+                });
+            }else {
+                alert("asdfgasdf");
+            }
+            $(".btn-box2").click(function () {
+                location.href("/register.html")
+            });
+
+        })
+    </script>
+</head>
+<body>
+<div class="total">
+    <div id="header_nav">
+        <div id="header_nav_web">
+            <ul>
+                <li id="nav_web_main">
+                    <a href="header_footer.html" title="主站" class="t">
+                        <i class="bili-icon"></i>
+                        主站</a>
+                </li>
+                <li id="nav_web_draw"><a href="//h.bilibili.com" title="画友" class="t">画友</a></li>
+                <li id="nav_web_music"><a href="" title="音频" class="t">音频</a></li>
+                <li id="nav_web_game"><a href="" title="游戏中心" class="t">游戏中心</a></li>
+                <li id="nav_web_live"><a href="" title="直播" class="t">直播</a></li>
+                <li id="nav_web_buy"><a href="" title="会员购" class="t">会员购</a></li>
+                <li id="nav_web_BML"><a href="" title="BML" class="t">BML</a></li>
+                <li id="nav_web_moe"><a href="" title="萌战" class="t">萌战</a></li>
+                <li id="nav_web_download">
+                    <a href="header_footer.html" title="下载APP" class="t">
+                        <i id="download_icon"></i>
+                        <p id="download_text">下载APP</p>
+                    </a></li>
+            </ul>
+        </div>
+        <div id="header_nav_contribution">
+            <a href="" target="_blank" class="u-link">投 稿</a>
+        </div>
+        <div id="header_nav_history">
+            <a href="" target="_blank" title="历史记录">历史</a>
+        </div>
+        <div id="header_nav_personal">
+            <a href="login.html" class="t">
+                <div id="nav_personal_image">
+                    <img src="image/origin_image.jpg" class="face">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="center">
+        <div class="top">
+            <div class="top1"></div>
+            <div class="top2">
+                <img src="image/login1.png">
+            </div>
+            <div class="top3"></div>
+        </div>
+        <div class="middle">
+            <div class="middle1"></div>
+            <div class="middle2">
+                <div class="middle2_x">
+                    <div class="line">
+                        <span class="title">登录</span>
+                    </div>
+                </div>
+                <div class="middle2_y">
+                    <div class="middle2_left">
+                        <div class="middle2_left1">
+                            <div class="middle2_left11">
+                                <img class="" src="image/Loginhead.JPG" />
+                            </div>
+                        </div>
+                        <div class="middle2_left2">
+                            <p class="middle2_left21">手机扫描二维码登录</p>
+                            <p class="middle2_left22">
+                                请使用<a href="https://app.bilibili.com/" target="_blank">哔哩哔哩客户端</a><br/>
+                                扫码登录<br/> 或扫码下载app
+                            </p>
+                        </div>
+                    </div>
+                    <div class="middle2_middle"></div>
+                    <div class="middle2_right">
+                        <div class="middle2_right1"></div>
+                        <div class="middle2_right2">
+                            <form class=""id="myForm" action="" target="_blank" method="post">
+                                <input name="username" type="text" value="" placeholder="用户名"  maxlength="50" class="username">
+                                <input name="password" type="text" value="" placeholder="密码以字母开头,不少于8位" maxlength="50" class="password">
+                                <div id="captcha" style="position: relative"></div>
+                                <div id="msg"style="height: 10px"></div>
+                                <!--<button type="" class="btn-box1" type="submit">登录</button>-->
+                                <!--<button type="" class="btn-box2" >注册</button>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="footer">
+    <ul id="footer_tips">
+        <li id="footer_tips_left">
+            <div class="footer_tips_tip">bilibili</div>
+            <div class="footer_tips_cards"><a href="">关于我们</a></div>
+            <div class="footer_tips_cards"><a href="">联系我们</a></div>
+            <div class="footer_tips_cards"><a href="">加入我们</a></div>
+            <div class="footer_tips_cards"><a href="">友情链接</a></div>
+            <div class="footer_tips_cards"><a href="">bilibili认证</a></div>
+            <div class="footer_tips_cards"><a href="">Investor Relations</a></div>
+        </li>
+        <li id="footer_tips_middle">
+            <div class="footer_tips_tip">传送门</div>
+            <div class="footer_tips_cards"><a href="">帮助中心</a></div>
+            <div class="footer_tips_cards"><a href="">高级弹幕</a></div>
+            <div class="footer_tips_cards"><a href="">活动专题页</a></div>
+            <div class="footer_tips_cards"><a href="">侵权申诉</a></div>
+            <div class="footer_tips_cards"><a href="">活动中心</a></div>
+            <div class="footer_tips_cards"><a href="">用户反馈论坛</a></div>
+            <div class="footer_tips_cards"><a href="">壁纸站</a></div>
+            <div class="footer_tips_cards"><a href="">名人堂</a></div>
+        </li>
+        <li id="footer_tips_right">
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_phone"></div>
+                    <span>客户端下载</span>
+                </div>
+            </a>
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weibo"></div>
+                    <span>新浪微博</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weixin"></div>
+                    <span>官方微信</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div id="footer_partner">
+        <div class="block1  left"  style="margin: 0px 68px 0 115px;line-height:24px;float: none;"><p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span>
+            | 网络文化经营许可证：<span>沪网文[2016]2296-134号</span> | 信息网络传播视听节目许可证：<span>0910417</span> | 互联网ICP备案：<a
+                    href="" target="_blank">沪ICP备13002172号-3</a>
+            沪ICP证：<span>沪B2-20100043</span> | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3
+            | <a href="" target="_blank">营业执照</a></p>
+            <p><a href="" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a>
+                |<a href="" target="_blank">12318 全国文化市场举报网站</a> |<a target="_blank" href=""><img
+                        src="image/footer_beiantubiao.png" style="vertical-align: top;"> 沪公网安备
+                    31011002002436号 |</a><a href="">儿童色情信息举报专区</a></p>
+            <p><a href="" target="_blank">网上有害信息举报专区：<img
+                    src="image/footer_12377.png" width="16" height="16" style="vertical-align: sub;">
+                中国互联网违法和不良信息举报中心</a></p>
+            <p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

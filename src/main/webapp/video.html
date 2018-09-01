@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+   <title>视频投稿</title>
+    <link rel="stylesheet"type="text/css"href="css/contribute.css">
+    <link rel="stylesheet"type="text/css"href="css/base.css">
+    <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    <script src="js/jquery.iframe-transport.js"></script>
+    <script src="js/jquery.fileupload.js"></script>
+    <script src="js/jquery.fileupload-process.js"></script>
+    <script src="js/jquery.fileupload-validate.js"></script>
+    <script src="js/jquery.validate.js" type="application/javascript"></script>
+    <script src="js/jquery.validate.messages_cn.js" type="application/javascript"></script>
+    <script>
+        //二级菜单
+        $(function (){
+            $.ajax({
+                url: "/ShowFirstMenuServlet",
+                type: "post",
+                dataType: "json",
+                success: function (list) {
+                    alert(4);
+                    //  $("#firstMenu").append(list[0].typeName);
+                    for (var i = 0; i < list.length; i++) {
+                        $("#firstMenu").append('<option value="' + list[i].typeId + '">' + list[i].typeName + '</option>');//value的值绑定到一级菜单上，共同拿到
+                    }
+                }
+            })
+            $("body").on("change","#firstMenu",function () {
+                $("#secondMenu").empty();
+                var $num = $(this).children('option:selected').val();//拿到所选typeID的子节点
+                alert($num);
+                $.ajax({
+                    url:"/ShowSecondMenuServlet",
+                    type:"post",
+                    data:{"typeId":$num},
+                    dataType:"json",
+                    success:function (list){
+                        for(var i=0;i<list.length;i++){
+
+                            $("#secondMenu").append('<option>'+list[i].typeName+'</option>')
+                        }
+                        // $("#firstMenu").append(list.typeId);
+                    }
+                });
+            });
+
+
+            //文件视频上传
+
+
+
+
+
+
+        });
+
+    </script>
+<body>
+<div id=video>
+    <a href="#" class="video_img"target="_self"></a>
+    <div id="background">
+        <div id="background_up">
+            <div class="video_send">
+                <span><i class="icon"></i>上传视频
+                    <input type="file" class="check_pic_img">
+                </span>
+                <div class="video_person"></div>
+            </div>
+
+            <div class="show">
+            </div>
+            <div class="data">
+
+                </p>
+                <div class="data_send">
+                    <p>拖拽视频到此处也可以上传</p><br/>
+                    <i>当前审核队列</i><span>爆满</span>
+                </div>
+            </div>
+            <p id="image">请选择：
+                <select id="firstMenu">
+
+                </select>
+                <select id="secondMenu">
+
+                </select>
+            </p>
+
+            <div class="old">
+                <a href="#" class="send_old">
+                    回到旧版
+                </a>
+            </div>
+
+            <div class="help">
+                <div class="help_up">
+                    <ul>
+                        <li><a>禁止发布的视频内容</a></li>
+                        <li><a>视频大小</a></li>
+                        <li><a>视频格式</a></li>
+                        <li><a>视频码率</a></li>
+                    </ul>
+                </div>
+                <div class="help_down">
+                        <i>上传视频，即表明您已同意</i><a href="#">哔哩哔哩使用协议</a>
+                        <span>请勿上传色情，反动违规视频。</span>
+                </div>
+                <div class="help_bot">
+                    <ul>
+                        <li><span>第三方工具</span></li>
+                        <li><a><i></i>小丸压制工具原版</a></li>
+                        <li><a><i></i>小丸压制工具Bilibili定制版</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

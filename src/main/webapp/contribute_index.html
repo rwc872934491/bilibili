@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>contribute_index</title>
+    <link rel="stylesheet" type="text/css" href="css/contribute.css">
+    <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script>
+        $(function () {
+            setTimeout("change_img()", 100);
+        })
+        var i = -1;
+        var middle_img = new Array("image/contribute_index_top_carousel_1.jpg","image/contribute_index_top_carousel_2.jpg","image/contribute_index_top_carousel_3.jpg","image/contribute_index_top_carousel_4.jpg","image/contribute_index_top_carousel_5.jpg" );
+
+        function change_img() {
+            i++;
+            $("#contribute_index_top_carousel_image").attr("src", middle_img[i]);
+            if (i == 4) {
+                i = -1;
+            }
+            setTimeout("change_img()", 3000);
+        }
+    </script>
+</head>
+<body>
+<div id="contribute_index">
+    <div id="contribute_index_top">
+        <div id="contribute_index_top_carousel">
+            <img src="image/contribute_index_top_carousel_1.jpg" id="contribute_index_top_carousel_image">
+        </div>
+        <div id="contribute_index_top_message">
+            <div id="contribute_index_top_message_title">
+                <p>通告</p>
+            </div>
+            <div id="contribute_index_top_message_lists">
+                <ul>
+                    <li class="contribute_index_top_message_list">
+                        <a href="">
+                            <div class="contribute_index_top_message_list_time">
+                                <p class="contribute_index_message_date">06.29</p>
+                                <p class="contribute_index_message_year">2018</p>
+                            </div>
+                            <div class="contribute_index_top_message_list_notice">
+                                各位亲爱的UP主，创作中心UP主学园板块（Beta版)正式上线，内容涵盖了野生教程和官方公开课，UP主们可以通过首页下方的“UP主学园”前来体验哦~
+                            </div>
+                        </a>
+                    </li>
+                    <li class="contribute_index_top_message_list">
+                        <a href="">
+                            <div class="contribute_index_top_message_list_time">
+                                <p class="contribute_index_message_date">06.15</p>
+                                <p class="contribute_index_message_year">2018</p>
+                            </div>
+                            <div class="contribute_index_top_message_list_notice">
+                                创作中心站内产品官方帐号为 @哔哩哔哩创作中心，除了新功能的发布与产品使用说明外，创作君也会积极聆听各位UP主的功能建议与反馈，快快点击关注吧！
+                            </div>
+                        </a>
+                    </li>
+                    <li class="contribute_index_top_message_list">
+                        <a href="">
+                            <div class="contribute_index_top_message_list_time">
+                                <p class="contribute_index_message_date">06.15</p>
+                                <p class="contribute_index_message_year">2018</p>
+                            </div>
+                            <div class="contribute_index_top_message_list_notice">
+                                各位亲爱的UP主，开启视频专属水印可以更好的为你的原创作品保驾护航，开启功能请前往 创作中心> 水印设置，样式和位置均可选择~
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="contribute_index_bottom">
+        <div id="contribute_index_bottom_title">
+            <p>视频数据</p>
+        </div>
+        <div id="contribute_index_bottom_data">
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">播放总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">评论总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">收藏总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">弹幕总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">点赞总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+            <div class="contribute_index_bottom_data">
+                <div class="contribute_index_bottom_data_item">分享总量</div>
+                <div class="contribute_index_bottom_data_num">
+                    <span>0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

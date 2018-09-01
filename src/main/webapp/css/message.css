@@ -1,0 +1,218 @@
+body{
+    width: 1364px;
+    height: 500px;
+    padding: 0;
+    margin: 0;
+    background: url("../image/icon4.jpg") no-repeat center;
+}
+.head{
+    width: 1364px;
+    height: 42px;
+    float: left;
+}
+.middle{
+    width: 1364px;
+    height: 600px;
+    float: left;
+}
+.left{
+    width: 192px;
+    height: 408px;
+    float: left;
+}
+.center{
+    width: 980px;
+    height:600px;
+    float: left;
+    background-color: white;
+    opacity: 0.5;
+}
+.center1{
+    width: 980px;
+    height:408px ;
+    float: left;
+    background-color: white;
+}
+
+.center11 {
+    width: 140px;
+    height: 273px;
+    float: left;
+}
+.message1{
+    width: 140px;
+    height: 62px;
+    float: left;
+    background-color: white;
+    text-align: center;
+    margin-top: 20px;
+}
+.message2{
+    top: -20px;
+    width: 140px;
+    height: 240px;
+    float: left;
+    background-color: white;
+    opacity: initial;
+}
+ul li{
+    font-size: 16px;
+    color: black;
+    line-height: 40px;
+    text-decoration: none;
+    position: relative;
+}
+li a{
+    text-decoration:none;
+    clear: both;
+    color: #000;
+}
+a:hover{
+    color: red;
+}
+.center12{
+    width: 840px;
+    height: 408px;
+    float: left;
+}
+.center3{
+    width: 192px;
+    height: 408px;
+    float: right;
+}
+.right{
+    width: 192px;
+    height: 408px;
+    float: right;
+}
+.body {
+    width: 840px;
+    height: 408px;
+    position: relative;
+    left: 332px;
+    top: 42px;
+    display: none;
+}
+#body1{
+    width:800px ;
+    height: 42px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: white;
+}
+.li1{
+    position: absolute;
+    list-style: none;
+    top: 10px;
+    left: 30px;
+}
+#body2{
+    width:800px;
+    height: 332px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url("../image/icon1.JPG") no-repeat center;
+    background-color: #fff;
+}
+.menu{
+    width: 840px;
+    height: 408px;
+    position: relative;
+    left: 332px;
+    top: 42px;
+    display: none;
+}
+.menu1{
+    width:800px ;
+    height: 42px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: white;
+}
+.menu2{
+    width:800px;
+    height: 332px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+}
+.menu2x{
+    width: 240px;
+    height: 332px;
+    border: 1px lightgrey none;
+    border-right-style:solid;
+}
+.menu2x_1{
+    width: 239px;
+    height: 36px;
+}
+.menu2x_2{
+    width: 239px;
+    height: 296px;
+}
+#li2{
+    position: absolute;
+    list-style: none;
+    color: #000;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.menu2y{
+    width: 550px;
+    height: 332px;
+    position: relative;
+    left:240px;
+    top: -332px;
+    background: url("../image/icon2.JPG") no-repeat center;
+}
+.cart {
+    width: 840px;
+    height: 408px;
+    position: relative;
+    left: 332px;
+    top: 42px;
+    display: none;
+}
+.cart1{
+    width:800px ;
+    height: 42px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: white;
+}
+.cart2{
+    width:800px;
+    height: 332px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url("../image/icon3.JPG") no-repeat center;
+    background-color: #fff;
+}
+.node {
+    width: 840px;
+    height: 408px;
+    position: relative;
+    left: 332px;
+    top: 42px;
+    display: none;
+}
+.node1{
+    width:800px ;
+    height: 42px;
+    margin-left: 20px;
+    margin-top: 10px;
+    background-color: white;
+}
+.node2{
+    width:800px;
+    height: 332px;
+    margin-left: 20px;
+    margin-top: 20px;
+    background: url("../image/icon1.JPG") no-repeat center;
+    background-color: #fff;
+}
+hr{
+    position: relative;
+    bottom: 550px;
+}
