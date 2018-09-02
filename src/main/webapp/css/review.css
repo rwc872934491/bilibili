@@ -14,6 +14,7 @@ body{
     width: 980px;
     height: 400px;
     background-color: #a6cbe7;
+    float: left;
 
 }
 /*推广………………………………………………………………………………………………*/
@@ -59,6 +60,7 @@ body{
 }*/
 /*评论————————————————————————————————————*/
 #div_common{
+    float: left;
     width: 638px;
     height: 1100px;
     /*background-color: #a6cbe7;*/
@@ -272,4 +274,183 @@ body{
     right: 0;
     opacity: 0;
 }
-
+#video_header{
+    width: 980px;
+}
+#video_message{
+    padding: 5px 0 8px;
+    float: left;
+    width: 640px;
+    position: relative;
+    overflow: hidden;
+}
+#video_message_title{
+    margin-right: 80px;
+    color: #525659;
+    overflow: hidden;
+    height: 24px;
+    line-height: 24px;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-weight: 400;
+    white-space: nowrap;
+    padding: 8px 0;
+    font-size: 18px;
+}
+#video_message_middle{
+    position: relative;
+    width: 100%;
+    height: 16px;
+    line-height: 16px;
+    color: #666;
+    font-size: 12px;
+    margin-top: 6px;
+}
+.video_message_type{
+    line-height: 16px;
+}
+.video_message_type a{
+    color: #99a2aa;
+    font-size: 100%;
+    transition: color .2s;
+}
+.video_message_type a:hover{
+    color: #00a1d6;
+}
+#video_message_middle time{
+    color: #99a2aa;
+    margin-left: 32px;
+}
+.video_message_data span{
+    display: inline-block;
+}
+.video_data_1{
+    margin-right: 30px;
+}
+.video_data_1:before{
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 28px;
+    height: 28px;
+    margin-top: -3px;
+    margin-right: 3px;
+    background: url("../image/icons.png");
+}
+.video_data_play:before{
+    background-position: -659px -210px;
+}
+.video_data_dm:before{
+    background-position: -659px -275px;
+}
+.video_data_line{
+    border-left: 1px solid #eee;
+    height: 20px;
+    vertical-align: middle;
+}
+.video_data_2{
+    margin-right: 5px;
+}
+.video_data_coin{
+    margin-right: 5px;
+}
+.video_data_2 i{
+    display: inline-block;
+    vertical-align: middle;
+    width: 45px;
+    height: 60px;
+    margin-top: -3px;
+    margin-right: 3px;
+}
+.video_data_coin_move{
+    background: url("../image/video_coin_move.png");
+}
+.video_data_collect_move{
+    background: url("../image/video_collect_move.png");
+}
+#video_up{
+    width: 315px;
+    margin: 15px 0;
+    float: right;
+    background: #fff;
+    position: relative;
+}
+#video_up_image{
+    width: 68px;
+    height: 68px;
+    position: relative;
+    float: left;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+#video_up_message{
+    width: 226px;
+    margin-left: 89px;
+}
+#video_up_name{
+    width: 226px;
+    height: 22px;
+}
+#video_up_name span{
+    width: 226px;
+    display: inline-block;
+    float: left;
+    max-width: 150px;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow: hidden;
+    word-break: break-all;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    height: 20px;
+    color: #00a1d6;
+    white-space: nowrap;
+}
+#video_up_mark{
+    word-break: break-all;
+    line-height: 20px;
+    min-height: 40px;
+    -webkit-transition: all .6s;
+    -o-transition: all .6s;
+    transition: all .6s;
+    position: relative;
+    overflow: hidden;
+}
+#video_up_contribution{
+    color: #99a2aa;
+    margin: 3px 0;
+    height: 23px;
+    width: 226px;
+}
+#video_up_contribution span{
+    float: left;
+    width: 100px;
+    line-height: 23px;
+}
+#video_up_focus{
+    margin-top: 10px;
+}
+.video_up_focus_button{
+    padding: 4px 53px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    background: #00a1d6;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: all .3s;
+    user-select: none;
+    border: 1px solid #00a1d6;
+    text-align: center;
+    cursor: pointer;
+}
+.video_button_gz{
+    color: white;
+    line-height: 20px;
+    display: block;
+}
+.video_up_focus_button:hover{
+    background:#00c1d6;
+}
