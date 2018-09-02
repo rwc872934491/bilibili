@@ -189,7 +189,7 @@ public abstract class BaseDao<T> {
         return count;
     }
 
-    protected  int getMaxFloor(String sql){
+    protected int getMaxFloor(String sql) {
         Connection conn = null;
         PreparedStatement stat = null;
         ResultSet rs = null;

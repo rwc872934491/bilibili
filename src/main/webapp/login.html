@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <title>登录</title>
     <link rel="stylesheet" href="css/jigsaw.css">
-    <link rel="stylesheet" href="css/jquery.slider.css"/>
+    <link rel="stylesheet" href="css/jquery.slider.css">
     <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
     <script type="application/javascript" src="js/jquery-3.3.1.js"></script>
-    <script type="application/javascript" src="js/jquery.validate.js" ></script>
+    <script type="application/javascript" src="js/jquery.validate.js"></script>
     <script type="application/javascript" src="layer/layer.js"></script>
     <script type="application/javascript" src="js/drag.js"></script>
     <script type="text/javascript" src="js/jquery.slider.min.js"></script>
     <script src="js/jigsaw.js"></script>
     <script>
         $(function () {
-            var flag=false;
+            var flag = false;
             // $("#myForm").validate({
             //     rules:{
             //         username:{
@@ -43,10 +43,10 @@
             //     },
             // });
             jigsaw.init(document.getElementById('captcha'), function () {
-                flag=true;
+                flag = true;
                 $(".btn-box1").click(function (e) {
                     e.preventDefault();
-                    if(flag=true) {
+                    if (flag = true) {
                         $.post("/Check", {
                             "userName": $("input[name='username']").val(),
                             "password": $("input[name='password']").val()
@@ -59,13 +59,13 @@
                                 alert("登录失败");
                             }
                         }, 'json');
-                    }else{
+                    } else {
                         e.preventDefault();
                         location.reload();
                     }
                 });
             });
-   });
+        });
         $(function () {
             $(".btn-box2").click(function () {
                 location.href("/register.html")
@@ -131,7 +131,7 @@
                     <div class="middle2_left">
                         <div class="middle2_left1">
                             <div class="middle2_left11">
-                                <img class="" src="image/Loginhead.JPG" />
+                                <img class="" src="image/Loginhead.JPG"/>
                             </div>
                         </div>
                         <div class="middle2_left2">
@@ -146,13 +146,15 @@
                     <div class="middle2_right">
                         <div class="middle2_right1"></div>
                         <div class="middle2_right2">
-                            <form class=""id="myForm" action="" target="_blank" method="post">
-                                <input name="username" type="text" value="" placeholder="用户名"  maxlength="50" class="username">
-                                <input name="password" type="password" value="" placeholder="密码以字母开头,不少于8位" maxlength="50" class="password">
-                                <div id="captcha" style="position: relative;target: none" ></div>
-                                <div id="msg"style="height: 10px"></div>
+                            <form class="" id="myForm" action="" target="_blank" method="post">
+                                <input name="username" type="text" value="" placeholder="用户名" maxlength="50"
+                                       class="username">
+                                <input name="password" type="password" value="" placeholder="密码以字母开头,不少于8位"
+                                       maxlength="50" class="password">
+                                <div id="captcha" style="position: relative;target: none"></div>
+                                <div id="msg" style="height: 10px"></div>
                                 <button type="" class="btn-box1" type="submit">登录</button>
-                                <button type="" class="btn-box2" >注册</button>
+                                <button type="" class="btn-box2">注册</button>
                             </form>
                         </div>
                     </div>
@@ -205,21 +207,21 @@
         </li>
     </ul>
     <div id="footer_partner">
-        <div class="block1  left"  style="margin: 0px 68px 0 115px;line-height:24px;float: none;"><p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span>
+        <div class="block1  left" style="margin: 0px 68px 0 115px;line-height:24px;float: none;"><p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span>
             | 网络文化经营许可证：<span>沪网文[2016]2296-134号</span> | 信息网络传播视听节目许可证：<span>0910417</span> | 互联网ICP备案：<a
                     href="" target="_blank">沪ICP备13002172号-3</a>
             沪ICP证：<span>沪B2-20100043</span> | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3
-| <a href="" target="_blank">营业执照</a></p>
-<p><a href="" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a>
-    |<a href="" target="_blank">12318 全国文化市场举报网站</a> |<a target="_blank" href=""><img
-            src="image/footer_beiantubiao.png" style="vertical-align: top;"> 沪公网安备
-        31011002002436号 |</a><a href="">儿童色情信息举报专区</a></p>
-<p><a href="" target="_blank">网上有害信息举报专区：<img
-        src="image/footer_12377.png" width="16" height="16" style="vertical-align: sub;">
-    中国互联网违法和不良信息举报中心</a></p>
-<p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
-</div>
-</div>
+            | <a href="" target="_blank">营业执照</a></p>
+            <p><a href="" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a>
+                |<a href="" target="_blank">12318 全国文化市场举报网站</a> |<a target="_blank" href=""><img
+                        src="image/footer_beiantubiao.png" style="vertical-align: top;"> 沪公网安备
+                    31011002002436号 |</a><a href="">儿童色情信息举报专区</a></p>
+            <p><a href="" target="_blank">网上有害信息举报专区：<img
+                    src="image/footer_12377.png" width="16" height="16" style="vertical-align: sub;">
+                中国互联网违法和不良信息举报中心</a></p>
+            <p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
+        </div>
+    </div>
 </div>
 </div>
 </body>
