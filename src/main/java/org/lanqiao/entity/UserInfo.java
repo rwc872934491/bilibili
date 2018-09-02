@@ -6,11 +6,14 @@ public class UserInfo {
     public UserInfo() {
 
     }
-
-    public UserInfo(String userName, String password, String nickname) {
+    public UserInfo(String userName,String nickname,String password) {
         this.userName = userName;
         this.password = password;
         this.nickname = nickname;
+    }
+    public UserInfo(String userName,String password) {
+        this.userName = userName;
+        this.password = password;
     }
 
     private int userId;
