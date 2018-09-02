@@ -1,10 +1,12 @@
 
 
 var num = 1;
+var nums =1;
 var preList;
 var reCount;
 var PageSize = 3;
 var rid;
+var pageClick;
 function load(){
     $.ajax({
         url: "/ShowReview",
@@ -12,12 +14,12 @@ function load(){
         data:{"num":num},
         dataType: "json",
         success: function (list) {
-            // if(list.length == 0){
-            //     // list = preList;
-            //     --num;
-            // }else{
-            //     preList = list;
-            // }
+            if(list.length == 0){
+                // list = preList;
+                --num;
+            }else{
+                preList = list;
+            }
             for (var i = 0; i < list.length; i++) {
                 // if (i<list.length){
                     var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
@@ -42,7 +44,7 @@ function back(x){
     $.ajax({
         url: "/ShowBack",
         type: "post",
-        data:{"num":num,"reviewid":rid},
+        data:{"reviewid":rid},
         dataType: "json",
         success:function (list) {
             for (var i = 0; i < list.length ; i++){
@@ -163,17 +165,80 @@ $(function () {
     //分页功能
     load();
 
-    $("#li_xyy").click(function () {
-        num = num > 1?--num:num;//三位运算符
-        $("#div_common_view").children().remove();
-        load();
+    // $("#li_xyy").click(function () {
+    //     num = num > 1?--num:num;//三位运算符
+    //     $("#div_common_view").children().remove();
+    //     load();
+    // });
+    // $("#li_syy").click(function () {
+    //     var maxPage = Math.ceil(reCount / PageSize);//总数/页数  向上取整 == 最大页数
+    //     num =num<maxPage?++num:maxPage;
+    //     $("#div_common_view").children().remove();
+    //     load();
+    // });
+
+    //实现单击变化页数事件
+    $(".span_line:odd").click(function () {
+        pageClick = $(this).html();
+        num = pageClick;
+        //将页数传到session对象中
+        $.ajax({
+            url:"/ShowPage",
+            data:{"page":pageClick},
+            type:"post",
+            dataType:"json",
+            success:function () {
+                // alert(1);
+            }
+        });
+        // alert(num);
+        //分页显示评论
+        $.ajax({
+            url: "/ShowReview",
+            type: "post",
+            data:{"num":num},
+            dataType: "json",
+            success: function (list) {
+                $(".div_view").remove();
+                $(".div_hf").remove();
+                for (var i = 0; i < list.length; i++) {
+                    // if (i<list.length){
+                    var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
+                        '<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a></div><div class="sdiv_sa_view"><div>' +
+                        '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
+                        '<span><a href="" class="sa_view_dz"><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                        ' <span><a href="" class="sa_view_dz"><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                        '<span class="span_view_hf">回复</span>\n' +
+                        '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
+                        '</div></div>');
+                    $('#review_pl'+(i+1)).append($node);
+                    $('#review_pl'+(i+1)).children('input').attr("value",''+list[i].reviewId);
+                    $('#review_hf'+(i+1)).children('input').attr("value",''+list[i].reviewId);
+                    // $('#review_hf'+(i+1) +'> div').remove();
+                    //分页显示回复
+                    $.ajax({
+                        url: "/ShowBack",
+                        type: "post",
+                        data:{"reviewid":rid},
+                        dataType: "json",
+                        success:function (list) {
+                            for (var j = 0; j < list.length ; j++){
+                                var $back =$('<div class="div_hf"><div><a href="" class="sa_img_min"><img src="image/common03.jpg" alt="" style="width:100%;min-height:100%;"></a>\n' +
+                                    '<a href="" style="position: relative;left: 50px;text-decoration: none">提酒做长歌</a>\n' +
+                                    ' <span style="position: relative;left: 55px">'+list[j].reviewContent+'</span></div><span class="span_view_times">'+list[j].reviewTime+'</span>\n' +
+                                    ' <span><a href="" class="sa_view_dz"><div class="span_div_up"></div><span>'+list[j].reviewPraise+'</span></a></span>\n' +
+                                    ' <span class="span_view_hf">回复</span><div></div><div></div></div>');
+                                $('#review_hf'+(j+1)).append($back);
+                            }
+                        }
+                    });
+                    rid = $('#review_pl'+(i+1)).children('input').val();
+
+                }
+            }
+        })
     });
-    $("#li_syy").click(function () {
-        var maxPage = Math.ceil(reCount / PageSize);//总数/页数  向上取整 == 最大页数
-        num =num<maxPage?++num:maxPage;
-        $("#div_common_view").children().remove();
-        load();
-    });
+
 
 //    按钮按下变色效果
 //    评论按钮
