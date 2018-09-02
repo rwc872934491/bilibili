@@ -8,7 +8,7 @@
         <property name="user">root</property>
         <property name="password">bi115489</property>
         <!--配置数据库连接池的最小连接数，最大连接数，初始连接数-->
-        <property name="maxPoolSize">15</property>
+        <property name="maxPoolSize">20</property>
         <property name="minPoolSize">5</property>
         <property name="initialSize">5</property>
         <!--<property name="maxIdleTime">10</property>-->

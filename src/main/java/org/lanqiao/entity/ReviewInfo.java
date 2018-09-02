@@ -15,15 +15,22 @@ public class ReviewInfo {
         this.reviewFloor = reviewFloor;
     }
 
+    public ReviewInfo(int userId, int videoId, String reviewContent, int reviewTop) {
+        this.userId = userId;
+        this.videoId = videoId;
+        this.reviewContent = reviewContent;
+        this.reviewTop = reviewTop;
+    }
+
     private int reviewId;
     private int userId;
     private int videoId;
     private String reviewContent;
     private int reviewTop;
     private int reviewFloor;
-    private int reviewPraise;
-    private int reviewUnpraise;
-    private Date reviewTime;
+    private int reviewPraise;        //可为空
+    private int reviewUnpraise;      //可为空
+    private Date reviewTime;          //可为空
 
     public int getReviewId() {
         return reviewId;
