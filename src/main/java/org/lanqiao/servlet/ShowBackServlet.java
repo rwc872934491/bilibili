@@ -20,9 +20,10 @@ import java.util.List;
 public class ShowBackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNum = 1;
+//        int num = Integer.parseInt(request.getParameter("nums"));
         int userid = Integer.parseInt(request.getParameter("reviewid"));
 
-        List<ReviewInfo> list = new ReviewInfoDaoImpl().ShowBackReview(userid,pageNum,3);
+        List<ReviewInfo> list = new ReviewInfoDaoImpl().ShowBackReview(userid,pageNum,4);
 
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
