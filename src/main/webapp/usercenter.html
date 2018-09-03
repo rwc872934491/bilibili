@@ -9,12 +9,18 @@
     <link rel="stylesheet" href="css/content_header_footer.css" type="text/css">
     <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
     <script src="js/bootstrap.js" type="application/javascript"></script>
+    <script src="js/jquery.ui.widget.js"></script>
+    <script src="js/jquery.iframe-transport.js"></script>
+    <script src="js/jquery.fileupload.js"></script>
+    <script src="js/jquery.fileupload-process.js"></script>
+    <script src="js/jquery.fileupload-validate.js"></script>
     <script>
         $(function () {
             show_UserInfo();
             header_code_show();
             content_update_UserInfo();
             content_mark_background();
+            change_index_show();
         })
 
         function show_UserInfo() {
@@ -24,10 +30,12 @@
                 type: "post",
                 dataType: "json",
                 success: function (jsonArray) {
-                    $("input[name='nickname']").val(jsonArray[0].nickname)
+                    $("input[name='nickname']").val(jsonArray[0].nickname);
                     $("#user_span_font").html(jsonArray[0].nickname);
-                    $("textarea[name='userMark']").val(jsonArray[0].userMark)
-                    $("input[name='userMark_top']").val(jsonArray[0].userMark)
+                    $("textarea[name='userMark']").val(jsonArray[0].userMark);
+                    $("input[name='userMark_top']").val(jsonArray[0].userMark);
+                    $('#user_image_showimg').attr("src", jsonArray[0].userImage);
+                    $("#span_id").html("用户ID："+jsonArray[0].userId);
                     var sexvalue = jsonArray[0].userSex;
                     var sex_list = document.getElementsByName("userSex");
                     for (var i = 0; i < sex_list.length; i++) {
@@ -81,6 +89,45 @@
             $("#input_qm").focusout(function () {
                 $("#input_qm").css("background", "transparent");
             });
+        }
+
+        $(function () {
+            $("#user_image_showimg").click(function () {
+                $("#fileupload").trigger("click");
+            });
+            $("#fileupload").change(function (e) {
+                var img = e.target.files[0];
+                // 判断是否图片
+                if (!img) {
+                    return;
+                }
+                // 判断图片格式
+                if (!(img.type.indexOf('image') == 0 && img.type && /\.(?:jpg|png|gif)$/.test(img.name))) {
+                    alert('图片只能是jpg,gif,png');
+                    return;
+                }
+                var reader = new FileReader();
+                reader.readAsDataURL(img);
+                reader.onload = function (e) {
+                    // ajax 上传图片
+                    $.post("uploadPic", {img: e.target.result}, function (ret) {
+                        if (ret.img != '') {
+                            //显示图片
+                            $('#user_image_showimg').attr("src", ret.imgUrl);
+                        }
+                    }, 'json');
+                }
+            })
+        });
+        function change_index_show() {
+            $("#my_message").click(function () {
+                $("#div_cencent").show();
+                $("#div_upload_image").hide()
+            })
+            $("#my_image").click(function () {
+                $("#div_cencent").hide();
+                $("#div_upload_image").show();
+            })
         }
     </script>
 
@@ -139,7 +186,7 @@
                 <input id="input_qm" placeholder="编辑你的签名" name="userMark_top">
             </div>
         </div>
-        <div>
+        <div style="overflow: hidden">
             <ul class="breadcrumb">
                 <li><img src="image/header_logo.png" alt="" width="40%" height="20%"></li>
                 <li><a href="#">回到主页</a></li>
@@ -149,13 +196,13 @@
         <div id="div_centre_content">
             <div style="width:140px;text-align:center;margin-top: 50px">
                 <ul class="nav nav-pills nav-stacked" id="div_li_style">
-                    <li><a href="#">我的信息</a></li>
-                    <li><a href="#">我的头像</a></li>
-                    <li><a href="#">我的收藏</a></li>
-                    <li><a href="#">我的历史</a></li>
-                    <li><a href="#">我的投稿</a></li>
+                    <li id="my_message"><a>我的信息</a></li>
+                    <li id="my_image"><a>我的头像</a></li>
+                    <li><a>我的收藏</a></li>
+                    <li><a>我的历史</a></li>
+                    <li><a>我的投稿</a></li>
                 </ul>
-                <div id="div_cencent">
+                <div id="div_cencent" >
                     <span id="span_nc">昵称：<input id="input_cencent_nc" type="text" name="nickname"></span><br><br>
                     <span id="span_id">用户ID：1</span><br>
                     <span>我的签名：<textarea placeholder="设置您的签名-(゜-゜)つロ" cols="15" rows="3" id="area_com" name="userMark"
@@ -173,6 +220,14 @@
                             name="content_userinfo_save">保存
                     </button>
                     <!--添加layer提示-->
+                </div>
+                <!--更新头像-->
+                <div id="div_upload_image" style="padding: 80px 20px 6px;display: none">
+                    <div id="div" ondrop="drop(event)" ondragover="allowDrop(event)" ondragleave="removeDrop(event)"
+                         style="width: 160px;height: 160px;border: 1px solid #e5e9ef;margin-left: 265px">
+                        <img id="user_image_showimg" src="" style="width: 158px;height: 158px">
+                    </div>
+                    <input id="fileupload" class="fileupload" type="file" name="files" multiple="multiple" style="margin-left: 265px;">
                 </div>
             </div>
         </div>

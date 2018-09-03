@@ -12,7 +12,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
     //个人信息页展示信息
     public List<UserInfo> showUserInfo(int userId) {
-        return executeQuery("SELECT nickname,userMark,userSex FROM UserInfo WHERE userId = ?", new Object[]{userId});
+        return executeQuery("SELECT nickname,userMark,userSex,userImage FROM UserInfo WHERE userId = ?", new Object[]{userId});
     }
 
 
@@ -33,7 +33,11 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
     //    获得需要封装入session的信息
     public UserInfo getUserInfo(String userName) {
-        List<UserInfo> userList = executeQuery("SELECT * FROM UserInfo WHERE userName = ?", new Object[]{userName});
+        List<UserInfo> userList = executeQuery("SELECT userId,userName,password,nickname,userSex,userMark,userImage,userIdentity,userLocked FROM UserInfo WHERE userName = ?", new Object[]{userName});
         return userList.get(0);
+    }
+    //更新个人头像
+    public int updateUserImage(String userImage){
+        return executeUpdate("update UserInfo set userImage = ? where userId = '2'", new Object[]{userImage});
     }
 }
