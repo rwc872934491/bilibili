@@ -28,13 +28,15 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
     }
 
     @Override
-    public int AddTrueReview(int praise) {
-        return 0;
+    public int AddTrueReview(int reviewId) {
+        return executeUpdate("Update ReviewInfo SET reviewPraise = reviewPraise + 1 WHERE reviewId = ?",
+                new Object[]{reviewId});
     }
 
     @Override
-    public int AddFlaseReview(int praise) {
-        return 0;
+    public int AddFlaseReview(int reviewId) {
+        return executeUpdate("Update ReviewInfo SET reviewUnpraise = reviewUnpraise + 1 WHERE reviewId = ?",
+                new Object[]{reviewId});
     }
 
     @Override
@@ -45,5 +47,12 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
     @Override
     public int MaxFloor() {
         return getMaxFloor("select Max(reviewFloor) from ReviewInfo");
+    }
+
+    public static void main(String[] args){
+        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
+        int ret = reviewInfoDao.AddTrueReview(1);
+        int re1 = reviewInfoDao.AddFlaseReview(1);
+        System.out.println(ret + re1 + "888888888888");
     }
 }
