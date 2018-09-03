@@ -12,7 +12,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
     //个人信息页展示信息
     public List<UserInfo> showUserInfo(int userId) {
-        return executeQuery("SELECT nickname,userMark,userSex,userImage FROM UserInfo WHERE userId = ?", new Object[]{userId});
+        return executeQuery("SELECT * FROM UserInfo WHERE userId = ?", new Object[]{userId});
     }
 
 

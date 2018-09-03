@@ -12,30 +12,37 @@
             margin: 0;
             padding: 0;
         }
+
         a {
             text-decoration: none;
         }
+
         ul, li {
             list-style: none;
         }
+
         body {
             font-family: "Microsoft yahei";
         }
+
         #content {
             position: relative;
             width: 980px;
             margin: 0 auto;
             height: 100%;
         }
+
         #content .nav {
             width: 980px;
             height: 405px;
         }
+
         #content .slide-wrap {
             position: absolute;
             right: -60px;
             width: 52px;
         }
+
         #slide {
             position: fixed;
             top: 235px;
@@ -44,6 +51,7 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
+
         #slide li {
             position: relative;
             width: 50px;
@@ -54,14 +62,17 @@
             z-index: 2;
             cursor: pointer;
         }
+
         #slide li:hover {
             background: #00A1D6;
             color: #fff;
         }
+
         #slide li.on {
             background: #00A1D6;
             color: #fff;
         }
+
         #slide li.blue {
             display: none;
             position: absolute;
@@ -75,12 +86,15 @@
     <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
     <script>
         $(function () {
+            index_checksession();
             setTimeout("change_img()", 100);
             header_list_show();
             header_code_show();
+            index_checksession();
         })
         var index_carousel_i = -1;
         var index_carousel_image = new Array("image/index_carousel1.jpg", "image/index_carousel2.jpg", "image/index_carousel3.jpg", "image/index_carousel4.jpg", "image/index_carousel5.jpg");
+
         function change_img() {
             index_carousel_i++;
             $("#index_carousel_image").attr("src", index_carousel_image[index_carousel_i]);
@@ -89,6 +103,7 @@
             }
             setTimeout("change_img()", 3000);
         }
+
         function header_list_show() {
             $(".header_list_show").hover(function () {
                 $(this).children().eq(1).show()
@@ -96,12 +111,31 @@
                 $(this).children().eq(1).hide()
             })
         }
+
         function header_code_show() {
             $("#nav_web_download").hover(function () {
                 $("#download_code").show()
             }, function () {
                 $("#download_code").hide()
             })
+        }
+
+        function index_checksession() {
+            $.ajax({
+                url: "/IndexCheckServlet",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (jsonArray) {
+                    if (jsonArray.length>0) {
+                        $(".index_islogin").show();
+                        $("#index_notlogin").hide();
+                        $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                    }else {
+
+                    }
+                }
+            });
         }
     </script>
 </head>
@@ -141,13 +175,42 @@
         </div>
         <div id="header_nav_history">
             <a href="" target="_blank" title="历史记录">历史</a>
-        </div>
-        <div id="header_nav_personal">
-            <a href="login.html" class="t">
-                <div id="nav_personal_image">
-                    <img src="image/origin_image.jpg" class="face">
+            <a href="login.html" class="t" id="index_notlogin">
+                <div id="nav_personal_image2" style="line-height: 42px">
+                    <img src="image/origin_image.jpg" class="face" id="index_user_image_2" style="margin-bottom: 10px">
                 </div>
             </a>
+            <a href="" target="_blank" title="消息" class="index_islogin">消息</a>
+            <a href="" target="_blank" title="大会员" class="index_islogin">大会员</a>
+        </div>
+        <div id="header_nav_personal" class="index_islogin">
+            <a href="usercenter.html" class="t">
+                <div id="nav_personal_image1">
+                    <img src="image/origin_image.jpg" class="face" id="index_user_image_1">
+                </div>
+            </a>
+            <div id="index_user_information">
+                <div id="index_user_information_nickname" style="padding-bottom: 25px;">
+                    <span style="font-weight: bold;">是蛋蛋啊</span>
+                </div>
+                <div id="index_user_information_userMark">
+                    <span>哈哈哈哈哈哈哈哈哈哈</span>
+                </div>
+                <div id="index_user_menu">
+                    <ul>
+                        <li><a href="usercenter.html" target="_blank">
+                            <i class="index_user_info_icon person"></i>
+                            个人信息
+                        </a></li>
+                        <li><a href="">
+                            <i class="index_user_info_icon contribution"></i>
+                            投稿管理</a></li>
+                    </ul>
+                </div>
+                <div id="index_user_exit">
+                    <a href="login.html" id="index_user_exit_button">退出</a>
+                </div>
+            </div>
         </div>
         <div id="header_back_logo">
             <a href="index.html"><img src="image/header_logo.png"></a>
