@@ -10,4 +10,6 @@ public interface UserInfoDao {
     public UserInfo checkUser(UserInfo userInfo);
     public int insertUser(UserInfo userInfo);
     public UserInfo getUserInfo(String userName);
+    public List<UserInfo> CheckUserName(String userName);
+
 }

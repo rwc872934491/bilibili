@@ -14,7 +14,7 @@ import java.net.URLEncoder;
 public class IndustrySMS
 {
 	private static String operation = "/industrySMS/sendSMS";
-
+	public static String code;
 	private static String accountSid = Config.ACCOUNT_SID;
 	private static String smsContent = "【哔哩哔哩】您的验证码为"+Random()+"，请于5分钟内正确输入，如非本人操作，请忽略此短信。";
 
@@ -26,6 +26,8 @@ public class IndustrySMS
 		for (int i = 0 ; i<4 ;i++){
 			str.append((int)(Math.random()*(10)));
 		}
+		code = str.toString();
+		System.out.println(code);
 		return str.toString();
 	}
 	public static void execute(String to)

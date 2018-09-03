@@ -36,4 +36,9 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
         List<UserInfo> userList = executeQuery("SELECT * FROM UserInfo WHERE userName = ?", new Object[]{userName});
         return userList.get(0);
     }
+
+    @Override
+    public List<UserInfo> CheckUserName(String userName) {
+        return executeQuery("select * from UserInfo where userName=?",new Object[]{userName});
+    }
 }

@@ -41,4 +41,7 @@ public class CheckServlet extends HttpServlet {
 //        out.flush();
 //        out.close();
     }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request,response);
+    }
 }
