@@ -121,3 +121,10 @@ body{
     line-height: 20px;
     text-indent: 20px;
 }
+#div_upload_image{
+    overflow: hidden;
+    width: 800px;
+    position: relative;
+    left: 200px;
+    top: -260px;
+}
