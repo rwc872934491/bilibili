@@ -16,6 +16,7 @@ public class UserInfo {
         this.password = password;
     }
 
+
     private int userId;
     private String userName;
     private String password;

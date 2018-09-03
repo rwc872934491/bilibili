@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/updateUserInfoServlet")
-public class updateUserInfoServlet extends HttpServlet {
+@WebServlet("/UpdateUserInfoServlet")
+public class UpdateUserInfoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //1.获得表单数据
         String nickname = request.getParameter("nickname");
@@ -29,7 +29,7 @@ public class updateUserInfoServlet extends HttpServlet {
         userInfo.setUserSex(userSex);
         //3.dao操作
         UserInfoDao dao = new UserInfoDaoImpl();
-        int ret = dao.insertUserInfo(userInfo);
+        int ret = dao.updateUserInfo(userInfo);
         //4.输出结果
         System.out.println(ret);
         PrintWriter out=response.getWriter();
