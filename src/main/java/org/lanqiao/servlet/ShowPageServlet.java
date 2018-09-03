@@ -16,9 +16,13 @@ import java.io.PrintWriter;
 public class ShowPageServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session=request.getSession();
-//        int page = Integer.parseInt(request.getParameter("page"));
-        String page = request.getParameter("page");
+        int page = Integer.parseInt(request.getParameter("page"));
             session.setAttribute("page",page);
+
+//        PrintWriter out = response.getWriter();
+//        out.print(jsonpage.toString());
+//        out.flush();
+//        out.close();
 
     }
 

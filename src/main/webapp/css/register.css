@@ -180,7 +180,6 @@
 }
 
 
-
 body{
     padding: 0;
     margin: 0;
@@ -405,24 +404,20 @@ body{
 .hidden4 label{
     font-size: 12px;
 }
-
 .hidden4 a{
     font-size: 12px;
     text-decoration: none;
     margin-top:5px;
 }
-
 .hidden5{
     float: right;
     margin-right: 285px;
 }
-
 .form-button{
     width: 410px;
     height: 40px;
     margin-left: 280px;
 }
-
 .hidden5 a{
     text-decoration:none;
     color: #f45d90;
@@ -433,6 +428,10 @@ body{
     width: 183.5px;
     height: 611px;
     float: left;
+}
+#button2{
+    width: 85px;
+    height: 36px;
 }
 
 
@@ -540,4 +539,22 @@ body{
 }
 #footer_partner a:hover{
     color: black;
+}
+
+
+
+em.i{
+    color: red;
+    font-size: 12px;
+    font-family: 黑体;
+    font-style: normal;
+}
+em.error{
+    color: red;
+    font-size: 12px;
+    font-family: 黑体;
+    font-style: normal;
+}
+#hhh.text{
+    color: red;
 }

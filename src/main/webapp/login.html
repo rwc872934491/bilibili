@@ -15,62 +15,61 @@
     <script src="js/jigsaw.js"></script>
     <script>
         $(function () {
-            var flag = false;
-            // $("#myForm").validate({
-            //     rules:{
-            //         username:{
-            //             required: true,
-            //             minlength: 11,
-            //             regex: "^1[3|4|5|8][0-9][0-9]{8}$"
-            //         },
-            //         password:{
-            //             required: true,
-            //             minlength: 8,
-            //             maxlength: 19,
-            //             regex: "^[a-zA-Z][a-zA-Z0-9_]+$"
-            //         },
-            //     },
-            //     messages:{　　　　//验证错误信息
-            //         username: {
-            //             minlength: "用户名为11位有效数字",
-            //             regex: "Please enter the correct phone number , the format is (^1[3|4|5|8][0-9][0-9]{8})"
-            //         },
-            //         password: {
-            //             minlength: "密码的最小长度必须大于6bit",
-            //             maxlength: "密码最大长度不超过19bit",
-            //             regex: "密码格式不正确"
-            //         }
-            //     },
-            // });
+            $("#myForm").validate({
+                rules:{
+                    username:{
+                        required: true,
+                        minlength: 11,
+                        maxlength: 11,
+                        regex: "^1[3|4|5|7|8][0-9][0-9]{8}$",
+                    },
+                    password:{
+                        required: true,
+                        minlength: 6,
+                        maxlength: 19,
+                        regex: "^[a-zA-Z][a-zA-Z0-9_]+$"
+                    },
+                },
+                messages:{　　　　//验证错误信息
+                    username: {
+                        required: "请输入用户名",
+                        minlength: "用户名为11位有效数字",
+                        regex: " 用户名为11位有效数字 (\"^1[3|4|5|7|8][0-9][0-9]{8}$\")"
+                    },
+                    password: {
+                        required: "请输入密码:首字母为字母",
+                        minlength: "密码的最小长度必须大于6bit",
+                        maxlength: "密码最大长度不超过19bit",
+                        regex: "密码格式不正确"
+                    }
+                },
+            });
             jigsaw.init(document.getElementById('captcha'), function () {
-                flag = true;
+                document.getElementById('btn-box1').disabled=false;
                 $(".btn-box1").click(function (e) {
                     e.preventDefault();
-                    if (flag = true) {
                         $.post("/Check", {
                             "userName": $("input[name='username']").val(),
                             "password": $("input[name='password']").val()
                         }, function (ret) {
                             if (ret == "1") {
-                                layer.msg("登录成功!", {time: 3000}, function () {
-                                    location.href("/usercenter.html");
+                                layer.msg("登录成功!", {time: 2000}, function () {
+                                    location.href("usercenter.html");
                                 });
                             } else {
+                                e.preventDefault();
                                 alert("登录失败");
                             }
                         }, 'json');
-                    } else {
-                        e.preventDefault();
-                        location.reload();
-                    }
                 });
+            },function () {
+                layer.msg("请进行滑块验证!");
+            });
+
+            $(".btn-box2").click(function () {
+                location.href="register.html";
             });
         });
-        $(function () {
-            $(".btn-box2").click(function () {
-                location.href("/register.html")
-            });
-        })
     </script>
 </head>
 <body>
@@ -153,8 +152,8 @@
                                        maxlength="50" class="password">
                                 <div id="captcha" style="position: relative;target: none"></div>
                                 <div id="msg" style="height: 10px"></div>
-                                <button type="" class="btn-box1" type="submit">登录</button>
-                                <button type="" class="btn-box2">注册</button>
+                                <button type="button" class="btn-box1" id="btn-box1" disabled="disabled">登录</button>
+                                <button type="button" class="btn-box2">注册</button>
                             </form>
                         </div>
                     </div>
