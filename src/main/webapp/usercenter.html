@@ -35,6 +35,7 @@
                     $("textarea[name='userMark']").val(jsonArray[0].userMark);
                     $("input[name='userMark_top']").val(jsonArray[0].userMark);
                     $('#user_image_showimg').attr("src", jsonArray[0].userImage);
+                    $('#user_head_image').attr("src", jsonArray[0].userImage);
                     $("#span_id").html("用户ID："+jsonArray[0].userId);
                     var sexvalue = jsonArray[0].userSex;
                     var sex_list = document.getElementsByName("userSex");
@@ -180,7 +181,7 @@
             </div>
             <div id="head_bottom">
                 <div class="div_userimg">
-                    <a href=""><img src="image/usercontre01.jpg" alt="" style="width: 100%;min-height: 100%"></a>
+                    <a href=""><img id="user_head_image" src="" alt="" style="width: 100%;min-height: 100%"></a>
                 </div>
                 <span id="user_span_font"></span><br>
                 <input id="input_qm" placeholder="编辑你的签名" name="userMark_top">
