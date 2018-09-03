@@ -2,8 +2,8 @@ package org.lanqiao.servlet;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
-import org.lanqiao.dao.ReviewInfoDaoImpl;
-import org.lanqiao.entity.ReviewInfo;
+import org.lanqiao.dao.MsgInfoDaoImpl;
+import org.lanqiao.entity.MsgInfo;
 import org.lanqiao.util.JsonDateValueProcessor;
 
 import javax.servlet.ServletException;
@@ -16,26 +16,22 @@ import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
-@WebServlet("/ShowBack")
-public class ShowBackServlet extends HttpServlet {
+@WebServlet("/MsgReceiver")
+public class MesReceiverServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNum = 1;
-//        int num = Integer.parseInt(request.getParameter("nums"));
-        int userid = Integer.parseInt(request.getParameter("reviewid"));
 
-        List<ReviewInfo> list = new ReviewInfoDaoImpl().ShowBackReview(userid,pageNum,4);
-
-        JsonConfig jsonConfig = new JsonConfig();
-        jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());
-        JSONArray jsonArray = JSONArray.fromObject(list,jsonConfig);
-        System.out.println(jsonArray);
+        MsgInfo msgInfo=new MsgInfo();
+        List<MsgInfo> list=new MsgInfoDaoImpl().queryUserMessage();
+        response.setContentType("application/json;charset=utf-8");
+        JsonConfig jsonConfig=new JsonConfig();
+        jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
         PrintWriter out=response.getWriter();
-        out.print(jsonArray);
+        out.print(JSONArray.fromObject(list,jsonConfig));
         out.flush();
         out.close();
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        doPost(request,response);
     }
 }

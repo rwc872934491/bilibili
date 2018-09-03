@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--dfghsasdfghjhg-->
     <meta charset="UTF-8">
     <title>注册</title>
     <style type="text/css"></style>
     <script type="application/javascript" src="js/jquery-3.3.1.js"></script>
-    <script type="application/javascript" src="js/layer.js"></script>
+    <script type="application/javascript" src="layer/layer.js"></script>
     <script src="js/drag.js" type="application/javascript"></script>
-
+    <link rel="stylesheet" type="text/css" href="css/base.css">
     <link rel="stylesheet" type="text/css" href="css/register.css">
-    <link rel="stylesheet" type="text/css" href="css/base_rwc.css">
     <link href="css/layer.css">
     <script>
-        // 274
-        $(function () {
-            $("#username").blur(function () {
-                $("#userMsg").load("CheckUser?username="+$("#username").val());
-            });
+        // $(function () {
+        //     $("#username").blur(function () {
+        //         $("#userMsg").load("CheckUser?username="+$("#username").val());
+        //     });
             $(function () {
                 console.log($("input[name='username']").val());
                 $("#button2").click(function () {
                     $.ajax(
                         {
-                            url:"/InsertUser",
+                            url:"/MessageServlet",
                             type:"post",
-                            data:{"userName":$("input[name='username']").val()},
+                            data:{
+                                "phone":$("input[name='username']").val()},
                             dataType:"text",
                             success:function () {
                                 layer.msg("验证码已发送！",{time:1000});
@@ -34,80 +34,82 @@
 
                 })
             })
+        $(function () {
             $("#button1").click(function (e) {
                 e.preventDefault();
-                        $.ajax({
-                            url : "/InsertUser",
-                            type : "post",
-                            data: {
-                                "userName":$("input[name='username']").val(),
-                                "nickName":$("input[name='nickname']").val(),
-                                "password":$("input[name='password']").val()},
-                            dataType:"json",
-                            success:function(ret) {
-                                if(ret==1){
-                                    layer.msg("注册成功,请登录!",{time:2000},function () {
-                                    });
-                                }else{
-                                    alert("提交失败！");
-                                }
-                            }
-                        });
-                })
-            $("#form").validate({
-                onsubmit:true,// 是否在提交是验证
-                onfocusout:false,// 是否在获取焦点时验证
-                onkeyup :false,// 是否在敲击键盘时验证
-                rules:{
-                    phone:{
-                        required:true
-                    },
-                    username:{
-                        required:true
-                    },
-                    password:{
-                        required:true
-                    },
-                },
-                messages:{　　　　//验证错误信息
-                    phone: {
-                        required: "请输入账号"
-                    },
-                    username: {
-                        required: "请输入昵称"
-                    },
-                    password:{
-                        required:"请输入密码"
-                    }
-                },
-                submitHandler: function(form) { //通过之后回调进行ajax传值
-                    $.ajax({
-                        url : "/InsertUser",
-                        type : "post",
-                        dataType : "json",
-                        data: {
-                            "userphone":$("input[name='phone']").val(),
-                            "username":$("input[name='username']").val(),
-                             "password":$("input[name='password']").val()},
-                        success: function(ret) {
-                                if(ret==="1"){
-                                    layer.msg("留言成功!",{Time:3000},function () {
-                                        location.reload();
-                                    })
-                                }else{
-                                    alert("提交失败！");
-                                }
+                $.ajax({
+                    url : "/InsertUser",
+                    type : "post",
+                    data: {
+                        "phone":$("input[name='username']").val(),
+                        "nickName":$("input[name='nickname']").val(),
+                        "password":$("input[name='password']").val()},
+                    dataType:"json",
+                    success:function(ret) {
+                        if(ret==1){
+                            layer.msg("注册成功,请登录!",{time:2000},function () {
+                            });
+                        }else{
+                            alert("提交失败！");
                         }
-                    });
-                },
-                invalidHandler: function(form, validator) {return false;}
-            });
+                    }
+                });
+            })
         })
+
+
+     // $("#form").validate({
+            //     onsubmit:true,// 是否在提交是验证
+            //     onfocusout:false,// 是否在获取焦点时验证
+            //     onkeyup :false,// 是否在敲击键盘时验证
+            //     rules:{
+            //         phone:{
+            //             required:true
+            //         },
+            //         username:{
+            //             required:true
+            //         },
+            //         password:{
+            //             required:true
+            //         },
+            //     },
+            //     messages:{　　　　//验证错误信息
+            //         phone: {
+            //             required: "请输入账号"
+            //         },
+            //         username: {
+            //             required: "请输入昵称"
+            //         },
+            //         password:{
+            //             required:"请输入密码"
+            //         }
+            //     },
+            //     submitHandler: function(form) { //通过之后回调进行ajax传值
+            //         $.ajax({
+            //             url : "/InsertUser",
+            //             type : "post",
+            //             dataType : "json",
+            //             data: {
+            //                 "userphone":$("input[name='phone']").val(),
+            //                 "username":$("input[name='username']").val(),
+            //                  "password":$("input[name='password']").val()},
+            //             success: function(ret) {
+            //                     if(ret==="1"){
+            //                         layer.msg("留言成功!",{Time:3000},function () {
+            //                             location.reload();
+            //                         })
+            //                     }else{
+            //                         alert("提交失败！");
+            //                     }
+            //             }
+            //         });
+            //     },
+            //     invalidHandler: function(form, validator) {return false;}
+            // });
+
     </script>
 </head>
 <body>
-<script src="js/jquery-2.1.4.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
 <div class="total">
     <div class="head">
         <div id="header_nav">

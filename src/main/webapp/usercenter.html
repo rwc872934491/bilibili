@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!--&lt;!&ndash;aaa &ndash;&gt;ljagihohuwhguhw-->
-    <!--hahahahaahaha-->
-    <!--hahahahahahahahahah-->
     <meta charset="UTF-8">
     <title>个人中心</title>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
@@ -19,10 +16,10 @@
             content_update_UserInfo();
             content_mark_background();
         })
-        //hahahahhahahahahahahah
+
         function show_UserInfo() {
             $.ajax({
-                url: "/showUserInfoServlet",
+                url: "/ShowUserInfoServlet",
                 data: {},
                 type: "post",
                 dataType: "json",
@@ -43,6 +40,7 @@
                 }
             });
         }
+
         function header_code_show() {
             $("#nav_web_download").hover(function () {
                     $("#download_code").show()
@@ -58,7 +56,7 @@
                 $("#user_span_font").html(new_name);
                 $("#input_qm").val($("textarea[name='userMark']").val());
                 $.ajax({
-                    url: "/updateUserInfoServlet",
+                    url: "/UpdateUserInfoServlet",
                     data: {
                         "nickname": $("input[name='nickname']").val(),
                         "userMark": $("textarea[name='userMark']").val(),

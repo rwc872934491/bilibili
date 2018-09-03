@@ -5,6 +5,9 @@ import org.lanqiao.entity.UserInfo;
 import java.util.List;
 
 public interface UserInfoDao {
-    public int insertUserInfo(UserInfo user);
+    public int updateUserInfo(UserInfo user);
     public List<UserInfo> showUserInfo(int userId);
+    public UserInfo checkUser(UserInfo userInfo);
+    public int insertUser(UserInfo userInfo);
+    public UserInfo getUserInfo(String userName);
 }

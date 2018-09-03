@@ -28,12 +28,12 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
     }
 
     @Override
-    public int AddTrueReview() {
+    public int AddTrueReview(int praise) {
         return 0;
     }
 
     @Override
-    public int AddFlaseReview() {
+    public int AddFlaseReview(int praise) {
         return 0;
     }
 

@@ -12,37 +12,30 @@
             margin: 0;
             padding: 0;
         }
-
         a {
             text-decoration: none;
         }
-
         ul, li {
             list-style: none;
         }
-
         body {
             font-family: "Microsoft yahei";
         }
-
         #content {
             position: relative;
             width: 980px;
             margin: 0 auto;
             height: 100%;
         }
-
         #content .nav {
             width: 980px;
             height: 405px;
         }
-
         #content .slide-wrap {
             position: absolute;
             right: -60px;
             width: 52px;
         }
-
         #slide {
             position: fixed;
             top: 235px;
@@ -51,7 +44,6 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-
         #slide li {
             position: relative;
             width: 50px;
@@ -62,17 +54,14 @@
             z-index: 2;
             cursor: pointer;
         }
-
         #slide li:hover {
             background: #00A1D6;
             color: #fff;
         }
-
         #slide li.on {
             background: #00A1D6;
             color: #fff;
         }
-
         #slide li.blue {
             display: none;
             position: absolute;
@@ -92,7 +81,6 @@
         })
         var index_carousel_i = -1;
         var index_carousel_image = new Array("image/index_carousel1.jpg", "image/index_carousel2.jpg", "image/index_carousel3.jpg", "image/index_carousel4.jpg", "image/index_carousel5.jpg");
-
         function change_img() {
             index_carousel_i++;
             $("#index_carousel_image").attr("src", index_carousel_image[index_carousel_i]);
@@ -101,7 +89,6 @@
             }
             setTimeout("change_img()", 3000);
         }
-
         function header_list_show() {
             $(".header_list_show").hover(function () {
                 $(this).children().eq(1).show()
@@ -109,7 +96,6 @@
                 $(this).children().eq(1).hide()
             })
         }
-
         function header_code_show() {
             $("#nav_web_download").hover(function () {
                 $("#download_code").show()
@@ -1786,7 +1772,6 @@
             }
         })
     })();
-
     // 导航条操作.
     (function () {
         var $control = $("#slide .control"),
@@ -1831,7 +1816,6 @@
                             // $blue 同步.
                             $blue.css("top", height * index + "px");
                         }
-
                         break;//检测到一个就退出.
                     }
                 }

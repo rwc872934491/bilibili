@@ -3,29 +3,19 @@ package org.lanqiao.entity;
 import java.util.Date;
 
 public class MsgInfo {
-    public MsgInfo() {
-
-    }
-
-    public MsgInfo(String msgContent, int msgSender, int msgReceiver) {
-        this.msgContent = msgContent;
-        this.msgSender = msgSender;
-        this.msgReceiver = msgReceiver;
-    }
-
-    private int msgID;
+    private int msgId;
     private String msgContent;
     private int msgSender;
     private int msgReceiver;
     private Date msgTime;
-    private int msgIdentity;
+    private int msgIndentity;
 
-    public int getMsgID() {
-        return msgID;
+    public int getMsgId() {
+        return msgId;
     }
 
-    public void setMsgID(int msgID) {
-        this.msgID = msgID;
+    public void setMsgId(int msgId) {
+        this.msgId = msgId;
     }
 
     public String getMsgContent() {
@@ -60,11 +50,44 @@ public class MsgInfo {
         this.msgTime = msgTime;
     }
 
-    public int getMsgIdentity() {
-        return msgIdentity;
+    public int getMsgIndentity() {
+        return msgIndentity;
     }
 
-    public void setMsgIdentity(int msgIdentity) {
-        this.msgIdentity = msgIdentity;
+    public void setMsgIndentity(int msgIndentity) {
+        this.msgIndentity = msgIndentity;
     }
+
+    public MsgInfo(int msgId, String msgContent, int msgSender, int msgReceiver, int msgIndentity) {
+        this.msgId = msgId;
+        this.msgContent = msgContent;
+        this.msgSender = msgSender;
+        this.msgReceiver = msgReceiver;
+        this.msgIndentity = msgIndentity;
+    }
+
+    public MsgInfo(String msgContent) {
+        this.msgContent = msgContent;
+    }
+
+    public MsgInfo(String msgContent, int msgSender) {
+        this.msgContent = msgContent;
+        this.msgSender = msgSender;
+    }
+    public MsgInfo(int msgSender, int msgReceiver) {
+        this.msgSender=msgSender;
+        this.msgReceiver=msgReceiver;
+    }
+
+
+    public MsgInfo() {
+
+    }
+
+    public MsgInfo(String msgContent, int msgSender, int msgReceiver) {
+        this.msgContent = msgContent;
+        this.msgSender = msgSender;
+        this.msgReceiver = msgReceiver;
+    }
+
 }
