@@ -26,8 +26,7 @@ public class IndustrySMS
 		for (int i = 0 ; i<4 ;i++){
 			str.append((int)(Math.random()*(10)));
 		}
-		code = str.toString();
-		System.out.println(code);
+		code=str.toString();
 		return str.toString();
 	}
 	public static void execute(String to)
