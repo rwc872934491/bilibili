@@ -12,7 +12,7 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
 
     @Override
     public List<ReviewInfo> ShowBackReview(int userid, int pageNum, int pageSize) {
-        return executeQuery("select reviewContent,reviewTime,reviewPraise from ReviewInfo where reviewTop=? order by reviewTime DESC LIMIT ?,?",new Object[]{userid,(pageNum-1)*pageSize,pageSize});
+        return executeQuery("select reviewId,reviewContent,reviewTime,reviewPraise from ReviewInfo where reviewTop=? order by reviewTime DESC LIMIT ?,?",new Object[]{userid,(pageNum-1)*pageSize,pageSize});
     }
 
     @Override
@@ -38,7 +38,6 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
         return executeUpdate("Update ReviewInfo SET reviewUnpraise = reviewUnpraise + 1 WHERE reviewId = ?",
                 new Object[]{reviewId});
     }
-
     @Override
     public int ReviewCount() {
         return getRecordCount("select count(*) from ReviewInfo where reviewTop=0");

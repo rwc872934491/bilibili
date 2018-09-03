@@ -7,25 +7,22 @@ $(function () {
         dataType: "json",
         success: function (list) {
             num = list.length;
-            if(list.length == 0){
-                --num;
-            }else{
-                preList = list;
-            }
             var arrayRid = new Array();
             var arrayi = new Array();
+            var arrayhf = new Array();
             for (var i = 0; i < list.length; i++) {
                 // if (i<list.length){
                 var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
                     '<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a></div><div class="sdiv_sa_view"><div>' +
                     '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                    '<span><a class="sa_view_dzup"><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                    ' <span><a class="sa_view_dzdown"><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
                     '<span class="span_view_hf">回复</span>\n' +
                     '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
                     '</div></div>');
+                arrayhf.push(list[i].reviewId);
+                // alert(arrayhf);
                 ix = i+1;
-                // alert(ix);
                 $('#review_pl'+ix).append($node);
                 $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
                 $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
@@ -38,17 +35,16 @@ $(function () {
     
     //评论点赞功能
     $("body").on("click",".sa_view_dzup",function () {
-        var span =  $(this).children("span").html();
-        alert(span);
+        var span =  $(this).children("div:eq(0)").html();
+        // alert(span);
         $.ajax({
-            url:"",
+            url:"/AddPraise",
             type:"post",
-            data:{"reviewTop":span},
+            data:{"reviewId":span},
             dataType:"json",
             success:function (ret) {
                 // alert("charu")
                 if (ret =="1"){
-
                     $.ajax({
                         url: "/ShowReview",
                         type: "post",
@@ -66,16 +62,18 @@ $(function () {
                             }
                             var arrayRid = new Array();
                             var arrayi = new Array();
+                            var arrayhf = new Array();
                             for (var i = 0; i < list.length; i++) {
                                 // if (i<list.length){
                                 var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
                                     '<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a></div><div class="sdiv_sa_view"><div>' +
                                     '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                                    '<span><a class="sa_view_dzup"><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                                    ' <span><a class="sa_view_dzdown"><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
                                     '<span class="span_view_hf">回复</span>\n' +
                                     '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
                                     '</div></div>');
+                                arrayhf.push(list[i].reviewId);
                                 ix = i+1;
                                 $('#review_pl'+ix).append($node);
                                 $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
@@ -90,19 +88,18 @@ $(function () {
             }
         })
     });
-    //评论点赞功能
+    //评论踩一下功能
     $("body").on("click",".sa_view_dzdown",function () {
-        var span =  $(this).children("span").html();
-        alert(span);
+        var span =  $(this).children("div:eq(0)").html();
+        // alert(span);
         $.ajax({
-            url:"",
+            url:"/AddUnpraise",
             type:"post",
-            data:{"reviewTop":span},
+            data:{"reviewId":span},
             dataType:"json",
             success:function (ret) {
                 // alert("charu")
                 if (ret =="1"){
-
                     $.ajax({
                         url: "/ShowReview",
                         type: "post",
@@ -120,16 +117,23 @@ $(function () {
                             }
                             var arrayRid = new Array();
                             var arrayi = new Array();
+                            var arrayhf = new Array();
                             for (var i = 0; i < list.length; i++) {
                                 // if (i<list.length){
                                 var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
                                     '<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a></div><div class="sdiv_sa_view"><div>' +
                                     '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                                    '<span><a class="sa_view_dzup"><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                                    ' <span><a class="sa_view_dzdown"><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
                                     '<span class="span_view_hf">回复</span>\n' +
                                     '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
                                     '</div></div>');
+                                arrayhf.push(list[i].reviewId);
+                                // var rid = list[i].reviewId;
+                                // if (rid ==span){
+                                //     $(".span_div_down").css("background","url(../image/icons-comment.png) no-repeat");
+                                //     $(".span_div_down").css("background-position"," -153px -218px");
+                                // }
                                 ix = i+1;
                                 $('#review_pl'+ix).append($node);
                                 $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
@@ -144,6 +148,8 @@ $(function () {
             }
         })
     });
+
+
 
     //reiviewid绑定框隐藏事件
     // $(".input_reviewid").hide();
@@ -263,7 +269,6 @@ $(function () {
             // data:{"num":num},
             dataType: "json",
             success: function (list) {
-
                 num = list.length;
                 //移除input中存储的value属性值
                 $(".div_view").remove();
@@ -274,16 +279,19 @@ $(function () {
                 }
                 var arrayRid = new Array();
                 var arrayi = new Array();
+                var arrayhf = new Array();
                 for (var i = 0; i < list.length; i++) {
                     // if (i<list.length){
                     var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>\n' +
                         '<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a></div><div class="sdiv_sa_view"><div>' +
                         '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                        '<span><a class="sa_view_dzup"><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                        ' <span><a class="sa_view_dzdown"><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                        '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                        ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
                         '<span class="span_view_hf">回复</span>\n' +
                         '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
                         '</div></div>');
+                    arrayhf.push(list[i].reviewId);
+                    // alert(arrayhf);
                     ix = i+1;
                     $('#review_pl'+ix).append($node);
                     $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
@@ -329,7 +337,7 @@ function back(x,array) {
                 var $back = $('<div class="div_hf"><div><a href="" class="sa_img_min"><img src="image/common03.jpg" alt="" style="width:100%;min-height:100%;"></a>\n' +
                     '<a href="" style="position: relative;left: 50px;text-decoration: none">提酒做长歌</a>\n' +
                     ' <span style="position: relative;left: 55px">' + listback[j].reviewContent + '</span></div><span class="span_view_times">' + listback[j].reviewTime + '</span>\n' +
-                    ' <span><a class="sa_view_dzup"><div class="span_div_up"></div><span>' + listback[j].reviewPraise + '</span></a></span>\n' +
+                    ' <span><a class="sa_view_dzup"><div hidden>'+listback[j].reviewId+'</div><div class="span_div_up"></div><span>' + listback[j].reviewPraise + '</span></a></span>\n' +
                     ' <span class="span_view_hf">回复</span><div></div><div></div></div>');
 
                 $('#review_hf' + x).append($back);
