@@ -17,8 +17,8 @@ public interface ReviewInfoDao {
     public List<ReviewInfo> ShowBackReview(int userid,int pageNum,int pageSize);
     public int AddReview(ReviewInfo reviewInfo);
     public int AddBackReview(ReviewInfo reviewInfo);
-    public int AddTrueReview();
-    public int AddFlaseReview();
+    public int AddTrueReview(int praise);
+    public int AddFlaseReview(int praise);
     public int ReviewCount();
     public int MaxFloor();
 }

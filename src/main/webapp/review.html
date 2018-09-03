@@ -12,11 +12,11 @@
     <script src="js/jquery.validate.js" type="application/javascript"></script>
     <script src="layer/layer.js" type="application/javascript"></script>
     <!--ajax+js+事务控制-->
-    <script src="js/js_review.js" type="application/javascript"></script>
+    <script src="js/review_js.js" type="application/javascript"></script>
 </head>
 <body>
 <form action="" method="post" id="#reviewform">
-    <div id="header">
+    <div id="header"  style="float: left;">
         <div id="header_nav">
             <div id="header_nav_web">
                 <ul>
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div id="content">
+    <div id="content"  style="float: left;">
         <div id="div_bili_zy">
             <div id="video_header">
                 <div id="video_message">
@@ -121,7 +121,9 @@
                     <span id="span_common_head_left"> &nbsp;</span><span style="font: 20px 微软雅黑;float: left;">评论</span>
                     <span id="span_common_head_right">
 
+                        <span class="span_line"></span>
                     <span class="span_line" id="li_syy">上一页</span>
+                        <span class="span_line"></span>
                     <span class="span_line">1</span>
                         <span class="span_line"></span>
                     <span class="span_line">2</span>
@@ -129,6 +131,7 @@
                     <span class="span_line">3</span>
                          <span class="span_line"></span>
                     <span class="span_line">4</span>
+                        <span class="span_line"></span>
                     <span class="span_line" id="li_xyy">下一页</span>
 
                 </span>
@@ -164,71 +167,14 @@
                     <div id="review_pl4">
                         <input class="input_reviewid" type="text" hidden>
                     </div>
-                    <div id="review_hf4"><input class="input_reviewid" type="text" hidden></div>
-                    <div id="review_pl5">
-                        <input class="input_reviewid" type="text" hidden>
-                    </div>
-                    <div id="review_hf5"><input class="input_reviewid" type="text" hidden></div>
-
-                    <!--<div class="div_view">-->
-                    <!--<hr width="90%" size="5px">-->
-                    <!--<div><a href="" class="sa_img">-->
-                    <!--<img src="image/common02.png" alt="" style="width:100%;min-height:100%;"></a>-->
-                    <!--<a href="" style="position: relative;left: 50px;text-decoration: none">风雪满山河</a>-->
-                    <!--</div>-->
-                    <!--<div class="sdiv_sa_view"><div>-->
-                    <!--<p>且待我江湖诡异踏破 梦外然一诺 流云过 梦里剑与花与我 经年辗转意气未消磨 风雪满山河 此间 何人笑我 且待我江山如画踏破 提酒作长歌 问姓字 吾是人间逍遥客 年少轻狂天涯觅诗火 风雪同醉卧 此间 明月共我</p><br>-->
-                    <!--<span class="span_view_id">#3</span>-->
-                    <!--<span class="span_view_time">2018-8-22 14:22</span>-->
-                    <!--<span><a href="" class="sa_view_dz"><div class="span_div_up"></div><span>1120</span></a></span>-->
-                    <!--<span><a href="" class="sa_view_dz"><div class="span_div_down"></div><span>20</span></a></span>-->
-                    <!--<span class="span_view_hf">回复</span><div></div>-->
-                    <!--&lt;!&ndash;<div id="hfdiv"></div>&ndash;&gt;-->
-                    <!--<div class="div_common_com2" style="border: double 2px bisque ;">-->
-                    <!--<div class="sa_img" ><a href="">-->
-                    <!--<img src="image/common01.png" alt="" style="width:100%;min-height:100%;"></a>-->
-                    <!--</div>-->
-                    <!--<textarea placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"-->
-                    <!--style="background:transparent;border:1px solid #aaa;font: 15px 微软雅黑" class="area_coms" name="area_com" required></textarea>-->
-                    <!--&lt;!&ndash;<button type="button" class="btn btn-primary" id="button_com">发表<br>评论</button>&ndash;&gt;-->
-                    <!--<div class="boxs" id="uploadBox1">-->
-                    <!--<span>发布<br>评论</span>-->
-                    <!--<input class="input"  class="uploadInput" type="button" multiple/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;回复&ndash;&gt;-->
-                    <!--<div class="div_hf">-->
-                    <!--<div><a href="" class="sa_img_min">-->
-                    <!--<img src="image/common03.jpg" alt="" style="width:100%;min-height:100%;"></a>-->
-                    <!--<a href="" style="position: relative;left: 50px;text-decoration: none">提酒做长歌</a>-->
-                    <!--<span style="position: relative;left: 55px">咦嘻嘻嘻回复一测试哟</span>-->
-                    <!--</div>-->
-                    <!--<span class="span_view_times">2018-8-22 14:22</span>-->
-                    <!--<span><a href="" class="sa_view_dz"><div class="span_div_up"></div><span>10</span></a></span>-->
-                    <!--<span class="span_view_hf">回复</span><div></div>-->
-                    <!--<div class="div_common_com2"  style="border: double 2px bisque ;">-->
-                    <!--<div class="sa_img" ><a href="">-->
-                    <!--<img src="image/common01.png" alt="" style="width:100%;min-height:100%;">-->
-                    <!--</a></div>-->
-                    <!--<textarea placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"-->
-                    <!--style="background:transparent;border:1px solid #aaa;font: 15px 微软雅黑" class="area_coms" name="area_com" required></textarea>-->
-                    <!--&lt;!&ndash;<button type="button" class="btn btn-primary" id="button_com">发表<br>评论</button>&ndash;&gt;-->
-                    <!--<div class="boxs" id="uploadBox2">-->
-                    <!--<span>发布<br>评论</span>-->
-                    <!--<input class="input"  class="uploadInput" type="button" multiple/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
+                    <div id="review_hf4"><input class="input_reviewid" type="text" hidden ></div>
                 </div>
                 <!--评论主体结束-->
             </div>
         </div>
     </div>
 
-    <div id="footer">
+    <div id="footer" style="float: left;">
         <ul id="footer_tips">
             <li id="footer_tips_left">
                 <div class="footer_tips_tip">bilibili</div>

@@ -20,7 +20,7 @@ import java.util.List;
 @WebServlet("/ShowReview")
 public class ShowReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNum = 2;
+        int pageNum = 1;
 //        int num = 0;
         HttpSession session = request.getSession();
         System.out.println(session.getAttribute("page")+"aaaaaaaaaaaaaaaaaa");
