@@ -12,21 +12,17 @@ $(function () {
             data:{"typeone":$div_one,"typetwo":$span_two},
             type:"post",
             dataType:"json",
-            success:function (list) {
+            success:function () {
                 window.location.href="videoshow.html";
-            //
-                for (var i =0;i<list.length;i++){
-                    var $node = $('');
-                }
             }
 
         });
     });
-    
-    $(".header_list_name").click(function () {
-        var div_one = $(this).html();
-        alert(div_one);
 
+    //只单击一级菜单实现跳转页面
+    $(".header_list_name").click(function () {
+        var $div_one = $(this).html();
+        alert($div_one);
         $.ajax({
             url:"",
             data:{"typeone":$div_one},
