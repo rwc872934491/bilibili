@@ -12,5 +12,5 @@ public interface UserInfoDao {
     public UserInfo getUserInfo(String userName);
     public List<UserInfo> CheckUserName(String userName);
 
-    public int updateUserImage(String userImage);
+    public int updateUserImage(String userImage,int userId);
 }

@@ -7,7 +7,7 @@ import java.util.List;
 public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
     //    更新个人信息
     public int updateUserInfo(UserInfo user) {
-        return executeUpdate("update UserInfo set nickname = ?,userMark = ?,userSex = ? where userId = '2'", new Object[]{user.getNickname(), user.getUserMark(), user.getUserSex()});
+        return executeUpdate("update UserInfo set nickname = ?,userMark = ?,userSex = ? where userId = ?", new Object[]{user.getNickname(), user.getUserMark(), user.getUserSex(),user.getUserId()});
     }
 
     //个人信息页展示信息
@@ -42,7 +42,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
         return executeQuery("select * from UserInfo where userName=?",new Object[]{userName});
     }
     //更新个人头像
-    public int updateUserImage(String userImage){
-        return executeUpdate("update UserInfo set userImage = ? where userId = '2'", new Object[]{userImage});
+    public int updateUserImage(String userImage,int userId){
+        return executeUpdate("update UserInfo set userImage = ? where userId = ?", new Object[]{userImage,userId});
     }
 }

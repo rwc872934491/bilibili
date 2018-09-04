@@ -71,7 +71,6 @@
     float: left;
     padding: 0px 8px 0px 8px;
 }
-
 #nav_web_music {
     width: 24px;
     height: 42px;
@@ -857,4 +856,7 @@
 
 #footer_partner a:hover {
     color: black;
+}
+.bili-icon {
+    background-position: -855px -88px;
 }
