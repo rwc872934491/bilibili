@@ -31,7 +31,8 @@
 
 <script>
     $(function () {
-        alert(7);
+
+        alert(2);
         $("#dropmenu_user").click(function () {
             $.ajax({
                 url: "/BehindShowUser",
@@ -75,6 +76,39 @@
 
         })
 
+
+        $("#dropmenu_video").click(function (){
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 1},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr id="tr' + (i + 1) + '"> <td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+
         //a1
         $("body").on("click", "#a1", function () {
             $.ajax({
@@ -92,7 +126,8 @@
                     var $node2 = '';
                     for (var i = 0; i < list.length; i++) {
                         $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
-                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                            '"value="' + list[i].userId + '">上锁</a></td> </tr>';
                     }
                     //尾部模板并加上固定的分页页数
                     var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
@@ -127,7 +162,8 @@
                     var $node2 = '';
                     for (var i = 0; i < list.length; i++) {
                         $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
-                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                            '"value="' + list[i].userId + '">上锁</a></td> </tr>';
                     }
                     //尾部模板并加上固定的分页页数
                     var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
@@ -160,9 +196,10 @@
                         '</thead> <tbody>';
                     //中部for循环的模板
                     var $node2 = '';
-                    for(var i = 0; i < list.length; i++){
-                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
-                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                            '"value="' + list[i].userId + '">上锁</a></td> </tr>';
                     }
                     //尾部模板并加上固定的分页页数
                     var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
@@ -195,9 +232,10 @@
                         '</thead> <tbody>';
                     //中部for循环的模板
                     var $node2 = '';
-                    for(var i = 0; i < list.length; i++){
-                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
-                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                            '"value="' + list[i].userId + '">上锁</a></td> </tr>';
                     }
                     //尾部模板并加上固定的分页页数
                     var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
@@ -230,9 +268,10 @@
                         '</thead> <tbody>';
                     //中部for循环的模板
                     var $node2 = '';
-                    for(var i = 0; i < list.length; i++){
-                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
-                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                            '"value="' + list[i].userId + '">上锁</a></td> </tr>';
                     }
                     //尾部模板并加上固定的分页页数
                     var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
@@ -354,6 +393,279 @@
             })
         })
 
+        //v1
+        $("body").on("click", "#v1", function () {
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 1},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //v2
+        $("body").on("click", "#v2", function () {
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 2},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //v3
+        $("body").on("click", "#v3", function () {
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 3},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //v4
+        $("body").on("click", "#v4", function () {
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 4},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr id="tr' + (i + 1) +  '"><td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //v5
+        $("body").on("click", "#v5", function () {
+            $.ajax({
+                url: "/BehindShowVideo",
+                type: "post",
+                data: {"pageNum": 5},
+                dataType: "json",
+                success: function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].videoId + '</td> <td>' + list[i].videoName + '</td> <td>' +
+                            list[i].videoType  + '</td> <td>' + list[i].videoContributorId + '</td> <td><a href="#" id="Delete' + (i + 1) +
+                            '"value="' + list[i].videoId + '">删除</a></td> </tr>';
+                    }
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="v1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="v5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    var $node4 = $($node1 + $node2 + $node3);
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //Delete1
+        $("body").on("click", "#Delete1", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete1").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr1").remove();
+
+                }
+            })
+        })
+
+        //Delete2
+        $("body").on("click", "#Delete2", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete2").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr2").remove();
+                }
+            })
+        })
+
+        //Delete3
+        $("body").on("click", "#Delete3", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete3").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr3").remove();
+                }
+            })
+        })
+
+        //Delete4
+        $("body").on("click", "#Delete4", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete4").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr4").remove();
+                }
+            })
+        })
+
+        //Delete5
+        $("body").on("click", "#Delete5", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete5").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr5").remove();
+                }
+            })
+        })
+
+        //Delete6
+        $("body").on("click", "#Delete6", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete6").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr6").remove();
+                }
+            })
+        })
+
+        //Delete7
+        $("body").on("click", "#Delete7", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete7").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr7").remove();
+                }
+            })
+        })
+
+        //Delete8
+        $("body").on("click", "#Delete8", function () {
+            $.ajax({
+                url : "/DeleteVideo",
+                type : "post",
+                data : {"videoId" : $("#Delete8").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                    $("#tr8").remove();
+                }
+            })
+        })
+
 
 
 
@@ -387,7 +699,7 @@
                         <li role="separator" class="divider"></li>
                         <li><a href="#" id="dropmenu_user">用户管理</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#" id="dropmenu_vedio">视频管理</a></li>
+                        <li><a href="#" id="dropmenu_video">视频管理</a></li>
                     </ul>
                 </li>
             </ul>
