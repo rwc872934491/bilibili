@@ -28,9 +28,11 @@ public class CheckServlet extends HttpServlet {
         if (ret != null) {
             UserInfo user = userInfoDao.getUserInfo(userName);
             int userId = user.getUserId();
+            String userImage = user.getUserImage();
             session.setAttribute("userId", userId);
             session.setAttribute("userName", userName);
             session.setAttribute("Password", password);
+            session.setAttribute("userImage", userImage);
             response.getWriter().print(1);
         } else {
             response.getWriter().print(0);
@@ -40,5 +42,8 @@ public class CheckServlet extends HttpServlet {
 //        out.print(JSONArray.fromObject(ret));
 //        out.flush();
 //        out.close();
+    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doPost(request,response);
     }
 }
