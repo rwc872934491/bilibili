@@ -10,6 +10,12 @@ public class TypeInfo {
         this.typeFather = typeFather;
     }
 
+    public TypeInfo(int typeId, String typeName, int typeFather) {
+        this.typeId = typeId;
+        this.typeName = typeName;
+        this.typeFather = typeFather;
+    }
+
     private int typeId;
     private String typeName;
     private int typeFather;
@@ -36,5 +42,14 @@ public class TypeInfo {
 
     public void setTypeFather(int typeFather) {
         this.typeFather = typeFather;
+    }
+
+    @Override
+    public String toString() {
+        return "TypeInfo{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                ", typeFather=" + typeFather +
+                '}';
     }
 }
