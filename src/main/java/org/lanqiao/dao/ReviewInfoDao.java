@@ -22,5 +22,5 @@ public interface ReviewInfoDao {
     public int AddTrueReview(int reviewId);
     public int AddFlaseReview(int reviewId);
     public int ReviewCount();
-    public int MaxFloor();
+    public int MaxFloor(int videoId);
 }

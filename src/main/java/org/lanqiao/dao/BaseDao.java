@@ -190,7 +190,7 @@ public abstract class BaseDao<T> {
         return count;
     }
 
-    protected int getMaxFloor(String sql) {
+    protected int getMaxFloor(String sql, Object[] obj) {
         Connection conn = null;
         PreparedStatement stat = null;
         ResultSet rs = null;
@@ -200,6 +200,9 @@ public abstract class BaseDao<T> {
             // 3、创建传输对象statmemnt
             stat = conn.prepareStatement(sql);// ？不确定:类型、数量
             // 3+、绑定替换数据
+            for (int i = 0; i < obj.length; i++) {
+                stat.setObject(i + 1, obj[i]);
+            }
             // 4、发送sql语句，并且接收返回结果 : DML -> executeUpdate ; DQL -> executeQuery
             rs = stat.executeQuery();
             // 5、如果返回rs类型的数据，需要将数据转换成list

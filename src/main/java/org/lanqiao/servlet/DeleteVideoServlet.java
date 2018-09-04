@@ -1,6 +1,6 @@
 package org.lanqiao.servlet;
 
-import org.lanqiao.dao.ReviewInfoDaoImpl;
+import org.lanqiao.dao.VideoInfoDaoImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,15 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet("/ShowMaxFloor")
-public class ShowMaxFloorServlet extends HttpServlet {
+@WebServlet("/DeleteVideo")
+public class DeleteVideoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ReviewInfoDaoImpl review = new ReviewInfoDaoImpl();
-        int MaxFloor = review.MaxFloor(39);
-        System.out.println("最大楼层"+MaxFloor);
+        //从前端传videoId并转化为int类型
+        String videoId = request.getParameter("videoId");
+        int videoIdInt = 0;
+        if(videoId != null && videoId != "")
+            videoIdInt = Integer.parseInt(videoId);
 
+        //实例化实现类并调用方法
+        VideoInfoDaoImpl videoInfoDao = new VideoInfoDaoImpl();
+        int ret = videoInfoDao.DeleteVideo(videoIdInt);
+
+        //将ret传回前端
         PrintWriter out = response.getWriter();
-        out.print(MaxFloor);
+        out.print(ret);
         out.flush();
         out.close();
     }
