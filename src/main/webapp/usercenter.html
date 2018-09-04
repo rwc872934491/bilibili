@@ -115,6 +115,8 @@
                         if (ret.img != '') {
                             //显示图片
                             $('#user_image_showimg').attr("src", ret.imgUrl);
+                            $('#user_head_image').attr("src", ret.imgUrl);
+                            $('.face').attr("src", ret.imgUrl);
                         }
                     }, 'json');
                 }

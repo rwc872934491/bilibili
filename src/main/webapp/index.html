@@ -90,7 +90,7 @@
             setTimeout("change_img()", 100);
             header_list_show();
             header_code_show();
-            index_checksession();
+            index_show_information();
         })
         var index_carousel_i = -1;
         var index_carousel_image = new Array("image/index_carousel1.jpg", "image/index_carousel2.jpg", "image/index_carousel3.jpg", "image/index_carousel4.jpg", "image/index_carousel5.jpg");
@@ -131,11 +131,20 @@
                         $(".index_islogin").show();
                         $("#index_notlogin").hide();
                         $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                        $("#user_nickname").html(jsonArray[0].nickname);
+                        $("#userMark").html(jsonArray[0].userMark);
                     }else {
 
                     }
                 }
             });
+        }
+        function index_show_information() {
+            $("#header_nav_personal").hover(function () {
+                $("#index_user_information").show()
+            },function () {
+                $("#index_user_information").hide()
+            })
         }
     </script>
 </head>
@@ -186,15 +195,15 @@
         <div id="header_nav_personal" class="index_islogin">
             <a href="usercenter.html" class="t">
                 <div id="nav_personal_image1">
-                    <img src="image/origin_image.jpg" class="face" id="index_user_image_1">
+                    <img src="" class="face" id="index_user_image_1">
                 </div>
             </a>
             <div id="index_user_information">
                 <div id="index_user_information_nickname" style="padding-bottom: 25px;">
-                    <span style="font-weight: bold;">是蛋蛋啊</span>
+                    <span style="font-weight: bold;" id="user_nickname">是蛋蛋啊</span>
                 </div>
                 <div id="index_user_information_userMark">
-                    <span>哈哈哈哈哈哈哈哈哈哈</span>
+                    <span id="userMark">哈哈哈哈哈哈哈哈哈哈</span>
                 </div>
                 <div id="index_user_menu">
                     <ul>
