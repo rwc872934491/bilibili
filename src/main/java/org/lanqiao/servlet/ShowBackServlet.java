@@ -21,11 +21,10 @@ import java.util.List;
 @WebServlet("/ShowBack")
 public class ShowBackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNum = 1;
 //        int num = Integer.parseInt(request.getParameter("nums"));
         int userid = Integer.parseInt(request.getParameter("reviewid"));
 
-        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserBack(userid,pageNum,4);
+        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserBack(userid,1,4);
 
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());

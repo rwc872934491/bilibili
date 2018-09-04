@@ -24,6 +24,7 @@ public class ShowReviewServlet extends HttpServlet {
         int video = 39;
 //        int num = 0;
         HttpSession session = request.getSession();
+        //        int videoid = (int) session.getAttribute("videoId");
         System.out.println(session.getAttribute("page")+"aaaaaaaaaaaaaaaaaa");
         if (session.getAttribute("page")!=null){
           pageNum = (int) session.getAttribute("page");

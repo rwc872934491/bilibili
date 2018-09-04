@@ -16,8 +16,11 @@ import java.io.PrintWriter;
 public class AddBackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+
+        int videoID = 39;
+
         int userid = (int) session.getAttribute("userId");
-        int videoID = Integer.parseInt(request.getParameter("VedioID"));
+//        int videoid = (int) session.getAttribute("videoId");
         String reviewContent = request.getParameter("ReviewContent");
         int reviewTop = Integer.parseInt(request.getParameter("TopReviewID"));
 

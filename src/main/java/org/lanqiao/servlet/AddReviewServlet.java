@@ -16,11 +16,11 @@ import java.io.PrintWriter;
 public class AddReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-//        session.getAttribute("userId");
+        int videoid = 39;
 
-//        int userid = Integer.parseInt(request.getParameter("UserID"));
         int userid = (int) session.getAttribute("userId");
-        int videoid = Integer.parseInt(request.getParameter("VedioID"));
+//        int videoid = (int) session.getAttribute("videoId");
+
         String reviewContent = request.getParameter("ReviewContent");
         int reviewTop = Integer.parseInt(request.getParameter("TopReviewID"));
         int reviewFloor = Integer.parseInt(request.getParameter("FooterID"));

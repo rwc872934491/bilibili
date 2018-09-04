@@ -31,7 +31,19 @@ $(function () {
             }
         }
     })
+    //更新用户头像及名字
+    // $(".sa_img").children().children().attr("img","");
 
+    //鼠标变成点击小手的操作
+    $("body").on("mouseover",".span_view_hf",function () {
+        $(this).css("cursor","pointer");
+    })
+    $("body").on("mouseover",".sa_view_dzup",function () {
+        $(this).css("cursor","pointer");
+    })
+    $("body").on("mouseover",".sa_view_dzdown",function () {
+        $(this).css("cursor","pointer");
+    })
     //评论点赞功能
     $("body").on("click",".sa_view_dzup",function () {
         var span =  $(this).children("div:eq(0)").html();
@@ -159,8 +171,6 @@ $(function () {
     });
 
     //回复框按钮绑定插入回复事件
-    var userid=1;
-    var vedio=1;
     //回复框按钮绑定事件
     $("body").on("click",".uploadBox1",function () {
         var top = $(this).parents("div[class^=hf]").next("div").html();
@@ -169,7 +179,7 @@ $(function () {
         $.ajax({
             url:"/AddBack",
             type:"post",
-            data:{"UserID":userid, "VedioID": vedio,"ReviewContent": $("textarea[class='area_coms']").val(),"TopReviewID":top},
+            data:{"ReviewContent": $("textarea[class='area_coms']").val(),"TopReviewID":top},
             dataType:"json",
             success:function (ret) {
                 if (ret =="1"){
@@ -300,6 +310,8 @@ $(function () {
     });
 
 
+
+
 });
 
 
@@ -313,7 +325,7 @@ var rids;
 var pageClick;
 var arrayback = new Array();
 function back(x,array) {
-    alert(111)
+    // alert(111)
     $.ajax({
         url: "/ShowBack",
         type: "post",
@@ -329,7 +341,7 @@ function back(x,array) {
                     ' <span class="span_view_hf">回复</span><div></div><div hidden>'+listback[j].reviewId+'</div><div></div></div>');
 
                 arrayback.push(listback[j].reviewId);
-                alert(arrayback);
+                // alert(arrayback);
                 $('#review_hf' + x).append($back);
             }
         }
