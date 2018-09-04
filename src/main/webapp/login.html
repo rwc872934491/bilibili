@@ -52,13 +52,19 @@
                             "userName": $("input[name='username']").val(),
                             "password": $("input[name='password']").val()
                         }, function (ret) {
-                            if (ret == "1") {
+                            if (ret == "3") {
+                                alert("erty");
                                 layer.msg("登录成功!", {time: 2000}, function () {
                                     window.location.href="index.html";
                                 });
-                            } else {
+                            } else if(ret == "2"){
                                 e.preventDefault();
-                                alert("登录失败");
+                                layer.msg("用户名密码正确,但该用户已被锁定!");
+                            }else if(ret == "1"){
+                                layer.msg("用户名或密码不正确!");
+                            }else if(ret == "4"){
+                                layer.msg("管理员账户登录成功!");
+                                location.href="Behind.html";
                             }
                         }, 'json');
                 });

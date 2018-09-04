@@ -22,18 +22,15 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
 
     //    登录验证
-    public UserInfo checkUser(UserInfo userInfo) {
-        List<UserInfo> userList = executeQuery("select userName,password from UserInfo where userName=? and password=?", new Object[]{userInfo.getUserName(), userInfo.getPassword()});
-        if (userList.size() > 0) {
-            return userList.get(0);
-        } else {
-            return null;
-        }
+    public List<UserInfo> checkUser(UserInfo userInfo) {
+        List<UserInfo> userList = executeQuery("select * from UserInfo where userName=?", new Object[]{userInfo.getUserName()});
+        return  userList;
+
     }
 
     //注册验证
     public int insertUser(UserInfo userInfo) {
-        return executeUpdate("insert into UserInfo(userName,nickName,password) values(?,?,?)", new Object[]{userInfo.getUserName(), userInfo.getNickname(), userInfo.getPassword()});
+        return executeUpdate("insert into UserInfo(userName,nickName,password,userIndentity) values(?,?,?,0)", new Object[]{userInfo.getUserName(), userInfo.getNickname(), userInfo.getPassword()});
     }
 
     //    获得需要封装入session的信息

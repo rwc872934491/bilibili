@@ -9,7 +9,7 @@ public interface UserInfoDao {
 
     public List<UserInfo> showUserInfo(int userId);
 
-    public UserInfo checkUser(UserInfo userInfo);
+    public List<UserInfo> checkUser(UserInfo userInfo);
 
     public int insertUser(UserInfo userInfo);
 
