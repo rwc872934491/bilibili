@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> - 哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <link rel="stylesheet" type="text/css" href="css/videoshow.css">
+    <link rel="stylesheet" type="text/css" href="css/base_rwc.css">
+    <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script>
+        $(function () {
+            video_show_list();
+            header_code_show();
+            index_checksession();
+            index_show_information();
+        })
+        function header_code_show() {
+            $("#nav_web_download").hover(function () {
+                $("#download_code").show()
+            }, function () {
+                $("#download_code").hide()
+            })
+        }
+
+        function index_checksession() {
+            $.ajax({
+                url: "/IndexCheckServlet",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (jsonArray) {
+                    if (jsonArray.length>0) {
+                        $(".index_islogin").show();
+                        $("#index_notlogin").hide();
+                        $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                    }else {
+
+                    }
+                }
+            });
+        }
+        function index_show_information() {
+            $("#header_nav_personal").hover(function () {
+                $("#index_user_information").show()
+            },function () {
+                $("#index_user_information").hide()
+            })
+        }
+        function video_show_list() {
+            $("#video_show_list_a").hover(function () {
+                $(this).children().eq(2).attr('bottom','-40px')
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="head">
+    <div id="header_nav_background">
+        <div id="header_background_bottom"></div>
+        <div id="header_background_top"></div>
+    </div>
+    <div id="header_nav">
+        <div id="header_nav_web">
+            <ul>
+                <li id="nav_web_main">
+                    <a href="index.html" title="主站" class="t">
+                        <i class="bili-icon" id="head_nav_main_icon"></i>
+                        主站
+                    </a>
+                </li>
+                <li id="nav_web_draw"><a href="" title="画友" class="t">画友</a></li>
+                <li id="nav_web_music"><a href="" title="音频" class="t">音频</a></li>
+                <li id="nav_web_game"><a href="" title="游戏中心" class="t">游戏中心</a></li>
+                <li id="nav_web_live"><a href="" title="直播" class="t">直播</a></li>
+                <li id="nav_web_buy"><a href="" title="会员购" class="t">会员购</a></li>
+                <li id="nav_web_BML"><a href="" title="BML" class="t">BML</a></li>
+                <li id="nav_web_moe"><a href="" title="萌战" class="t">萌战</a></li>
+                <li id="nav_web_download">
+                    <a href="header_footer.html" title="下载APP" class="t">
+                        <i id="download_icon"></i>
+                        <p id="download_text">下载APP</p>
+                    </a>
+                    <div id="download_code"></div>
+                </li>
+            </ul>
+        </div>
+        <div id="header_nav_contribution">
+            <a href="" target="_blank" class="u-link">投 稿</a>
+        </div>
+        <div id="header_nav_history">
+            <a href="" target="_blank" title="历史记录">历史</a>
+            <a href="login.html" class="t" id="index_notlogin">
+                <div id="nav_personal_image2" style="line-height: 42px">
+                    <img src="image/origin_image.jpg" class="face" id="index_user_image_2" style="margin-bottom: 10px">
+                </div>
+            </a>
+            <a href="" target="_blank" title="消息" class="index_islogin">消息</a>
+            <a href="" target="_blank" title="大会员" class="index_islogin">大会员</a>
+        </div>
+        <div id="header_nav_personal" class="index_islogin">
+            <a href="usercenter.html" class="t">
+                <div id="nav_personal_image1">
+                    <img src="image/origin_image.jpg" class="face" id="index_user_image_1">
+                </div>
+            </a>
+            <div id="index_user_information">
+                <div id="index_user_information_nickname" style="padding-bottom: 25px;">
+                    <span style="font-weight: bold;">是蛋蛋啊</span>
+                </div>
+                <div id="index_user_information_userMark">
+                    <span>哈哈哈哈哈哈哈哈哈哈</span>
+                </div>
+                <div id="index_user_menu">
+                    <ul>
+                        <li><a href="usercenter.html" target="_blank">
+                            <i class="index_user_info_icon person"></i>
+                            个人信息
+                        </a></li>
+                        <li><a href="">
+                            <i class="index_user_info_icon contribution"></i>
+                            投稿管理</a></li>
+                    </ul>
+                </div>
+                <div id="index_user_exit">
+                    <a href="login.html" id="index_user_exit_button">退出</a>
+                </div>
+            </div>
+        </div>
+        <div id="header_back_logo">
+            <a href="index.html"><img src="image/header_logo.png"></a>
+        </div>
+        <div id="header_back_search">
+            <form id="header_search_form" action="" method="get">
+                <input type="text" placeholder="谁说男生不会扭腰" class="header_search_keyword">
+                <button type="submit" class="header_search_submit"></button>
+                <a href="" target="_blank" title="排行榜" class="header_search_ranking">
+                    <span>排行榜</span>
+                </a>
+            </form>
+        </div>
+    </div>
+    <div id="header_background"></div>
+</div>
+<div id="video_show">
+    <div id="video_show_header">
+        <span id="video_show_header_icon"></span>
+        <span id="video_show_header_name">最新动态</span>
+    </div>
+    <div id="video_show_lists">
+        <div class="video_show_list">
+            <a href="" target="_blank" id="video_show_list_a">
+                <div class="video_show_list_images">
+                    <img src="image/video_show_list_image1.webp" class="video_show_list_image">
+                </div>
+                <p class="video_show_list_title">【综漫/核爆/高燃/多素材AMV】神之战歌，响彻天地; 十年之战，即将重现！</p>
+                <div class="video_show_list_data">
+                    <span class="video_show_list_click"><i class="video_show_list_data_icon"></i>2.5万</span>
+                    <span class="video_show_list_review"><i class="video_show_list_data_icon"></i>185</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <ul id="footer_tips">
+        <li id="footer_tips_left">
+            <div class="footer_tips_tip">bilibili</div>
+            <div class="footer_tips_cards"><a href="">关于我们</a></div>
+            <div class="footer_tips_cards"><a href="">联系我们</a></div>
+            <div class="footer_tips_cards"><a href="">加入我们</a></div>
+            <div class="footer_tips_cards"><a href="">友情链接</a></div>
+            <div class="footer_tips_cards"><a href="">bilibili认证</a></div>
+            <div class="footer_tips_cards"><a href="">Investor Relations</a></div>
+        </li>
+        <li id="footer_tips_middle">
+            <div class="footer_tips_tip">传送门</div>
+            <div class="footer_tips_cards"><a href="">帮助中心</a></div>
+            <div class="footer_tips_cards"><a href="">高级弹幕</a></div>
+            <div class="footer_tips_cards"><a href="">活动专题页</a></div>
+            <div class="footer_tips_cards"><a href="">侵权申诉</a></div>
+            <div class="footer_tips_cards"><a href="">活动中心</a></div>
+            <div class="footer_tips_cards"><a href="">用户反馈论坛</a></div>
+            <div class="footer_tips_cards"><a href="">壁纸站</a></div>
+            <div class="footer_tips_cards"><a href="">名人堂</a></div>
+        </li>
+        <li id="footer_tips_right">
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_phone"></div>
+                    <span>客户端下载</span>
+                </div>
+            </a>
+            <a href="" target="_blank">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weibo"></div>
+                    <span>新浪微博</span>
+                </div>
+            </a>
+            <a href="">
+                <div class="footer_right_tip">
+                    <div id="footer_tips_weixin"></div>
+                    <span>官方微信</span>
+                </div>
+            </a>
+        </li>
+    </ul>
+    <div id="footer_partner">
+        <div class="block left" style="margin: 0px 68px 0 115px;line-height:24px;float: none;"><p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span>
+            | 网络文化经营许可证：<span>沪网文[2016]2296-134号</span> | 信息网络传播视听节目许可证：<span>0910417</span> | 互联网ICP备案：<a
+                    href="" target="_blank">沪ICP备13002172号-3</a>
+            沪ICP证：<span>沪B2-20100043</span> | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3
+            | <a href="" target="_blank">营业执照</a></p>
+            <p><a href="" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a>
+                |<a href="" target="_blank">12318 全国文化市场举报网站</a> |<a target="_blank" href=""><img
+                        src="image/footer_beiantubiao.png" style="vertical-align: top;"> 沪公网安备
+                    31011002002436号 |</a><a href="">儿童色情信息举报专区</a></p>
+            <p><a href="" target="_blank">网上有害信息举报专区：<img
+                    src="image/footer_12377.png" width="16" height="16" style="vertical-align: sub;">
+                中国互联网违法和不良信息举报中心</a></p>
+            <p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

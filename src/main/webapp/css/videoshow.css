@@ -1,0 +1,119 @@
+#header_background {
+    background: url("../image/header_background2.png") center -10px no-repeat;
+}
+#header_background_bottom {
+    background: url("../image/header_background2.png") center -10px;
+}
+#header_background_top {
+    background-color: rgba(0,0,0,.4);
+}
+#header_nav_web a{
+    color: white;
+}
+#header_nav_web a>p{
+    color: white;
+}
+#head_nav_main_icon{
+    background-position: -855px -88px;
+}
+#header_nav_history a{
+    color: white;
+}
+#video_show{
+    width: 980px;
+    height: 100%;
+    margin: 0 184.5px;
+}
+#video_show_header{
+    margin-top: 30px;
+    float: left;
+    color: black;
+    width: 980px;
+}
+#video_show_header_icon{
+    background: url("../image/icons.png") -84px -1427px no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+#video_show_header_name{
+    font-size: 18px;
+    line-height: 24px;
+    color: #222;
+    vertical-align: middle;
+}
+#video_show_lists{
+    float: left;
+    padding: 20px 0 15px;
+    color: blue;
+}
+.video_show_list{
+    position: relative;
+    width: 160px;
+    height: 148px;
+    font-size: 12px;
+    overflow: hidden;
+    float: left;
+    margin: 0 20px 20px 0;
+}
+.video_show_list_images{
+    position: relative;
+    width: 160px;
+    height: 100px;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 4px;
+}
+.video_show_list_title{
+    padding-top: 8px;
+    height: 40px;
+    line-height: 20px;
+    -webkit-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+    color: #222;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-align: left;
+}
+.video_show_list_data{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    height: 20px;
+    line-height: 20px;
+    color: #99a2aa;
+    background-color: #fff;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+    font-size: 0;
+}
+.video_show_list_data span{
+    line-height: 12px;
+    height: 14px;
+    display: inline-block;
+    width: 50%;
+    overflow: hidden;
+    font-size: 12px;
+    vertical-align: bottom;
+    color: #99a2aa;
+}
+.video_show_list_data_icon{
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    vertical-align: top;
+    margin-right: 5px;
+    background-image: url("../image/icons.png");
+}
+.video_show_list_click .video_show_list_data_icon{
+    background-position: -282px -90px;
+}
+.video_show_list_review .video_show_list_data_icon{
+    background-position: -282px -218px;
+}
