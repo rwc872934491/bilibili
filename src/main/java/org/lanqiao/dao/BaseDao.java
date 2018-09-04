@@ -1,6 +1,7 @@
 package org.lanqiao.dao;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.lanqiao.entity.ReviewInfo;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;

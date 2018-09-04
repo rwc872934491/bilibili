@@ -1,13 +1,21 @@
 package org.lanqiao.dao;
 
 import org.lanqiao.entity.ReviewInfo;
+import org.lanqiao.entity.UserInfo;
 
 import java.util.List;
 
 public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfoDao {
     @Override
     public List<ReviewInfo> ShowReview(int pageNum, int pageSize) {
-        return executeQuery("select reviewContent,reviewTime,reviewPraise,reviewUnpraise,reviewFloor,reviewId from ReviewInfo where reviewTop=0 order by reviewFloor DESC LIMIT ?,?",new Object[]{(pageNum-1)*pageSize,pageSize});//1,2,3   (0/5/10)
+        return executeQuery("select b.reviewId,b.reviewContent,b.reviewTime,b.reviewPraise,b.reviewUnpraise,b.reviewFloor FROM UserInfo a, ReviewInfo b where a.userId = b.userId and b.reviewTop=0 order by b.reviewFloor DESC LIMIT ?,?",new Object[]{(pageNum-1)*pageSize,pageSize});//1,2,3   (0/5/10)
+    }
+
+    @Override
+    public List<UserInfo> ShowUserReview(int pageNum, int pageSize) {
+
+        UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
+        return userInfoDao.executeQuery("select a.nickname name,a.userImage image FROM UserInfo a, ReviewInfo b where a.userId = b.userId and b.reviewTop=0 order by b.reviewFloor DESC LIMIT ?,?",new Object[]{(pageNum-1)*pageSize,pageSize});//1,2,3   (0/5/10)
     }
 
     @Override
@@ -48,10 +56,10 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
         return getMaxFloor("select Max(reviewFloor) from ReviewInfo");
     }
 
-    public static void main(String[] args){
-        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
-        int ret = reviewInfoDao.AddTrueReview(1);
-        int re1 = reviewInfoDao.AddFlaseReview(1);
-        System.out.println(ret + re1 + "888888888888");
-    }
+//    public static void main(String[] args){
+//        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
+//        int ret = reviewInfoDao.AddTrueReview(1);
+//        int re1 = reviewInfoDao.AddFlaseReview(1);
+//        System.out.println(ret + re1 + "888888888888");
+//    }
 }

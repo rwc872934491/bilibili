@@ -3,7 +3,9 @@ package org.lanqiao.servlet;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 import org.lanqiao.dao.ReviewInfoDaoImpl;
+import org.lanqiao.dao.UserInfoAndReviewInfoDaoImpl;
 import org.lanqiao.entity.ReviewInfo;
+import org.lanqiao.entity.UserInfoAndReviewInfo;
 import org.lanqiao.util.JsonDateValueProcessor;
 
 import javax.servlet.ServletException;
@@ -23,7 +25,7 @@ public class ShowBackServlet extends HttpServlet {
 //        int num = Integer.parseInt(request.getParameter("nums"));
         int userid = Integer.parseInt(request.getParameter("reviewid"));
 
-        List<ReviewInfo> list = new ReviewInfoDaoImpl().ShowBackReview(userid,pageNum,4);
+        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserBack(userid,pageNum,4);
 
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class , new JsonDateValueProcessor());

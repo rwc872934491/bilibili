@@ -2,8 +2,8 @@ package org.lanqiao.servlet;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
-import org.lanqiao.dao.ReviewInfoDaoImpl;
-import org.lanqiao.entity.ReviewInfo;
+import org.lanqiao.dao.UserInfoAndReviewInfoDaoImpl;
+import org.lanqiao.entity.UserInfoAndReviewInfo;
 import org.lanqiao.util.JsonDateValueProcessor;
 
 import javax.servlet.ServletException;
@@ -21,6 +21,7 @@ import java.util.List;
 public class ShowReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNum = 1;
+        int video = 39;
 //        int num = 0;
         HttpSession session = request.getSession();
         System.out.println(session.getAttribute("page")+"aaaaaaaaaaaaaaaaaa");
@@ -28,8 +29,9 @@ public class ShowReviewServlet extends HttpServlet {
           pageNum = (int) session.getAttribute("page");
         }
         System.out.println(pageNum+"!!!!!!!!!!!!!!!!!!!");
-        List<ReviewInfo> list = new ReviewInfoDaoImpl().ShowReview(pageNum,4);
+        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserReview(video,pageNum,4);
 
+        System.out.println(list);
         JsonConfig jsonConfig = new JsonConfig();
         jsonConfig.registerJsonValueProcessor(Date.class,new JsonDateValueProcessor());
         JSONArray jsonArray = JSONArray.fromObject(list,jsonConfig);
