@@ -8,14 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet("/AddReview")
 public class AddReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int userid = Integer.parseInt(request.getParameter("UserID"));
-        int videoid = Integer.parseInt(request.getParameter("VedioID"));
+        HttpSession session = request.getSession();
+        int videoid = 39;
+
+        int userid = (int) session.getAttribute("userId");
+//        int videoid = (int) session.getAttribute("videoId");
+
         String reviewContent = request.getParameter("ReviewContent");
         int reviewTop = Integer.parseInt(request.getParameter("TopReviewID"));
         int reviewFloor = Integer.parseInt(request.getParameter("FooterID"));

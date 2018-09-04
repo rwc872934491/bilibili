@@ -196,6 +196,7 @@ body{
     top: 11px;
     padding-left: 20px;
     padding-top: -20px;
+    cursor:pointer;
 }
 .span_div_up:hover{
     width: 20px;
@@ -203,6 +204,7 @@ body{
     display: inline-block;
     background: url(../image/icons-comment.png) no-repeat;
     background-position: -218px -25px;
+    cursor:pointer;
 }
 .sa_view_dz{
     color: #888;
@@ -211,6 +213,7 @@ body{
 .sa_view_dz:hover{
     color: #888;
     text-decoration: none;
+
 }
 .span_div_down{
     width: 20px;
@@ -222,6 +225,7 @@ body{
     top: 11px;
     padding-left: 20px;
     padding-top: -20px;
+    cursor:pointer;
 }
 .span_div_down:hover{
     width: 20px;
@@ -229,6 +233,7 @@ body{
     display: inline-block;
     background: url(../image/icons-comment.png) no-repeat;
     background-position: -217px -153px;
+    cursor:pointer;
 }
 .span_view_hf{
     color: #888;
@@ -237,6 +242,7 @@ body{
 .span_view_hf:hover{
     color: blue;
     background-color: #f0f3ef;
+    cursor:pointer;
 }
 .span_view_hf a:hover{
     text-decoration: none;
