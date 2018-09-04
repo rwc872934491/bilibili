@@ -8,7 +8,7 @@ import java.util.List;
 public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
     //    更新个人信息
     public int updateUserInfo(UserInfo user) {
-        return executeUpdate("update UserInfo set nickname = ?,userMark = ?,userSex = ? where userId = ?", new Object[]{user.getNickname(), user.getUserMark(), user.getUserSex(),user.getUserId()});
+        return executeUpdate("update UserInfo set nickname = ?,userMark = ?,userSex = ? where userId = ?", new Object[]{user.getNickname(), user.getUserMark(), user.getUserSex(), user.getUserId()});
     }
 
     //个人信息页展示信息
@@ -16,7 +16,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
         return executeQuery("SELECT * FROM UserInfo WHERE userId = ?", new Object[]{userId});
     }
 
-    public List<UserInfo> showUserInfo(int pageNum, int pageSize){
+    public List<UserInfo> showUserInfo(int pageNum, int pageSize) {
         return executeQuery("SELECT * FROM UserInfo ORDER BY userId LIMIT ?, ?", new Object[]{(pageNum - 1) * pageSize, pageSize});
     }
 
@@ -44,23 +44,25 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
 
     public List<UserInfo> CheckUserName(String userName) {
-        return executeQuery("select * from UserInfo where userName=?",new Object[]{userName});
-    }
-    //更新个人头像
-    public int updateUserImage(String userImage,int userId){
-        return executeUpdate("update UserInfo set userImage = ? where userId = ?", new Object[]{userImage,userId});
+        return executeQuery("select * from UserInfo where userName=?", new Object[]{userName});
     }
 
-    public int CountUser(){
+    //更新个人头像
+    public int updateUserImage(String userImage, int userId) {
+        return executeUpdate("update UserInfo set userImage = ? where userId = ?", new Object[]{userImage, userId});
+    }
+
+    public int CountUser() {
         return getRecordCount("SELECT count(*) FROM UserInfo");
     }
 
-    public int ChangeLocked(int userId){
+
+    public int ChangeLocked(int userId) {
         return executeUpdate("update UserInfo set userLocked = date_add(sysdate(), interval 1 day) where userId = ?",
                 new Object[]{userId});
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
         int ret = userInfoDao.ChangeLocked(1);
         System.out.println(ret);
