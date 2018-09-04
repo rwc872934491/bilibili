@@ -100,6 +100,10 @@
         function change_img() {
             index_carousel_i++;
             $("#index_carousel_image").attr("src", index_carousel_image[index_carousel_i]);
+            $("#index_carousel_title").children().eq(index_carousel_i-1).attr("class","index_carousel_title_off");
+            $("#index_carousel_title").children().eq(index_carousel_i).attr("class","index_carousel_title_on");
+            $("#index_carousel_points").children().eq(index_carousel_i-1).attr("class","index_carousel_off");
+            $("#index_carousel_points").children().eq(index_carousel_i).attr("class","index_carousel_on");
             if (index_carousel_i == 4) {
                 index_carousel_i = -1;
             }
@@ -202,10 +206,10 @@
             </a>
             <div id="index_user_information">
                 <div id="index_user_information_nickname" style="padding-bottom: 25px;">
-                    <span style="font-weight: bold;" id="user_nickname">是蛋蛋啊</span>
+                    <span style="font-weight: bold;" id="user_nickname"></span>
                 </div>
                 <div id="index_user_information_userMark">
-                    <span id="userMark">哈哈哈哈哈哈哈哈哈哈</span>
+                    <span id="userMark"></span>
                 </div>
                 <div id="index_user_menu">
                     <ul>
@@ -507,7 +511,7 @@
                 </a>
             </ul>
             <ul id="index_carousel_points">
-                <span class="index_carousel_off index_carousel_on"></span>
+                <span class="index_carousel_on"></span>
                 <span class="index_carousel_off"></span>
                 <span class="index_carousel_off"></span>
                 <span class="index_carousel_off"></span>

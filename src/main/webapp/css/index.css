@@ -405,6 +405,9 @@
     padding: 0;
     border: 0;
 }
+.header_search_submit:hover{
+    background: url("../image/icons.png") -718px -720px;
+}
 
 .header_search_ranking {
     position: absolute;
@@ -649,6 +652,17 @@
 }
 
 .index_carousel_on {
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    background: url("../image/icons.png") transparent;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    display: inline-block;
+    margin-left: 6px;
+    border-radius: 10px;
+    cursor: pointer;
     background-position: -855px -727px;
 }
 
@@ -856,7 +870,4 @@
 
 #footer_partner a:hover {
     color: black;
-}
-.bili-icon {
-    background-position: -855px -88px;
 }

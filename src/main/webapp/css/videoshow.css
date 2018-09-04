@@ -88,9 +88,9 @@
     line-height: 20px;
     color: #99a2aa;
     background-color: #fff;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
+    -webkit-transition: all .4s;
+    -o-transition: all .4s;
+    transition: all .4s;
     font-size: 0;
 }
 .video_show_list_data span{
@@ -116,4 +116,7 @@
 }
 .video_show_list_review .video_show_list_data_icon{
     background-position: -282px -218px;
+}
+.bili-icon {
+    background-position: -855px -88px;
 }

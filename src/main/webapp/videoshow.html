@@ -49,8 +49,10 @@
             })
         }
         function video_show_list() {
-            $("#video_show_list_a").hover(function () {
-                $(this).children().eq(2).attr('bottom','-40px')
+            $(".video_show_list_a").hover(function () {
+                $(this).children().eq(2).css("bottom","-40px")
+            },function () {
+                $(this).children().eq(2).css("bottom","0px")
             })
         }
     </script>
@@ -150,7 +152,7 @@
     </div>
     <div id="video_show_lists">
         <div class="video_show_list">
-            <a href="" target="_blank" id="video_show_list_a">
+            <a href="" target="_blank" class="video_show_list_a">
                 <div class="video_show_list_images">
                     <img src="image/video_show_list_image1.webp" class="video_show_list_image">
                 </div>

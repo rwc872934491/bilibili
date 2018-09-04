@@ -184,7 +184,6 @@ body{
     padding: 0;
     margin: 0;
     width: 1347px;
-    height: 1099px;
 }
 .total{
     width: 1347px;
@@ -436,12 +435,10 @@ body{
 
 
 #footer{
-    height: 332px;
     padding: 40px 184.5px 0px 184.5px;
     text-align: center;
     font-size: 12px;
     background-color: #f6f9fa;
-    margin-top: -50px;
 }
 #footer_tips{
     list-style: none;
