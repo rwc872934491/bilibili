@@ -1,0 +1,460 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>bootstrap测试</title>
+    <link href="http://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="http://cdn.bootcss.com/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        tr.tableHead {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        tr.tableHead > th {
+            text-align: center;
+        }
+
+        ul li {
+            list-style-type: none;
+            float: left;
+        }
+
+        ul li a {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<script>
+    $(function () {
+        alert(7);
+        $("#dropmenu_user").click(function () {
+            $.ajax({
+                url: "/BehindShowUser",
+                type: "post",
+                data: {"pageNum": 1},
+                dataType: "json",
+                success: function (list) {
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#" id="Lock' + (i + 1) +
+                        '"value="' + list[i].userId + '">上锁</a></td> </tr>';
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+
+            // var $node =  $('<div class="text-center" id="node1"> <h1>商品信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+            //     '<tr class="tableHead"> <th>商品编号</th> <th>商品名称</th> <th>商品描述</th> <th>商品种类</th> <th>操作</th> <th>操作</th> </tr>' +
+            //     '</thead> <tbody> <tr> <td>1</td> <td>macbook air</td> <td>苹果最新超薄笔记本</td> <td>笔记本</td> <td><a href="#">修改</a></td>' +
+            //     '<td><a href="#">删除</a></td> </tr> <tr class="winBlue"> <td>2</td> <td>ipad pro</td> <td>苹果最新平板电脑</td> <td>平板电脑</td>' +
+            //     '<td><a href="#">修改</a></td> <td><a href="#">删除</a></td> </tr> <tr> <td>3</td> <td>iphone6s plus</td> <td>苹果最新大屏手机</td>' +
+            //     '<td>手机</td> <td><a href="#">修改</a></td> <td><a href="#">删除</a></td> </tr> </tbody> </table> </div>');
+
+        })
+
+        //a1
+        $("body").on("click", "#a1", function () {
+            $.ajax({
+                url: "/BehindShowUser",
+                type: "post",
+                data: {"pageNum": 1},
+                dataType: "json",
+                success: function (list) {
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //a2
+        $("body").on("click", "#a2", function () {
+            $.ajax({
+                url: "/BehindShowUser",
+                type: "post",
+                data: {"pageNum": 2},
+                dataType: "json",
+                success: function (list) {
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for (var i = 0; i < list.length; i++) {
+                        $node2 = $node2 + '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //a3
+        $("body").on("click", "#a3" , function () {
+            $.ajax({
+                url : "/BehindShowUser",
+                type : "post",
+                data : {"pageNum" : 3},
+                dataType : "json",
+                success : function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for(var i = 0; i < list.length; i++){
+                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //a4
+        $("body").on("click", "#a4" , function () {
+            $.ajax({
+                url : "/BehindShowUser",
+                type : "post",
+                data : {"pageNum" : 4},
+                dataType : "json",
+                success : function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for(var i = 0; i < list.length; i++){
+                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //a5
+        $("body").on("click", "#a5" , function () {
+            $.ajax({
+                url : "/BehindShowUser",
+                type : "post",
+                data : {"pageNum" : 5},
+                dataType : "json",
+                success : function (list){
+                    alert(list.length);
+                    //头部模板
+                    var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
+                        '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
+                        '</thead> <tbody>';
+                    //中部for循环的模板
+                    var $node2 = '';
+                    for(var i = 0; i < list.length; i++){
+                        $node2 = $node2 +  '<tr> <td>' + list[i].userId + '</td> <td>' + list[i].nickname + '</td> <td>' +
+                            list[i].userName + '</td> <td>' + list[i].password + '</td> <td><a href="#">上锁</a></td> </tr>'
+                    }
+                    //尾部模板并加上固定的分页页数
+                    var $node3 = '</tbody> </table> <div> <ul > <li  style="list-style-type: none; float:left; margin-left: 530px;"><a id="a1">1</a></li></div>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a2">2</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a3">3</a></li>' +
+                        '<li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a4">4</a></li><li style="margin-left: 50px; list-style-type: none; float:left;"><a id="a5">5</a></li>' +
+                        '</ul> </div></div>';
+
+                    //将模板整合
+                    var $node4 = $($node1 + $node2 + $node3);
+
+                    //删除之前的div,创建新的div
+                    $("#node1").remove();
+                    $("#nav").append($node4);
+                }
+            })
+        })
+
+        //Lock1
+        $("body").on("click", "#Lock1", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock1").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock2
+        $("body").on("click", "#Lock2", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock2").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock3
+        $("body").on("click", "#Lock3", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock3").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock4
+        $("body").on("click", "#Lock4", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock4").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock5
+        $("body").on("click", "#Lock5", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock5").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock6
+        $("body").on("click", "#Lock6", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock6").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock7
+        $("body").on("click", "#Lock7", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock7").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+        //Lock8
+        $("body").on("click", "#Lock8", function () {
+            $.ajax({
+                url : "/LockUser",
+                type : "post",
+                data : {"userId" : $("#Lock8").attr("value")},
+                dataType : "json",
+                success : function (ret){
+                    alert(ret);
+                }
+            })
+        })
+
+
+
+
+    })
+</script>
+</head>
+
+<body>
+<nav class="navbar navbar-default" id="nav">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header"> <!--这里设置网站的标题 -->
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">bilibili后台管理</a>
+        </div>
+
+        <!—这里设置网站的链接 -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false">管理系统<span class="caret"></span></a>
+                    <ul class="dropdown-menu" id="dropmenu">
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" id="dropmenu_user">用户管理</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#" id="dropmenu_vedio">视频管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+
+<!--<div class="text-center">-->
+
+
+<!--<h1>商品信息</h1>-->
+
+<!--<table class="table table-striped table-bordered table-hover">-->
+<!--<thead>-->
+<!--<tr class="tableHead">-->
+<!--<th>商品编号</th>-->
+<!--<th>商品名称</th>-->
+<!--<th>商品描述</th>-->
+<!--<th>商品种类</th>-->
+<!--<th>操作</th>-->
+<!--<th>操作</th>-->
+<!--</tr>-->
+<!--</thead>-->
+
+<!--<tbody>-->
+<!--<tr>-->
+<!--<td>1</td>-->
+<!--<td>macbook air</td>-->
+<!--<td>苹果最新超薄笔记本</td>-->
+<!--<td>笔记本</td>-->
+<!--<td><a href="#">修改</a></td>-->
+<!--<td><a href="#">删除</a></td>-->
+<!--</tr>-->
+
+<!--<tr class="winBlue">-->
+<!--<td>2</td>-->
+<!--<td>ipad pro</td>-->
+<!--<td>苹果最新平板电脑</td>-->
+<!--<td>平板电脑</td>-->
+<!--<td><a href="#">修改</a></td>-->
+<!--<td><a href="#">删除</a></td>-->
+<!--</tr>-->
+
+<!--<tr>-->
+<!--<td>3</td>-->
+<!--<td>iphone6s plus</td>-->
+<!--<td>苹果最新大屏手机</td>-->
+<!--<td>手机</td>-->
+<!--<td><a href="#">修改</a></td>-->
+<!--<td><a href="#">删除</a></td>-->
+<!--</tr>-->
+
+<!--</tbody>-->
+
+<!--</table>-->
+<!--<div>-->
+<!--<ul>-->
+<!--<li style="margin-left: 530px;"><a>1</a></li>-->
+<!--<li style="margin-left: 50px;"><a>2</a></li>-->
+<!--<li style="margin-left: 50px;"><a>3</a></li>-->
+<!--<li style="margin-left: 50px;"><a>4</a></li>-->
+<!--<li style="margin-left: 50px;"><a>5</a></li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+
+
+</body>
+</html>
