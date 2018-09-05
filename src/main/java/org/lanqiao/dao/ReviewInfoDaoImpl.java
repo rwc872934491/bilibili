@@ -55,9 +55,20 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
 
     @Override
     public int MaxFloor(int videoId) {
-        return getMaxFloor("select Max(reviewFloor) from ReviewInfo Where videoId = ?",
-                new Object[]{videoId});
+        return getMaxFloor("select Max(reviewFloor) from ReviewInfo Where videoId = ?", new Object[]{videoId});
     }
 
+//    public static void main(String[] args){
+//        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
+//        int MaxFloor = reviewInfoDao.MaxFloor(39);
+//        System.out.println(MaxFloor);
+//    }
 
+
+//    public static void main(String[] args){
+//        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
+//        int ret = reviewInfoDao.AddTrueReview(1);
+//        int re1 = reviewInfoDao.AddFlaseReview(1);
+//        System.out.println(ret + re1 + "888888888888");
+//    }
 }

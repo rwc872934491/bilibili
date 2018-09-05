@@ -1,5 +1,5 @@
 $(function () {
-    alert(1);
+    // alert(1);
     $.ajax({
         url: "/ShowTypeTwoVideo",
         // data:""
@@ -7,9 +7,9 @@ $(function () {
         dataType: "json",
         success: function (list) {
             alert(list.length+1);
-            alert(4);
+            // alert(4);
             for (var i = 0; i < list.length; i++) {
-                alert(list[1].videoId + "8888888888888888888");
+                // alert(list[1].videoId + "8888888888888888888");
                 var $node = $('<div class="video_show_list" value="' + list[i].videoId + '">\n' +
                     '                <div class="video_show_list_images">\n' +
                     '                    <img src="image/video_show_list_image1.webp" class="video_show_list_image">\n' +
@@ -29,16 +29,30 @@ $(function () {
     //    实现选定视频跳转播放页
     $("body").on("click", ".video_show_list", function () {
         alert($(this).attr("value"));
+        var bfl = $(this).attr("value");
         $.ajax({
             url: "/TakeVideoUrl",
-            data:{"videoId" : $(this).attr("value")},
+            data:{"videoId" : bfl},
             type: "post",
             dataType: "json",
             success: function (ret) {
-                alert(ret);
-                window.location.href = "review.html";
+                // alert(ret);
+                // window.location.href = "review.html";
+                //实现播放量id的传递
+                $.ajax({
+                    url:"/ClickAdd",
+                    data:{"videoId" : bfl},
+                    type:"post",
+                    dataType:"json",
+                    success:function () {
+                        // alert(bfl);
+                        // alert(ret);
+                        window.location.href = "review.html";
+                    }
+                })
             }
         })
+
     })
 
 

@@ -17,14 +17,14 @@ public class AddBackServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        int videoID = 39;
+//        int videoID = 39;
 
         int userid = (int) session.getAttribute("userId");
-//        int videoid = (int) session.getAttribute("videoId");
+        int videoId = (int)session.getAttribute("videoId");
         String reviewContent = request.getParameter("ReviewContent");
         int reviewTop = Integer.parseInt(request.getParameter("TopReviewID"));
 
-        ReviewInfo reviewInfo = new ReviewInfo(userid,videoID,reviewContent,reviewTop);
+        ReviewInfo reviewInfo = new ReviewInfo(userid,videoId,reviewContent,reviewTop);
         int ret = new ReviewInfoDaoImpl().AddBackReview(reviewInfo);
         System.out.println(ret);
         request.getSession().setAttribute("ret",ret);

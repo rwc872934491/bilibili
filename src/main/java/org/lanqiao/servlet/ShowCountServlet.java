@@ -15,8 +15,8 @@ import java.io.PrintWriter;
 public class ShowCountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-//        int videoid = (int) session.getAttribute("videoId");
-        int videoid = 39;
+        int videoid = (int) session.getAttribute("videoId");
+//        int videoid = 39;
 
         ReviewInfoDaoImpl reviewInfoDaoImpl = new ReviewInfoDaoImpl();
         int count = reviewInfoDaoImpl.ReviewCount(videoid);

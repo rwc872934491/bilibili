@@ -1,6 +1,6 @@
 $(function () {
     //
-
+    //显示视频
     $.ajax({
         url: "/SetVideoUrl",
         type: "post",
@@ -8,43 +8,46 @@ $(function () {
         success : function (list) {
             alert(list[0].videoPath);
             $("#video_abi").attr("src", list[0].videoPath);
+            $("#video_message_title").children().html(list[0].videoName);
+            $("#video_message_middle").children("time").html(list[0].videoTime);
             alert($("#video_abi").attr("src"));
         }
-    })
-
-
-
+    });
+    //页面显示浏览数（播放量）
     $.ajax({
-        url: "/ShowReview",
-        type: "post",
-        data:{"pagenum":pagenum},
-        dataType: "json",
-        success: function (list) {
-            num = list.length;
-            var arrayRid = new Array();
-            var arrayi = new Array();
-            var arrayhf = new Array();
-            for (var i = 0; i < list.length; i++) {
-                var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="'+list[i].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
-                    '<a href="" style="position: relative;left: 50px;text-decoration: none">'+list[i].nickname+'</a></div><div class="sdiv_sa_view"><div>' +
-                    '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
-                    '<span class="span_view_hf">回复</span>\n' +
-                    '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
-                    '</div></div>');
-                arrayhf.push(list[i].reviewId);
-                ix = i+1;
-                $('#review_pl'+ix).append($node);
-                $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
-                $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
-                rid = $('#review_pl'+ix).children('input').val();
-                arrayRid.push(rid);
-                back(i+1,arrayRid[i]);
-                // alert(111)
-            }
+        url:"/ShowClick",
+        type:"post",
+        dataType:"json",
+        success:function (list) {
+            $(".video_data_play").html(list[0].videoClick);
         }
-    })
+    });
+    //页面显示关注信息
+    $(".video_up_focus_button").click(function () {
+        $.ajax({
+            url:"/AddFan",
+            type:"post",
+            dataType:"json",
+            success:function (ret) {
+                $(".video_button_gz").html("已关注");
+            }
+        })
+    });
+
+    //页面显示一级菜单和二级菜单
+    $.ajax({
+        url:"/",
+        type:"post",
+        dataType:"json",
+        success:function (list) {
+            $("#video_message_middle").children().children().eq(1).html();
+            $("#video_message_middle").children().children().eq(2).html();
+        }
+    });
+
+
+    //调用load方法
+    load();
     //更新用户头像及名字
     // $(".sa_img").children().children().attr("img","");
 
@@ -61,52 +64,14 @@ $(function () {
     //评论点赞功能
     $("body").on("click",".sa_view_dzup",function () {
         var span =  $(this).children("div:eq(0)").html();
-        // alert(span);
         $.ajax({
             url:"/AddPraise",
             type:"post",
             data:{"reviewId":span},
             dataType:"json",
             success:function (ret) {
-                // alert("charu")
                 if (ret =="1"){
-                    $.ajax({
-                        url: "/ShowReview",
-                        type: "post",
-                        // data:{"num":num},
-                        dataType: "json",
-                        success: function (list) {
-
-                            num = list.length;
-                            //移除input中存储的value属性值
-                            $(".div_view").remove();
-                            $(".div_hf").remove();
-                            for(var inputi = 1;inputi<5;inputi++){
-                                $('#review_pl'+inputi).children('input').removeAttr("value");
-                                $('#review_hf'+inputi).children('input').removeAttr("value");
-                            }
-                            var arrayRid = new Array();
-                            var arrayi = new Array();
-                            for (var i = 0; i < list.length; i++) {
-                                // if (i<list.length){
-                                var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="'+list[i].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
-                                    '<a href="" style="position: relative;left: 50px;text-decoration: none">'+list[i].nickname+'</a></div><div class="sdiv_sa_view"><div>' +
-                                    '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
-                                    '<span class="span_view_hf">回复</span>\n' +
-                                    '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
-                                    '</div></div>');
-                                ix = i+1;
-                                $('#review_pl'+ix).append($node);
-                                $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
-                                $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
-                                rid = $('#review_pl'+ix).children('input').val();
-                                arrayRid.push(rid);
-                                back(i+1,arrayRid[i]);
-                            }
-                        }
-                    })
+                    load();
                 }
             }
         })
@@ -114,51 +79,14 @@ $(function () {
     //评论踩一下功能
     $("body").on("click",".sa_view_dzdown",function () {
         var span =  $(this).children("div:eq(0)").html();
-        // alert(span);
         $.ajax({
             url:"/AddUnpraise",
             type:"post",
             data:{"reviewId":span},
             dataType:"json",
             success:function (ret) {
-                // alert("charu")
                 if (ret =="1"){
-                    $.ajax({
-                        url: "/ShowReview",
-                        type: "post",
-                        // data:{"num":num},
-                        dataType: "json",
-                        success: function (list) {
-
-                            num = list.length;
-                            //移除input中存储的value属性值
-                            $(".div_view").remove();
-                            $(".div_hf").remove();
-                            for(var inputi = 1;inputi<5;inputi++){
-                                $('#review_pl'+inputi).children('input').removeAttr("value");
-                                $('#review_hf'+inputi).children('input').removeAttr("value");
-                            }
-                            var arrayRid = new Array();
-                            var arrayi = new Array();
-                            for (var i = 0; i < list.length; i++) {
-                                var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="'+list[i].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
-                                    '<a href="" style="position: relative;left: 50px;text-decoration: none">'+list[i].nickname+'</a></div><div class="sdiv_sa_view"><div>' +
-                                    '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
-                                    '<span class="span_view_hf">回复</span>\n' +
-                                    '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
-                                    '</div></div>');
-                                ix = i+1;
-                                $('#review_pl'+ix).append($node);
-                                $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
-                                $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
-                                rid = $('#review_pl'+ix).children('input').val();
-                                arrayRid.push(rid);
-                                back(i+1,arrayRid[i]);
-                            }
-                        }
-                    })
+                    load();
                 }
             }
         })
@@ -188,7 +116,6 @@ $(function () {
     //回复框按钮绑定事件
     $("body").on("click",".uploadBox1",function () {
         var top = $(this).parents("div[class^=hf]").next("div").html();
-        // alert(top);
         //回复功能
         $.ajax({
             url:"/AddBack",
@@ -198,7 +125,8 @@ $(function () {
             success:function (ret) {
                 if (ret =="1"){
                     layer.msg('回复成功！',{time:800},function () {
-                        location.reload();
+                        // location.reload();
+                        load();
                     });
                 }
                 // ,"TopReviewID":top
@@ -251,10 +179,10 @@ $(function () {
             data:{"ReviewContent": $("textarea[class='area_com']").val(),"TopReviewID":0,"FooterID":(foot+1)},
             dataType:"json",
             success:function (ret) {
-                // alert("charu")
                 if (ret =="1"){
                     layer.msg('评论成功！',{time:800},function () {
-                        location.reload();
+                        // location.reload()
+                        load();
                     });
                 }
             }
@@ -265,7 +193,6 @@ $(function () {
     $(".span_line:odd").click(function () {
         pageClick = $(this).html();
         num = pageClick;
-        // alert(num);
         //将页数传到session对象中
         $.ajax({
             url:"/ShowPage",
@@ -274,44 +201,8 @@ $(function () {
             dataType:"json",
             success:function () {}
         });
-        // alert(num);
         //分页显示评论
-        $.ajax({
-            url: "/ShowReview",
-            type: "post",
-            // data:{"num":num},
-            dataType: "json",
-            success: function (list) {
-                num = list.length;
-                //移除input中存储的value属性值
-                $(".div_view").remove();
-                $(".div_hf").remove();
-                for(var inputi = 1;inputi<5;inputi++){
-                    $('#review_pl'+inputi).children('input').removeAttr("value");
-                    $('#review_hf'+inputi).children('input').removeAttr("value");
-                }
-                var arrayRid = new Array();
-                var arrayi = new Array();
-                for (var i = 0; i < list.length; i++) {
-                    // if (i<list.length){
-                    var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="'+list[i].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
-                        '<a href="" style="position: relative;left: 50px;text-decoration: none">'+list[i].nickname+'</a></div><div class="sdiv_sa_view"><div>' +
-                        '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
-                        '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
-                        ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
-                        '<span class="span_view_hf">回复</span>\n' +
-                        '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
-                        '</div></div>');
-                    ix = i+1;
-                    $('#review_pl'+ix).append($node);
-                    $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
-                    $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
-                    rid = $('#review_pl'+ix).children('input').val();
-                    arrayRid.push(rid);
-                    back(i+1,arrayRid[i]);
-                }
-            }
-        })
+        load();
     });
 
 //    按钮按下变色效果
@@ -339,14 +230,12 @@ var rids;
 var pageClick;
 var arrayback = new Array();
 function back(x,array) {
-    // alert(111)
     $.ajax({
         url: "/ShowBack",
         type: "post",
         data: {"reviewid": array},
         dataType: "json",
         success: function (listback) {
-            // alert(listback)
             for (var j = 0; j < listback.length; j++) {
                 var $back = $('<div class="div_hf"><div><a href="" class="sa_img_min"><img src="'+listback[j].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
                     '<a href="" style="position: relative;left: 50px;text-decoration: none">'+listback[j].nickname+'</a>\n' +
@@ -355,9 +244,47 @@ function back(x,array) {
                     ' <span class="span_view_hf">回复</span><div></div><div hidden>'+listback[j].reviewId+'</div><div></div></div>');
 
                 arrayback.push(listback[j].reviewId);
-                // alert(arrayback);
                 $('#review_hf' + x).append($back);
             }
         }
     });
+}
+function load() {
+    $.ajax({
+        url: "/ShowReview",
+        type: "post",
+        data:{"pagenum":pagenum},
+        dataType: "json",
+        success: function (list) {
+            num = list.length;
+            //移除input中存储的value属性值
+            $(".div_view").remove();
+            $(".div_hf").remove();
+            for(var inputi = 1;inputi<5;inputi++){
+                $('#review_pl'+inputi).children('input').removeAttr("value");
+                $('#review_hf'+inputi).children('input').removeAttr("value");
+            }
+            var arrayRid = new Array();
+            var arrayi = new Array();
+            var arrayhf = new Array();
+            for (var i = 0; i < list.length; i++) {
+                var $node = $('<div class="div_view"><hr width="90%"><div><a href="" class="sa_img"><img src="'+list[i].userImage+'" alt="" style="width:100%;min-height:100%;"></a>\n' +
+                    '<a href="" style="position: relative;left: 50px;text-decoration: none">'+list[i].nickname+'</a></div><div class="sdiv_sa_view"><div>' +
+                    '<p>'+list[i].reviewContent+'</p><br><span class="span_view_id">#'+list[i].reviewFloor+'</span><span class="span_view_time">'+list[i].reviewTime+'</span>\n' +
+                    '<span><a class="sa_view_dzup"><div hidden>'+list[i].reviewId+'</div><div class="span_div_up"></div><span>'+list[i].reviewPraise+'</span></a></span>\n' +
+                    ' <span><a class="sa_view_dzdown"><div hidden>'+list[i].reviewId+'</div><div class="span_div_down"></div><span>'+list[i].reviewUnpraise+'</span></a></span>\n' +
+                    '<span class="span_view_hf">回复</span>\n' +
+                    '<div class="hfdiv"></div><div hidden>'+list[i].reviewId+'</div><!--回复-->\n' +
+                    '</div></div>');
+                arrayhf.push(list[i].reviewId);
+                ix = i+1;
+                $('#review_pl'+ix).append($node);
+                $('#review_pl'+ix).children('input').attr("value",''+list[i].reviewId);
+                $('#review_hf'+ix).children('input').attr("value",''+list[i].reviewId);
+                rid = $('#review_pl'+ix).children('input').val();
+                arrayRid.push(rid);
+                back(i+1,arrayRid[i]);
+            }
+        }
+    })
 }

@@ -32,7 +32,7 @@ public class ShowClickServlet extends HttpServlet {
         //返回list到前端
         JSONArray jsonArray = JSONArray.fromObject(list);
         PrintWriter out = response.getWriter();
-        out.print(list);
+        out.print(jsonArray);
         out.flush();
         out.close();
 

@@ -21,16 +21,16 @@ import java.util.List;
 public class ShowReviewServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int pageNum = 1;
-        int video = 39;
+//        int video = 39;
 //        int num = 0;
         HttpSession session = request.getSession();
-        //        int videoid = (int) session.getAttribute("videoId");
+        int videoid = (int) session.getAttribute("videoId");
         System.out.println(session.getAttribute("page")+"aaaaaaaaaaaaaaaaaa");
         if (session.getAttribute("page")!=null){
-          pageNum = (int) session.getAttribute("page");
+            pageNum = (int) session.getAttribute("page");
         }
         System.out.println(pageNum+"!!!!!!!!!!!!!!!!!!!");
-        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserReview(video,pageNum,4);
+        List<UserInfoAndReviewInfo> list = new UserInfoAndReviewInfoDaoImpl().ShowUserReview(videoid,pageNum,4);
 
         System.out.println(list);
         JsonConfig jsonConfig = new JsonConfig();

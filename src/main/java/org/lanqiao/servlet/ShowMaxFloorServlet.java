@@ -15,9 +15,9 @@ import java.io.PrintWriter;
 public class ShowMaxFloorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        int videoid = 39;
+//        int videoid = 39;
         HttpSession session = request.getSession();
-//        int videoid = (int) session.getAttribute("videoId");
+        int videoid = (int) session.getAttribute("videoId");
         ReviewInfoDaoImpl review = new ReviewInfoDaoImpl();
         int MaxFloor = review.MaxFloor(videoid);
         System.out.println("最大楼层"+MaxFloor);
