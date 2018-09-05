@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title>个人中心</title>
     <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/usercenter.css" type="text/css">
     <link rel="stylesheet" href="css/base_rwc.css" type="text/css">
     <link rel="stylesheet" href="css/content_header_footer.css" type="text/css">
+    <link rel="stylesheet" href="css/usercenter.css" type="text/css">
     <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
     <script src="js/bootstrap.js" type="application/javascript"></script>
     <script src="js/jquery.ui.widget.js"></script>
@@ -16,12 +16,13 @@
     <script src="js/jquery.fileupload-validate.js"></script>
     <script>
         $(function () {
+            click_change_li();
             show_UserInfo();
             header_code_show();
             content_update_UserInfo();
             content_mark_background();
             change_index_show();
-            index_show_information()
+            index_show_information();
         })
 
         function show_UserInfo() {
@@ -160,6 +161,22 @@
                 $("#div_upload_image").show();
             })
         }
+
+        function click_change_li() {
+            $("#div_li_style li").click(function () {
+                $("#div_li_style li").css("background-color","#fafafa")
+                $("#div_li_style li a").css("color","black")
+                $(this).css("background-color","#00a1d7")
+                $(this).children().css("color","white")
+            })
+        }
+        function hover_change_li() {
+            $("#div_li_style li").hover(function () {
+                $(this).css("background-color","#e5e9ef")
+            },function () {
+                $(this).css("background-color","#fafafa")
+            })
+        }
     </script>
 
 </head>
@@ -169,7 +186,7 @@
         <div id="header_nav_web">
             <ul>
                 <li id="nav_web_main">
-                    <a href="header_footer.html" title="主站" class="t">
+                    <a href="index.html" title="主站" class="t">
                         <i class="bili-icon"></i>
                         <p id="main_text">主站</p>
                     </a>
@@ -241,15 +258,8 @@
                 <input id="input_qm" placeholder="编辑你的签名" name="userMark_top">
             </div>
         </div>
-        <div style="overflow: hidden">
-            <ul class="breadcrumb">
-                <li><img src="image/header_logo.png" alt="" width="40%" height="20%"></li>
-                <li><a href="#">回到主页</a></li>
-                <li><a href="#">我的信息</a></li>
-            </ul>
-        </div>
         <div id="div_centre_content">
-            <div style="width:140px;text-align:center;margin-top: 50px">
+            <div style="width:140px;text-align:center;">
                 <ul class="nav nav-pills nav-stacked" id="div_li_style">
                     <li id="my_message"><a>我的信息</a></li>
                     <li id="my_image"><a>我的头像</a></li>
@@ -271,7 +281,7 @@
                         <input type="radio" value="保密" id="sex-people" name="userSex"/>保密</label>
                     </span><br>
                     <hr width="80%" style="margin-top: 50px">
-                    <button type="button" class="btn btn-primary" style="margin-left: 170px;margin-top: -60px"
+                    <button type="button" id="save_button" class="btn btn-primary" style="margin-left: 170px;margin-top: -80px"
                             name="content_userinfo_save">保存
                     </button>
                     <!--添加layer提示-->

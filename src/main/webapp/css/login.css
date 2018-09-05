@@ -189,11 +189,10 @@ body{
     padding: 0;
     margin: 0;
     width: 1347px;
-    height: 1099px;
 }
 .total{
     width: 1347px;
-    height: 739px;
+    height: 700px;
     background-color: white;
 }
 .center{
@@ -261,7 +260,7 @@ body{
     line-height: 56px;
     margin: 0 auto;
     padding: 0 20px;
-    font-size: 40px;
+    font-size: 38px;
     background: #fff;
     text-align: center;
 }
@@ -269,7 +268,7 @@ body{
     width: 1163.5px;
     height: 581px;
     float: left;
-    margin-top: 70px;
+    margin-top: 50px;
 }
 .middle2_left{
     width: 488px;
@@ -285,7 +284,7 @@ body{
 
 .middle2_left1{
     width: 480px;
-    height: 212px;
+    height: 190px;
     float: left;
 }
 .middle2_left11{
@@ -309,7 +308,7 @@ body{
 }
 .middle2_left21{
     width: 480px;
-    height: 44px;
+    height: 30px;
     float: left;
     padding-top: 20px;
     text-align: center;
@@ -325,6 +324,7 @@ body{
 }
 .middle2_left22 a{
     text-decoration: none;
+    color: #00a1d6;
 }
 .middle2_left22 a:hover{
     color: red;
@@ -348,14 +348,14 @@ body{
     width: 388px;
     height:40px;
     border: 1px solid #ddd;
-    border-radius: 2px;
+    border-radius: 4px;
     color: #aaa;
     font-size: 14px;
 }
 .password{
     width: 388px;
     border: 1px solid #ddd;
-    border-radius: 2px;
+    border-radius: 4px;
     color: #aaa;
     font-size: 14px;
     height: 40px;
@@ -384,25 +384,32 @@ body{
     float: left;
 }
 .btn-box1{
-    width: 150px;
+    width: 184px;
     height: 40px;
     float: left;
+    border: 1px solid #0381aa;
+    color: #fff;
+    background-color: #00a7de;
+    border-radius: 2px;
 }
+
 .btn-box2{
-    width: 150px;
+    width: 184px;
     height: 40px;
     float: right;
-    margin-right: 250px;
+    margin-right: 205px;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 2px;
 }
 
 
 #footer{
-    height: 332px;
     padding: 40px 184.5px 0px 184.5px;
     text-align: center;
     font-size: 12px;
     background-color: #f6f9fa;
-    margin-top: -50px;
+    color: #99a2aa;
 }
 #footer_tips{
     list-style: none;
@@ -550,5 +557,15 @@ body{
 
     font-size: 12px;        //  add
 }
-
-
+.block1 p{
+    color: #99a2aa;
+}
+#header_nav_web ul li a{
+    color: black;
+}
+.btn-box1:hover{
+    background: #00bee7;
+}
+#header_nav_history a{
+    color: black;
+}

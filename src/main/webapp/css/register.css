@@ -255,7 +255,7 @@ body{
     line-height: 56px;
     margin: 0 auto;
     padding: 0 20px;
-    font-size: 40px;
+    font-size: 38px;
     background: #fff;
     text-align: center;
 }
@@ -268,7 +268,7 @@ body{
 .form-group{
     width: 980px;
     height: 40px;
-    margin: 0 auto;
+    marginbo: 0 auto;
     font-size: 12px;
     position: relative;
     display:block;
@@ -368,14 +368,15 @@ body{
     width: 280px;
 }
 .button1{
+    top: 2px;
     width: 100px;
     height: 45px;
     color: #fff;
     position: absolute;
     background-color: #00a1d6;
-    border-color: #00a1d6;
-    margin-left: -387px;
-    border-radius: 8px;
+    border: #00a1d6 1px solid;
+    margin-left: -388px;
+    border-radius: 4px;
 }
 .form-group2_y{
     width: 280px;
@@ -394,7 +395,6 @@ body{
 }
 .hidden4{
     width: 410px;
-    height: 32px;
     float: left;
     margin-left: 280px;
     line-height: 10px;
@@ -411,6 +411,10 @@ body{
 .hidden5{
     float: right;
     margin-right: 285px;
+    margin-top: 10px;
+}
+.hidden5 :hover{
+    color: rgb(255, 90, 114)
 }
 .form-button{
     width: 410px;
@@ -419,7 +423,7 @@ body{
 }
 .hidden5 a{
     text-decoration:none;
-    color: #f45d90;
+    color: #00a1d6;
     font-size: 12px;
 
 }
@@ -430,7 +434,7 @@ body{
 }
 #button2{
     width: 85px;
-    height: 36px;
+    height: 34px;
 }
 
 
@@ -439,6 +443,7 @@ body{
     text-align: center;
     font-size: 12px;
     background-color: #f6f9fa;
+    color: #99a2aa;
 }
 #footer_tips{
     list-style: none;
@@ -547,11 +552,42 @@ em.i{
     font-style: normal;
 }
 em.error{
-    color: red;
+    color: #f66495;
+    position: relative;
+    top: 40px;
+    right: 390px;
     font-size: 12px;
-    font-family: 黑体;
+    font-family: PingFangSC-Medium;
     font-style: normal;
 }
+#password
 #hhh.text{
     color: red;
+}
+.block p{
+    color: #99a2aa;
+}
+#header_nav_web ul li a{
+    color: black;
+}
+#button2 :hover{
+    background: #33b4de;
+}
+#button1{
+    webkit-appearance: none;
+    background-color: #00a1d6;
+    border-radius: 4px;
+    border: 1px solid #dcdfe6;
+    box-sizing: border-box;
+    color: white;
+    height: 40px;
+    line-height: 40px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 400px;
+}
+#button1:hover{
+    background: #00bee7;
+}
+#button2:hover{
+    background: #00bee7;
 }

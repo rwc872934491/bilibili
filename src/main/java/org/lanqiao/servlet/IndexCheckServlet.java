@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet("/IndexCheckServlet")
-public class indexCheckServlet extends HttpServlet {
+public class IndexCheckServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         int userId1 = (int) session.getAttribute("userId");
