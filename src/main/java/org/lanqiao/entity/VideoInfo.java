@@ -3,19 +3,10 @@ package org.lanqiao.entity;
 import java.util.Date;
 
 public class VideoInfo {
-    public VideoInfo() {
-
-    }
-
-    public VideoInfo(String videoName, int videoType) {
-        this.videoName = videoName;
-        this.videoType = videoType;
-    }
-
     private int videoId;
     private String videoName;
     private int videoType;
-    private int videoContributorId;
+    private int userId;
     private Date videoTime;
     private String videoImage;
     private int videoClick;
@@ -24,6 +15,15 @@ public class VideoInfo {
     private int videoReview;
     private int videoBoom;
     private String videoPath;
+
+    public VideoInfo() {
+
+    }
+
+    public VideoInfo(String videoName, int videoType) {
+        this.videoName = videoName;
+        this.videoType = videoType;
+    }
 
     public String getVideoPath() {
         return videoPath;
@@ -57,12 +57,12 @@ public class VideoInfo {
         this.videoType = videoType;
     }
 
-    public int getVideoContributorId() {
-        return videoContributorId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setVideoContributorId(int videoContributorId) {
-        this.videoContributorId = videoContributorId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Date getVideoTime() {

@@ -7,6 +7,10 @@ public class ReviewInfo {
 
     }
 
+    public ReviewInfo(int userId) {
+        this.userId = userId;
+    }
+
     public ReviewInfo(int userId, int videoId, String reviewContent, int reviewTop, int reviewFloor) {
         this.userId = userId;
         this.videoId = videoId;
@@ -103,4 +107,6 @@ public class ReviewInfo {
     public void setReviewTime(Date reviewTime) {
         this.reviewTime = reviewTime;
     }
+
+
 }

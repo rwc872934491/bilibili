@@ -295,28 +295,28 @@
     margin-left: 8px;
 }
 .nui_menu_icon1{
-    background: url("../image/icon1.png");
+    background: url("../image/t1.jpg");
 }
 .nui_menu_icon2{
-    background: url("../image/icon2.png");
+    background: url("../image/t2.jpg");
 }
 .nui_menu_icon3{
-    background: url("../image/icon3.png");
+    background: url("../image/t3.jpg");
 }
 .nui_menu_icon4{
-    background: url("../image/icon4.png");
+    background: url("../image/t4.jpg");
 }
 .nui_menu_icon5{
-    background: url("../image/icon5.png");
+    background: url("../image/t5.jpg");
 }
 .nui_menu_icon1:hover{
-    background: url("../image/icon6.png");
+    background: url("../image/t6.jpg");
 }
 .nui_menu_icon2:hover{
-    background: url("../image/icon7.png");
+    background: url("../image/t7.jpg");
 }
 .nui_menu_icon4:hover{
-    background: url("../image/icon9.png");
+    background: url("../image/t9.jpg");
 }
 .underline{
     text-align: center;
@@ -539,11 +539,10 @@
 #background{
     float: left;
     height:100%;
-    width: 100%;
+    width: 840px;
     margin-left: 150px;
     background:url("../image/upload_v2_1_bg@2x.5ebf7ca.png") no-repeat;
-    background-size: 820px 700px ;
-
+    background-size: 820px 800px ;
 }
 
 .video_img{
@@ -596,32 +595,8 @@
     height: 40px;
     background-color: red;
 }
-.data{
-    width:820px;
-    height: 55px;
-    margin-top: 220px;
-}
-.data_send{
-    width:200px;
-    height: 55px;
-    margin-left:370px;
-}
-.data_send p{
-    font-size: 16px;
-}
-.data_send i{
-    font-size: 13px;
-    margin-left:30px;
-}
-.data_send span{
-    height:18px;
-    width: 50px;
-    background-color: red;
-    border-radius: 5px;
-    padding:4px 10px;
-    font-size: 13px;
-    margin-left:6px;
-}
+
+
 .old{
     width:820px;
     height: 40px;
@@ -629,10 +604,10 @@
     font-size: 14px;
 }
 .send_old{
-    width: 200px;
+    float: left;
+    width:60px;
     height: 40px;
     margin-left: 400px;
-    padding: 10px 30px;
     border-radius: 5px;
     border: 1px solid darkgrey;
 }
@@ -640,7 +615,7 @@
 .help{
     width: 820px;
     height: 600px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .help_up{
     float: left;
@@ -1340,68 +1315,10 @@
 #chooseFile{
     background: #93b6fc;
 }
-
 #uploadFile,#rechooseFile {
     display: none;
     background: #93b6fc;
 }
-
-.image{
-    width:200px;
-    height:200px;
-}
-
-/* 进度条样式 */
-.bar {
-    background-image: -webkit-linear-gradient(top,#5cb85c 0,#449d44 100%);
-    background-image: -o-linear-gradient(top,#5cb85c 0,#449d44 100%);
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#5cb85c),to(#449d44));
-    background-image: linear-gradient(to bottom,#5cb85c 0,#449d44 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5cb85c', endColorstr='#ff449d44', GradientType=0);
-    background-repeat: repeat-x;
-    height: 20px;
-    line-height: 20px;
-    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
-    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
-    -webkit-transition: width .6s ease;
-    -o-transition: width .6s ease;
-    transition: width .6s ease;
-}
-#progress {
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffebebeb', endColorstr='#fff5f5f5', GradientType=0);
-    background-repeat: repeat-x;
-    height: 20px;
-    width: 0%;
-    margin-bottom: 20px;
-    overflow: hidden;
-    background-color: #f5f5f5;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
-    margin-top: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 a {
     text-decoration: none;
@@ -1560,23 +1477,132 @@ a {
     color: #00a1d6;
     font-weight: 700;
 }
-
 #image{
     float: left;
     height: 40px;
-    width: 100px;
+    width: 250px;
     font-size: 15px;
-    color: #2e9ad0;
-    background-color: pink;
-    margin-top: 30px;
+    color: deepskyblue;
 }
 #firstMenu{
-    height: 20px;
-    width: 40px;
-    background-color: #99a2aa;
+    height: 25px;
+    width: 50px;
+    background-color:orchid;
 }
 #secondMenu{
-    height: 20px;
-    width: 40px;
-    background-color: powderblue;
+    height: 25px;
+    width:80px;
+    background-color: darkorchid;
 }
+
+#div p{
+    line-height:30px;
+    font-size: 14px;
+    margin-top: 40px;
+    text-align: center;
+}
+#div i{
+    margin-left: 20px;
+    height: 20px;
+    width:80px;
+    font-size: 13px;
+}
+#div span{
+    background-color: red;
+    height: 20px;
+    width: 28px;
+    font-size: 13px;
+}
+#ok{
+   margin-top: 180px;
+    height:60px;
+    width: 60px;
+    border-radius: 50%;
+    text-align:center;
+    box-shadow: 0 8px 16px 0 rgba(207,29,82,0.16);
+}
+#fileupload{
+    float:left;
+    width:200px;
+    position: absolute;
+    opacity: 0;
+}
+
+
+
+.preview{
+    height:180px;
+    width: 250px;
+    float:right;
+    margin-top: -110px;
+    text-align:center;
+}
+#data{
+    float:left;
+    font-size: 15px;
+    height:40px;
+    width:380px;
+    color: deepskyblue;
+    text-align: center;
+    margin-top: 30px;
+}
+#type_text{
+    border-radius: 4px;
+    height: 30px;
+    width: 150px;
+    margin-left: 5px;
+}
+#div{
+    width: 280px;
+    height:180px;
+    float:left;
+    margin-left:400px;
+    margin-right:600px;
+    border-radius: 50%;
+    text-align:center;
+    box-shadow: 0 16px 32px 0 rgba(207,29,82,0.16);
+    border: 1px solid pink;
+}
+#form{
+    float:left;
+    height:240px;
+    width:450px ;
+    margin-top: -80px;
+    border-radius: 50%;
+    margin-left: 30px;
+    text-align:center;
+    box-shadow: 0 32px 64px 0 rgba(207,29,82,0.16);
+    border: 1px solid pink;
+}
+.video_send{
+    float:left;
+}
+.image{
+    background-color: blue;
+    width:200px;
+    height:200px;
+    text-align: center;
+    border: 1px solid yellowgreen;
+}
+#commit{
+    float: left;
+    height:200px;
+    width: 350px;
+}
+#btn{
+    float:left;
+    height: 40px;
+    width: 80px;
+    position: relative;
+    border-radius: 10px;
+    margin-left: 120px;
+    text-align: center;
+    background-color: deepskyblue;
+}
+#gif{
+    float: left;
+    height: 180px;
+    width: 300px;
+    margin-left: 60px;
+}
+

@@ -10,4 +10,7 @@ public interface TypeInfoDao {
 
     //根据菜单内容找到菜单编号
     public int ShowTypeId(String Content);
+
+    public List<TypeInfo> getSecondMenuTypeName(int typeId);
+    public List<TypeInfo> getFirstMenuTypeName();
 }

@@ -215,7 +215,6 @@ public abstract class BaseDao<T> {
             closeAll(conn, stat, rs);
         }
         return MaxFloor;
-
     }
 
     // 输出预编译的sql语句的具体内容(便于调试)

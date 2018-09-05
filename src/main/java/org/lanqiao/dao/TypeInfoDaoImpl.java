@@ -11,6 +11,18 @@ public class TypeInfoDaoImpl extends BaseDao<TypeInfo> implements TypeInfoDao {
         return executeQuery("SELECT * FROM TypeInfo Where typeFather = ?",
                 new Object[]{typeId});
     }
+    public List <TypeInfo> getSecondMenuTypeName(int typeid) {
+        List <TypeInfo> list = new ArrayList <TypeInfo>();
+        list = executeQuery("SELECT * FROM TypeInfo WHERE typeFather = ?",
+                new Object[]{typeid});
+        return list;
+
+    }
+    public List<TypeInfo> getFirstMenuTypeName(){
+        List<TypeInfo> list = new ArrayList <TypeInfo>();
+        list = executeQuery("SELECT * FROM TypeInfo WHERE typeFather = 0");
+        return list;
+    }
 
     //根据菜单内容找到菜单编号
     public int ShowTypeId(String Content){
@@ -20,15 +32,4 @@ public class TypeInfoDaoImpl extends BaseDao<TypeInfo> implements TypeInfoDao {
         return list.get(0).getTypeId();
     }
 
-    public static void main(String[] args){
-        TypeInfoDaoImpl typeInfoDao = new TypeInfoDaoImpl();
-        List<TypeInfo> list = new ArrayList<TypeInfo>();
-        list = typeInfoDao.ShowTypeTwo(1);
-        for (int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i).getTypeId() + " " + list.get(i).getTypeName());
-        }
-
-        int ret = typeInfoDao.ShowTypeId("动画");
-        System.out.println(ret + "888888888");
-    }
 }

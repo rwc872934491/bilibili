@@ -7,6 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao {
+    public int InsertVideoInfo(VideoInfo videoinfo){
+        return executeUpdate("Insert Into VideoInfo (videoName, videoType, userId, videoImage, videoPath) Values (?, ?, ?, ?, ?)",
+                new Object[]{videoinfo.getVideoName(), videoinfo.getVideoType(), videoinfo.getUserId(),
+                videoinfo.getVideoImage(), videoinfo.getVideoPath()});
+    }
+
+
+
     public List<VideoInfo> ShowVideoInfo(int pageNum, int pageSize){
         return executeQuery("SELECT * FROM VideoInfo ORDER BY videoId LIMIT ?, ?",
                 new Object[]{(pageNum - 1) * pageSize, pageSize});

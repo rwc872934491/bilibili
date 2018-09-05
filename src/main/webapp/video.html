@@ -2,27 +2,117 @@
 <html>
 <head>
     <meta charset=utf-8>
-   <title>视频投稿</title>
+    <title>视频投稿</title>
+
     <link rel="stylesheet"type="text/css"href="css/contribute.css">
     <link rel="stylesheet"type="text/css"href="css/base.css">
+    <link rel="stylesheet"type="text/css"href="css/layer.css">
     <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
+    <script src="js/layer.js"></script>
     <script src="js/jquery.ui.widget.js"></script>
-    <script src="js/jquery.iframe-transport.js"></script>
+    <!--//<script src="js/jquery.iframe-transport.js"></script>-->
     <script src="js/jquery.fileupload.js"></script>
     <script src="js/jquery.fileupload-process.js"></script>
     <script src="js/jquery.fileupload-validate.js"></script>
-    <script src="js/jquery.validate.js" type="application/javascript"></script>
+    <script src="js/jquery.validate.js"></script>
     <script src="js/jquery.validate.messages_cn.js" type="application/javascript"></script>
-    <script>
-        //二级菜单
-        $(function (){
+
+<body>
+<div id=video>
+
+    <a href="#" class="video_img"target="_self"></a>
+    <div id="background">
+        <div id="background_up">
+            <div class="show"></div>
+            <div class="video_send">
+                <span><i class="icon">
+                    <input id="fileupload" class="fileupload" type="file" name="files" multiple="multiple" >
+                    <!--//opacity: 0;-->
+                    </i>上传视频</span>
+                <div class="video_person"></div>
+                <button id="ok">确定</button>
+            </div>
+            <div id="div"ondrop="drop(event)" ondragover="allowDrop(event)" >
+                <p>拖拽视频到此处也可以上传</p><br/>
+                <i>当前审核队列</i><span>爆满</span>
+                <div class="preview" style="display: none"></div>
+            </div>
+
+            <div id="pht" style="float:right;height: 40px;width: 40px;background-color: pink">
+                <p class="title" style="    display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;"></p>
+                <img id="showimg" src="image/common03.jpg"style="  position: absolute;top: 20px;">
+                <p style="display: block;-webkit-margin-before: 1em;-webkit-margin-after: 1em;-webkit-margin-start: 0px;-webkit-margin-end: 0px;"><input type="file" class="file" id="img"></p>
+            </div>
+            <div id="form">
+                <form id="frm" action=""type="post">
+                    <div id="data">
+                        输入标题：<input type="text" id="type_text" name="text" value="请输入标题">
+                    </div>
+                    <p id="image">请选择：
+                        <select id="firstMenu">请选择</select>
+                        <select id="secondMenu"></select>
+                    </p>
+                    <input type="button"id="btn" name="btn"value="提交">
+                </form>
+            </div>
+        </div>
+        <div class="help">
+            <div class="help_up">
+                <ul>
+                    <li><a>禁止发布的视频内容</a></li>
+                    <li><a>视频大小</a></li>
+                    <li><a>视频格式</a></li>
+                    <li><a>视频码率</a></li>
+                </ul>
+            </div>
+            <div class="help_down">
+                <i>上传视频，即表明您已同意</i><a href="#">哔哩哔哩使用协议</a>
+                <span>请勿上传色情，反动违规视频。</span>
+            </div>
+            <div class="help_bot">
+                <ul>
+                    <li><span>第三方工具</span></li>
+                    <li><a><i></i>小丸压制工具原版</a></li>
+                    <li><a><i></i>小丸压制工具Bilibili定制版</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    //表单验证
+    $(function (){
+        $(document).ready(function () {
+            $("#frm").validate({
+                rules:{
+                    text:{
+                        required:true,
+                        minlength:3,
+                        maxlength:25,
+                        regex:"^[\u4e00-\u9fa5_a-zA-Z0-9]+$",
+                    },
+                },
+                messages:{
+                    text:{
+                        required:"*",
+                        minlength:"最少为3位",
+                        maxlength:"最大为25位",
+                        regex:"请输入汉字，数字，大小写或下划线",
+                    },
+                },
+                onfocusout:true,//是否在获取焦点时验证
+                onkeyup:true,//是否在敲击键盘时验证
+                focusInvalid:true,//提交表单后（第一个）未通过验证的表单获得焦点
+                focusClean:true,//当未通过验证的元素获得焦点时，移除错误提示
+            });
+
+            //二级菜单
             $.ajax({
                 url: "/ShowFirstMenuServlet",
                 type: "post",
                 dataType: "json",
                 success: function (list) {
-                    alert(4);
-                    //  $("#firstMenu").append(list[0].typeName);
                     for (var i = 0; i < list.length; i++) {
                         $("#firstMenu").append('<option value="' + list[i].typeId + '">' + list[i].typeName + '</option>');//value的值绑定到一级菜单上，共同拿到
                     }
@@ -31,7 +121,6 @@
             $("body").on("change","#firstMenu",function () {
                 $("#secondMenu").empty();
                 var $num = $(this).children('option:selected').val();//拿到所选typeID的子节点
-                alert($num);
                 $.ajax({
                     url:"/ShowSecondMenuServlet",
                     type:"post",
@@ -39,85 +128,118 @@
                     dataType:"json",
                     success:function (list){
                         for(var i=0;i<list.length;i++){
-
-                            $("#secondMenu").append('<option>'+list[i].typeName+'</option>')
+                            $("#secondMenu").append('<option value="' + list[i].typeId + '">' + list[i].typeName + '</option>')
+                            if($("#secondMenu").val()==null){
+                                layer.tips('请选择', '#div', {
+                                    tips: [1, '#3595CC'],
+                                    time: 4000,
+                                });
+                            }
                         }
-                        // $("#firstMenu").append(list.typeId);
                     }
                 });
             });
+        });
 
+        //封面上传
 
-            //文件视频上传
+        $("#showimg").click(function () {
+            $("#img").trigger("click");
+        });
+        $("#img").change(function (e) {
+            var img = e.target.files[0];
+            // 判断是否图片
+            if (!img) {
+                return;
+            }
+            // 判断图片格式
+            if (!(img.type.indexOf('image') == 0 && img.type && /\.(?:jpg|png|gif)$/.test(img.name))) {
+                alert('图片只能是jpg,gif,png');
+                return;
+            }
+            var reader = new FileReader();
+            reader.readAsDataURL(img);
+            reader.onload = function (e) {
+                // ajax 上传图片
+                $.post("VideoFaceServlet", {img: e.target.result}, function (ret) {
+                    if (ret.img != '') {
+                        //显示图片
+                        $('#showimg').attr("src", ret.imgUrl);
+                    }
+                }, 'json');
+            }
+        })
 
+        //视频上传
+        $('.fileupload').fileupload({
+            url: "/uploadFile",
+            Type: 'POST',//请求方式 ，可以选择POST，PUT或者PATCH,默认POST
+            dataType: 'json',//服务器返回的数据类型
+            cache: false,
+            processData: false,
+            contentType: false,
+            //singleFileUploads: false,//不设置多个文件循环提交，设置后一起提交
 
+            //add函数为选择文件后执行的操作
+            add: function (e, data) {
+                $("#ok").click(function () {
+                    data.submit();
+                });
+            },
 
-
-
+            //done函数为上传成功后执行的操作
+            done: function (e, ret){
+                if (ret.result.errno == 0) {
+                    // 显示上传成功，并循环输出上传内容预览。
+                    // $(".preview").append("<div>上传成功:" + ret.result.data + "</div>");
+                    $.each(ret.result.data, function (index, fileSrc) {
+                        $(".preview").append("<div style='margin-top:25px;float:left;position: relative;' id='show'><embed src=" +
+                            fileSrc + " allowscriptaccess='always' " +
+                            " wmode='opaque' width='200' height='100'>" +
+                            "</embed></div>");
+                        var index = layer.load(0, {shade: false});
+                        $(".preview").show(index);
+                    });
+                } else {
+                    layer.msg('上传失败',{time:3000});
+                }
+            },
+            //此方法控制进度条
+            progressall: function (e, data) {
+                var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .bar').css(
+                    'width',
+                    progress + '%'
+                );
+            },
 
         });
 
-    </script>
-<body>
-<div id=video>
-    <a href="#" class="video_img"target="_self"></a>
-    <div id="background">
-        <div id="background_up">
-            <div class="video_send">
-                <span><i class="icon"></i>上传视频
-                    <input type="file" class="check_pic_img">
-                </span>
-                <div class="video_person"></div>
-            </div>
-
-            <div class="show">
-            </div>
-            <div class="data">
-
-                </p>
-                <div class="data_send">
-                    <p>拖拽视频到此处也可以上传</p><br/>
-                    <i>当前审核队列</i><span>爆满</span>
-                </div>
-            </div>
-            <p id="image">请选择：
-                <select id="firstMenu">
-
-                </select>
-                <select id="secondMenu">
-
-                </select>
-            </p>
-
-            <div class="old">
-                <a href="#" class="send_old">
-                    回到旧版
-                </a>
-            </div>
-
-            <div class="help">
-                <div class="help_up">
-                    <ul>
-                        <li><a>禁止发布的视频内容</a></li>
-                        <li><a>视频大小</a></li>
-                        <li><a>视频格式</a></li>
-                        <li><a>视频码率</a></li>
-                    </ul>
-                </div>
-                <div class="help_down">
-                        <i>上传视频，即表明您已同意</i><a href="#">哔哩哔哩使用协议</a>
-                        <span>请勿上传色情，反动违规视频。</span>
-                </div>
-                <div class="help_bot">
-                    <ul>
-                        <li><span>第三方工具</span></li>
-                        <li><a><i></i>小丸压制工具原版</a></li>
-                        <li><a><i></i>小丸压制工具Bilibili定制版</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+        //上传上传视频
+         $("#btn").click(function (e) {
+            var title=$("#type_text").val();
+            var $select=$("#secondMenu").children('option:selected').val();
+            if(title==""){
+                layer.msg("标题不能为空！",{time:4000});
+                e.preventDefault();
+            }
+            if($select==""){
+                layer.msg("请选择",{time:3000});
+                e.preventDefault();
+            }
+            $.ajax({
+                url: "/CommitFileServlet",
+                Type: 'POST',//请求方式 ，可以选择POST，PUT或者PATCH,默认POST
+                dataType: 'json',//服务器返回的数据类型
+                data:{"videoName":$("#type_text").val(),"typeId":$("#secondMenu").children('option:selected').val()},
+                success:function (ret) {
+                    e.preventDefault();
+                    layer.msg("上传成功",{time:4000});
+                    window.location.href = "contribute_index.html";
+                    // $("#type_text").val("");
+                }
+            })
+        })
+    });
+</script>
 </html>

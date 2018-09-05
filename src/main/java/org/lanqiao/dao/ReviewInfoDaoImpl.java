@@ -1,8 +1,10 @@
 package org.lanqiao.dao;
 
+import net.sf.json.JSONObject;
 import org.lanqiao.entity.ReviewInfo;
 import org.lanqiao.entity.UserInfo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfoDao {
@@ -57,17 +59,5 @@ public class ReviewInfoDaoImpl extends BaseDao<ReviewInfo> implements ReviewInfo
                 new Object[]{videoId});
     }
 
-    public static void main(String[] args){
-        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
-        int MaxFloor = reviewInfoDao.MaxFloor(39);
-        System.out.println(MaxFloor);
-    }
 
-
-//    public static void main(String[] args){
-//        ReviewInfoDaoImpl reviewInfoDao = new ReviewInfoDaoImpl();
-//        int ret = reviewInfoDao.AddTrueReview(1);
-//        int re1 = reviewInfoDao.AddFlaseReview(1);
-//        System.out.println(ret + re1 + "888888888888");
-//    }
 }

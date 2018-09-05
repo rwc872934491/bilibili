@@ -8,7 +8,23 @@
     <script>
         $(function () {
             setTimeout("change_img()", 100);
-        })
+
+            //显示评论数和点赞数
+            $.ajax({
+                url: "/ShowDataServlet",
+                Type: 'POST',//请求方式 ，可以选择POST，PUT或者PATCH,默认POST
+                dataType: 'json',//服务器返回的数据类型
+                success:function(list){
+                    alert(0);
+                    for(var i=0;i<list.length;i++){
+                        $("#reviewTop").text(result[i].sumReviewTop);
+                        $("#reviewPraise").text(result[i].sum.ReviewPraise);
+                    }
+                }
+            });
+
+
+        });
         var i = -1;
         var middle_img = new Array("image/contribute_index_top_carousel_1.jpg","image/contribute_index_top_carousel_2.jpg","image/contribute_index_top_carousel_3.jpg","image/contribute_index_top_carousel_4.jpg","image/contribute_index_top_carousel_5.jpg" );
 
@@ -20,6 +36,8 @@
             }
             setTimeout("change_img()", 3000);
         }
+
+
     </script>
 </head>
 <body>
@@ -85,7 +103,7 @@
             <div class="contribute_index_bottom_data">
                 <div class="contribute_index_bottom_data_item">评论总量</div>
                 <div class="contribute_index_bottom_data_num">
-                    <span>0</span>
+                    <span id="reviewTop">0</span>
                 </div>
             </div>
             <div class="contribute_index_bottom_data">
@@ -103,7 +121,7 @@
             <div class="contribute_index_bottom_data">
                 <div class="contribute_index_bottom_data_item">点赞总量</div>
                 <div class="contribute_index_bottom_data_num">
-                    <span>0</span>
+                    <span id="reviewPraise">0</span>
                 </div>
             </div>
             <div class="contribute_index_bottom_data">

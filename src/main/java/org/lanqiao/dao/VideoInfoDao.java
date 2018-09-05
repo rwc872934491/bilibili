@@ -4,6 +4,8 @@ import org.lanqiao.entity.VideoInfo;
 
 import java.util.List;
 
+import org.lanqiao.entity.VideoInfo;
+
 public interface VideoInfoDao {
     //通过视频编号分页显示所有视频
     public List<VideoInfo> ShowVideoInfo(int pageNum, int pageSize);
@@ -16,6 +18,8 @@ public interface VideoInfoDao {
 
     //根据二级菜单显示所有视频
     public  List<VideoInfo> ShowTypeTwoVideo(int typeId2);
+    public int InsertVideoInfo(VideoInfo videoinfo);
+
 
     //根据视频编号得到视频对象
     public List<VideoInfo> GetVedioInfo(int videoId);
