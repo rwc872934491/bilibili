@@ -71,7 +71,6 @@
     float: left;
     padding: 0px 8px 0px 8px;
 }
-
 #nav_web_music {
     width: 24px;
     height: 42px;
@@ -406,6 +405,9 @@
     padding: 0;
     border: 0;
 }
+.header_search_submit:hover{
+    background: url("../image/icons.png") -718px -720px;
+}
 
 .header_search_ranking {
     position: absolute;
@@ -576,7 +578,7 @@
 }
 
 #index_carousel_title {
-    z-index: 2;
+    z-index: 1;
     position: relative;
     bottom: 35px;
     left: 0;
@@ -627,7 +629,7 @@
 #index_carousel_points {
     position: relative;
     width: 144px;
-    z-index: 3;
+    z-index: 2;
     bottom: 60px;
     left: 290px;
     list-style: none;
@@ -650,6 +652,17 @@
 }
 
 .index_carousel_on {
+    width: 18px;
+    height: 18px;
+    background: #fff;
+    background: url("../image/icons.png") transparent;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    display: inline-block;
+    margin-left: 6px;
+    border-radius: 10px;
+    cursor: pointer;
     background-position: -855px -727px;
 }
 
@@ -665,7 +678,11 @@
     float: left;
     margin: 0 0 20px 20px;
     border-radius: 4px;
-    background: pink;
+}
+.content_recommend_member img{
+    border-radius: 4px;
+    width: 160px;
+    height: 100px;
 }
 
 .content_member_list {
@@ -857,4 +874,7 @@
 
 #footer_partner a:hover {
     color: black;
+}
+.header_list_hidden{
+    z-index: 3;
 }

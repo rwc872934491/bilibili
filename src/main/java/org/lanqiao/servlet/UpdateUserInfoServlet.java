@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -22,8 +23,11 @@ public class UpdateUserInfoServlet extends HttpServlet {
         System.out.println(nickname);
         System.out.println(userMark);
         System.out.println(userSex);
+        HttpSession session = request.getSession();
+        int userId =(int)session.getAttribute("userId");
         //2.封装对象
         UserInfo userInfo=new UserInfo();
+        userInfo.setUserId(userId);
         userInfo.setNickname(nickname);
         userInfo.setUserMark(userMark);
         userInfo.setUserSex(userSex);

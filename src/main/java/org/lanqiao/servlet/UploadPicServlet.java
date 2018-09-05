@@ -27,8 +27,9 @@ public class UploadPicServlet extends HttpServlet {
         String userImage = "/upload/" + imgName;
         HttpSession session = request.getSession();
         session.setAttribute("userImage", userImage);
+        int userId =(int)session.getAttribute("userId");
         UserInfoDao dao =new UserInfoDaoImpl();
-        dao.updateUserImage(userImage);
+        dao.updateUserImage(userImage,userId);
     }
 
     

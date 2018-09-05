@@ -90,7 +90,7 @@
 }
 
 .slider:hover .sliderIcon {
-  background-position: 0 -13px;
+  background-position: 0 -10px;
 }
 
 .sliderIcon {
@@ -99,17 +99,17 @@
   left: 13px;
   width: 14px;
   height: 10px;
-  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -26px;
+  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -20px;
   background-size: 34px 370px;
 }
 
 .refreshIcon {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 34px;
-  height: 34px;
+  right: 280px;
+  top: 120px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
-  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) 0 -360px;
-  background-size: 34px 471px;
+  background: url(http://cstaticdun.126.net//2.6.3/images/icon_light.f13cff3.png) -5px 35px;
+  background-size: 35px 450px;
 }
