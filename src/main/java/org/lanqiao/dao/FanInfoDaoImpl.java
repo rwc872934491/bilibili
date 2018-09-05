@@ -7,11 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FanInfoDaoImpl extends BaseDao<FanInfo> implements FanInfoDao {
+    //根据封装的的对象,即userId1和userId
     public int AddFanInfo(FanInfo fanInfo){
         return executeUpdate("INSERT INTO FanInfo (userId1, userId2) values (?, ?)",
                 new Object[]{fanInfo.getUserId1(), fanInfo.getUserId2()});
     }
 
+    //根据主人编号,得到其所有粉丝的用户编号
     public List<UserInfo> ShowFanInfo(int userId){
         List<UserInfo> list = new ArrayList<UserInfo>();
         UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
@@ -21,12 +23,7 @@ public class FanInfoDaoImpl extends BaseDao<FanInfo> implements FanInfoDao {
     }
 
     public static void main(String[] args){
-        FanInfoDaoImpl fanInfoDao = new FanInfoDaoImpl();
-        List<UserInfo> list = new ArrayList<UserInfo>();
-        list = fanInfoDao.ShowFanInfo(20);
-        for (int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i).getUserId() + " " + list.get(i).getNickname() + " " + list.get(i).getUserName());
+
         }
 
-    }
 }
