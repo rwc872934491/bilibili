@@ -39,7 +39,8 @@ public class ShowSecondServlet extends HttpServlet {
         System.out.println("List(ShowSecond) :" + list1.get(0).getTypeName());
 
         //将list传回前端
-        JSONArray jsonArray = JSONArray.fromObject(list);
+        JSONArray jsonArray = JSONArray.fromObject(list1);
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaa"+jsonArray);
         PrintWriter out = response.getWriter();
         out.print(jsonArray);
         out.flush();

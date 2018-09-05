@@ -10,6 +10,7 @@ $(function () {
             $("#video_abi").attr("src", list[0].videoPath);
             $("#video_message_title").children().html(list[0].videoName);
             $("#video_message_middle").children("time").html(list[0].videoTime);
+            // $("#video_message_middle").children().children().eq(2).html(list[0].videoType);
             alert($("#video_abi").attr("src"));
         }
     });
@@ -34,14 +35,25 @@ $(function () {
         })
     });
 
-    //页面显示一级菜单和二级菜单
+    // alert($("#video_message_middle").children().children().eq(1).html());
+    //页面显示一级菜单
     $.ajax({
-        url:"/",
+        url:"/ShowFirst",
         type:"post",
         dataType:"json",
         success:function (list) {
-            $("#video_message_middle").children().children().eq(1).html();
-            $("#video_message_middle").children().children().eq(2).html();
+            // alert(11111111111);
+            // alert(list[0].typeName);
+            $("#video_message_middle").children().children().eq(1).html(list[0].typeName);
+        }
+    });
+    //页面显示二级菜单
+    $.ajax({
+        url:"/ShowSecond",
+        type:"post",
+        dataType:"json",
+        success:function (list) {
+            $("#video_message_middle").children().children().eq(2).html(list[0].typeName);
         }
     });
 
