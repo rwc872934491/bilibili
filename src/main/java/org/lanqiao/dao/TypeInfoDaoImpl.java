@@ -45,6 +45,13 @@ public class TypeInfoDaoImpl extends BaseDao<TypeInfo> implements TypeInfoDao {
     }
 
     public static void main(String[] args){
+        List<TypeInfo> list = new ArrayList<TypeInfo>();
+        List<TypeInfo> list1 = new ArrayList<TypeInfo>();
+        TypeInfoDaoImpl typeInfoDao = new TypeInfoDaoImpl();
+        list = typeInfoDao.ShowFirstMenu(3);
+        list1 = typeInfoDao.ShowSecondMenu(3);
+        System.out.println(list.get(0).getTypeName());
+        System.out.println(list1.get(0).getTypeName());
 
     }
 
