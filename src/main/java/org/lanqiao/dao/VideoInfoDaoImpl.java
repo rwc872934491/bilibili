@@ -60,10 +60,15 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
         return list;
     }
 
+    //根据视频编号增加点击量
+    public int ClickVideo(int videoId){
+        return executeUpdate("Update VideoInfo Set videoClick = videoClick + 1 Where videoId = ?",
+                new Object[]{videoId});
+    }
+
     public static void main(String[] args){
         VideoInfoDaoImpl videoInfoDao = new VideoInfoDaoImpl();
-        List<VideoInfo> list = new ArrayList<VideoInfo>();
-        list = videoInfoDao.GetVedioInfo(60);
-        System.out.println(list.get(0).getVideoName());
+        int ret = videoInfoDao.ClickVideo(93);
+        System.out.println(ret);
     }
 }
