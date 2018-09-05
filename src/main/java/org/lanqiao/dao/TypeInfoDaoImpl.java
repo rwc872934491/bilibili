@@ -32,4 +32,20 @@ public class TypeInfoDaoImpl extends BaseDao<TypeInfo> implements TypeInfoDao {
         return list.get(0).getTypeId();
     }
 
+    //通过二级菜单编号找到一级菜单对象(通过list传)
+    public List<TypeInfo> ShowFirstMenu(int typeId){
+        return executeQuery("Select A.* from TypeInfo A, (Select * from TypeInfo Where typeId = ?) B Where B.typeFather = A.typeId;",
+                new Object[]{typeId});
+    }
+
+    //通过二级菜单编号找到二级菜单对象(通过list传)
+    public List<TypeInfo> ShowSecondMenu(int typeId){
+        return executeQuery("Select * from TypeInfo Where typeId = ?",
+                new Object[]{typeId});
+    }
+
+    public static void main(String[] args){
+
+    }
+
 }
