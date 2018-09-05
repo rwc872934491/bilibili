@@ -19,28 +19,28 @@ body{
 }
 /*推广………………………………………………………………………………………………*/
 /*#div_implement{*/
-    /*width: 980px;*/
-    /*height: 228px;*/
-    /*background-color: white;*/
-    /*padding-bottom: 15px;*/
+/*width: 980px;*/
+/*height: 228px;*/
+/*background-color: white;*/
+/*padding-bottom: 15px;*/
 /*}*/
 /*#div_implement_left{*/
-    /*width: 720px;*/
-    /*height: 213px;*/
-    /*float: left;*/
-    /*!*background-color: lavender;*!*/
-    /*padding-bottom: 15px;*/
+/*width: 720px;*/
+/*height: 213px;*/
+/*float: left;*/
+/*!*background-color: lavender;*!*/
+/*padding-bottom: 15px;*/
 /*}*/
 /*#div_implement_left_top{*/
-    /*width: 720px;*/
-    /*height: 45px;*/
-    /*padding-bottom: 15px;*/
+/*width: 720px;*/
+/*height: 45px;*/
+/*padding-bottom: 15px;*/
 /*}*/
 /*#div_implement_right{*/
-    /*width: 260px;*/
-    /*height: 194px;*/
-    /*float: right;*/
-    /*padding-bottom: 15px;*/
+/*width: 260px;*/
+/*height: 194px;*/
+/*float: right;*/
+/*padding-bottom: 15px;*/
 /*}*/
 /*番剧主体——————————————————————————————————*/
 /*#div_fanju{
@@ -459,4 +459,7 @@ body{
 }
 .video_up_focus_button:hover{
     background:#00c1d6;
+}
+.index_islogin {
+    display: none;
 }

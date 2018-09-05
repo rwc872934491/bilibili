@@ -30,7 +30,7 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
 
     //注册验证
     public int insertUser(UserInfo userInfo) {
-        return executeUpdate("insert into UserInfo(userName,nickName,password,userIndentity) values(?,?,?,0)", new Object[]{userInfo.getUserName(), userInfo.getNickname(), userInfo.getPassword()});
+        return executeUpdate("insert into UserInfo(userName,nickName,password,userIdentity) values(?,?,?,?)", new Object[]{userInfo.getUserName(), userInfo.getNickname(), userInfo.getPassword(),0});
     }
 
     //    获得需要封装入session的信息
@@ -60,8 +60,8 @@ public class UserInfoDaoImpl extends BaseDao<UserInfo> implements UserInfoDao {
     }
 
     public static void main(String[] args) {
-        UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
-        int ret = userInfoDao.ChangeLocked(1);
-        System.out.println(ret);
+//        UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
+//        int ret = userInfoDao.ChangeLocked(1);
+//        System.out.println(ret);
     }
 }

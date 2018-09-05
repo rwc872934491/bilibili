@@ -13,6 +13,46 @@
     <script src="layer/layer.js" type="application/javascript"></script>
     <!--ajax+js+事务控制-->
     <script src="js/review_js.js" type="application/javascript"></script>
+    <script>
+        $(function () {
+            header_code_show();
+            index_checksession();
+            index_show_information();
+        })
+        function header_code_show() {
+            $("#nav_web_download").hover(function () {
+                $("#download_code").show()
+            }, function () {
+                $("#download_code").hide()
+            })
+        }
+        function index_checksession() {
+            $.ajax({
+                url: "/IndexCheckServlet",
+                data: {},
+                type: "post",
+                dataType: "json",
+                success: function (jsonArray) {
+                    if (jsonArray.length>0) {
+                        $(".index_islogin").show();
+                        $("#index_notlogin").hide();
+                        $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                        $("#user_nickname").html(jsonArray[0].nickname);
+                        $("#userMark").html(jsonArray[0].userMark);
+                    }else {
+
+                    }
+                }
+            });
+        }
+        function index_show_information() {
+            $("#header_nav_personal").hover(function () {
+                $("#index_user_information").show()
+            },function () {
+                $("#index_user_information").hide()
+            })
+        }
+    </script>
 </head>
 <body>
 <form action="" method="post" id="#reviewform">
@@ -41,17 +81,46 @@
                 </ul>
             </div>
             <div id="header_nav_contribution">
-                <a href="" target="_blank" class="u-link">投 稿</a>
+                <a href="contribution.html" target="_blank" class="u-link">投 稿</a>
             </div>
             <div id="header_nav_history">
                 <a href="" target="_blank" title="历史记录">历史</a>
-            </div>
-            <div id="header_nav_personal">
-                <a href="login.html" class="t">
-                    <div id="nav_personal_image">
-                        <img src="image/origin_image.jpg" class="face">
+                <a href="login.html" class="t" id="index_notlogin">
+                    <div id="nav_personal_image2" style="line-height: 50px">
+                        <img src="image/origin_image.jpg" class="face" id="index_user_image_2" style="margin-bottom: 10px">
                     </div>
                 </a>
+                <a href="" target="_blank" title="消息" class="index_islogin">消息</a>
+                <a href="" target="_blank" title="大会员" class="index_islogin">大会员</a>
+            </div>
+            <div id="header_nav_personal" class="index_islogin">
+                <a href="usercenter.html" class="t">
+                    <div id="nav_personal_image1">
+                        <img src="image/origin_image.jpg" class="face" id="index_user_image_1">
+                    </div>
+                </a>
+                <div id="index_user_information">
+                    <div id="index_user_information_nickname" style="padding-bottom: 25px;">
+                        <span style="font-weight: bold;" id="user_nickname"></span>
+                    </div>
+                    <div id="index_user_information_userMark">
+                        <span id="userMark"></span>
+                    </div>
+                    <div id="index_user_menu">
+                        <ul>
+                            <li><a href="usercenter.html" target="_blank">
+                                <i class="index_user_info_icon person"></i>
+                                个人信息
+                            </a></li>
+                            <li><a href="contribution.html">
+                                <i class="index_user_info_icon contribution"></i>
+                                投稿管理</a></li>
+                        </ul>
+                    </div>
+                    <div id="index_user_exit">
+                        <a href="login.html" id="index_user_exit_button">退出</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

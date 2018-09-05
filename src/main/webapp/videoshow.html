@@ -11,7 +11,7 @@
     <script src="js/videoshow_js.js" type="application/javascript"></script>
     <script>
         $(function () {
-            video_show_list();
+            // video_show_list();
             header_code_show();
             index_checksession();
             index_show_information();
@@ -35,6 +35,8 @@
                         $(".index_islogin").show();
                         $("#index_notlogin").hide();
                         $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                        $("#user_nickname").html(jsonArray[0].nickname);
+                        $("#userMark").html(jsonArray[0].userMark);
                     }else {
 
                     }
@@ -55,13 +57,13 @@
         //         $(this).children().eq(2).css("bottom","0px")
         //     })
         // }
-        function video_show_list() {
-            $("body").on("hover", ".video_show_list_a", function () {
-                $(this).children().eq(2).css("bottom","-40px")
-            },function () {
-                $(this).children().eq(2).css("bottom","0px")
-            })
-        }
+        // function video_show_list() {
+        //     $("body").on("hover", ".video_show_list_a", function () {
+        //         $(this).children().eq(2).css("bottom","-40px")
+        //     },function () {
+        //         $(this).children().eq(2).css("bottom","0px")
+        //     })
+        // }
     </script>
 </head>
 <body>
@@ -96,7 +98,7 @@
             </ul>
         </div>
         <div id="header_nav_contribution">
-            <a href="" target="_blank" class="u-link">投 稿</a>
+            <a href="contribution.html" target="_blank" class="u-link">投 稿</a>
         </div>
         <div id="header_nav_history">
             <a href="" target="_blank" title="历史记录">历史</a>
@@ -116,10 +118,10 @@
             </a>
             <div id="index_user_information">
                 <div id="index_user_information_nickname" style="padding-bottom: 25px;">
-                    <span style="font-weight: bold;">是蛋蛋啊</span>
+                    <span style="font-weight: bold;" id="user_nickname"></span>
                 </div>
                 <div id="index_user_information_userMark">
-                    <span>哈哈哈哈哈哈哈哈哈哈</span>
+                    <span id="userMark"></span>
                 </div>
                 <div id="index_user_menu">
                     <ul>
@@ -127,7 +129,7 @@
                             <i class="index_user_info_icon person"></i>
                             个人信息
                         </a></li>
-                        <li><a href="">
+                        <li><a href="contribution.html">
                             <i class="index_user_info_icon contribution"></i>
                             投稿管理</a></li>
                     </ul>
@@ -159,16 +161,16 @@
     </div>
     <div id="video_show_lists">
         <!--<div class="video_show_list">-->
-            <!--<a href="" target="_blank" class="video_show_list_a">-->
-                <!--<div class="video_show_list_images">-->
-                    <!--<img src="image/video_show_list_image1.webp" class="video_show_list_image">-->
-                <!--</div>-->
-                <!--<p class="video_show_list_title">【综漫/核爆/高燃/多素材AMV】神之战歌，响彻天地; 十年之战，即将重现！</p>-->
-                <!--<div class="video_show_list_data">-->
-                    <!--<span class="video_show_list_click"><i class="video_show_list_data_icon"></i>2.5万</span>-->
-                    <!--<span class="video_show_list_review"><i class="video_show_list_data_icon"></i>185</span>-->
-                <!--</div>-->
-            <!--</a>-->
+        <!--<a href="" target="_blank" class="video_show_list_a">-->
+        <!--<div class="video_show_list_images">-->
+        <!--<img src="image/video_show_list_image1.webp" class="video_show_list_image">-->
+        <!--</div>-->
+        <!--<p class="video_show_list_title">【综漫/核爆/高燃/多素材AMV】神之战歌，响彻天地; 十年之战，即将重现！</p>-->
+        <!--<div class="video_show_list_data">-->
+        <!--<span class="video_show_list_click"><i class="video_show_list_data_icon"></i>2.5万</span>-->
+        <!--<span class="video_show_list_review"><i class="video_show_list_data_icon"></i>185</span>-->
+        <!--</div>-->
+        <!--</a>-->
         <!--</div>-->
     </div>
 </div>

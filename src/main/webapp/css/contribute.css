@@ -173,14 +173,14 @@
 }
 
 #header_nav_history {
-     width: 40px;
-     height: 42px;
-     float: right;
-     position: relative;
-     line-height: 42px;
-     text-align: center;
-     padding: 0 5px
- }
+    width: 40px;
+    height: 42px;
+    float: right;
+    position: relative;
+    line-height: 42px;
+    text-align: center;
+    padding: 0 5px
+}
 #header_nav_collection {
     width: 40px;
     height: 42px;
@@ -216,14 +216,14 @@
 }
 
 .nui_scroll{
-     position: absolute;
-     z-index: 10;
-     border: 1px solid #000;
-     width: 280px;
-     height: 100%;
-     overflow-y: scroll;
-     border-right: 1px solid #e5e9ef;
- }
+    position: absolute;
+    z-index: 10;
+    border: 1px solid #000;
+    width: 280px;
+    height: 100%;
+    overflow-y: scroll;
+    border-right: 1px solid #e5e9ef;
+}
 .nui_scroll::-webkit-scrollbar {
     width:10px;
     background:dimgrey;
@@ -540,33 +540,33 @@
     float: left;
     height:100%;
     width: 840px;
-    margin-left: 150px;
+    margin-left: 170px;
     background:url("../image/upload_v2_1_bg@2x.5ebf7ca.png") no-repeat;
-    background-size: 820px 800px ;
+    background-size: 600px 540px ;
 }
 
 .video_img{
     float: left;
     height: 75px;
     width: 820px;
-    margin-left: 150px;
+    margin-left: 130px;
     margin-top: 10px;
     background:url("../image/banner_4.5858159.jpg");
 }
 .video_person{
     clear: both;
     position:absolute;
-    margin-top: 60px;
+    margin-top: 50px;
     height:180px;
     width:280px;
-    margin-left: 130px;
+    margin-left: 60px;
     background:url("../image/2233_upload@2x.637ac33.png") no-repeat;
-    background-size: 280px 180px ;
+    background-size: 235px 155px ;
 }
 .video_send span{
     float: left;
     display: block;
-    width:240px;
+    width:205px;
     position: relative;
     height: 75px;
     border-radius: 40px;
@@ -576,10 +576,10 @@
     line-height: 70px;
     padding-right: 100px;
     font-weight: bolder;
-    margin-left:270px;
+    margin-left:185px;
     padding-left: 20px;
-    margin-top: 165px;
-    background-color: dodgerblue;
+    margin-top: 130px;
+    background-color: #00a1d6
 }
 .icon{
     width: 26px;
@@ -590,12 +590,6 @@
     display: inline-block;
     vertical-align: middle;
 }
-.show{
-    width:820px;
-    height: 40px;
-    background-color: red;
-}
-
 
 .old{
     width:820px;
@@ -621,7 +615,7 @@
     float: left;
     height: 30px;
     width: 820px;
-    margin-left: 200px;
+    margin-left: 175px;
 }
 .help_up ul li{
     float: left;
@@ -633,7 +627,7 @@
     float: left;
     height: 30px;
     width: 820px;
-    margin-left: 200px;
+    margin-left: 145px;
 }
 .help_down a{
     color:#00a1d6;
@@ -649,7 +643,7 @@
     float: left;
     height: 30px;
     width: 820px;
-    margin-left: 200px;
+    margin-left: 180px;
 }
 .help_bot ul li{
     float: left;
@@ -686,7 +680,7 @@
 #photo{
     position: absolute;
     z-index: 10;
-    border: 1px solid #000;
+    /*border: 1px solid #000;*/
     height: 100%;
     overflow-y: scroll;
     border-right: 1px solid #e5e9ef;
@@ -825,7 +819,7 @@
     width: 1349px;
     background-color: white;
     margin-left: 8px;
-   border-radius: 2px;
+    border-radius: 2px;
 }
 
 #header_nav_web1 {
@@ -1222,7 +1216,7 @@
     height: 48px;
 }
 #submit button{
-   width: 140px;
+    width: 140px;
     height: 46px;
     margin-left: 490px;
     line-height: 46px;
@@ -1263,13 +1257,14 @@
     height: 174px;
     display: none;
     margin-left: -20px;
+    margin-top: 7px;
     background: url("../image/orcode-frame.png") no-repeat;
     background-size: 225px 160px;
 }
 .app_wm{
     height: 97px;
     width: 97px;
-   margin-left: -32px;
+    margin-left: -32px;
     margin-top: 25px;
 }
 #bml{
@@ -1496,33 +1491,27 @@ a {
 }
 
 #div p{
+    margin-left: -60px;
     line-height:30px;
     font-size: 14px;
-    margin-top: 40px;
+    margin-top: 10px;
     text-align: center;
 }
 #div i{
-    margin-left: 20px;
+    margin-left: -70px;
     height: 20px;
     width:80px;
     font-size: 13px;
 }
 #div span{
-    background-color: red;
-    height: 20px;
+    margin-left: 10px;
+    background-color: rgb(196, 29, 50);    height: 20px;
+    padding: 0 8px;
+    color: white;
     width: 28px;
     font-size: 13px;
 }
-#ok{
-   margin-top: 180px;
-    height:60px;
-    width: 60px;
-    background: url("../image/t01151660f8ab33719d.jpg");
-    background-position: 20px 20px;
-    border-radius: 50%;
-    text-align:center;
-    box-shadow: 0 8px 16px 0 rgba(207,29,82,0.16);
-}
+
 #fileupload{
     float:left;
     width:200px;
@@ -1556,26 +1545,16 @@ a {
 }
 #div{
     width: 280px;
-    height:180px;
+    height:170px;
     float:left;
-    margin-left:400px;
+    margin-left:255px;
     margin-right:600px;
     border-radius: 50%;
     text-align:center;
-    box-shadow: 0 16px 32px 0 rgba(207,29,82,0.16);
-    border: 1px solid pink;
+    /*box-shadow: 0 16px 32px 0 rgba(207,29,82,0.16);*/
+    /*border: 1px solid pink;*/
 }
-#form{
-    float:left;
-    height:180px;
-    width:400px ;
-    margin-top: -80px;
-    border-radius: 50%;
-    margin-left: 30px;
-    text-align:center;
-    box-shadow: 0 32px 64px 0 rgba(207,29,82,0.16);
-    border: 1px solid pink;
-}
+
 .video_send{
     float:left;
 }
@@ -1601,33 +1580,109 @@ a {
     text-align: center;
     background-color: deepskyblue;
 }
-#gif{
-    float: left;
-    height: 180px;
-    width: 300px;
-    margin-left: 60px;
-}
-#pht{
-    float:right;
-    height: 200px;
-    width: 200px;
-    background-color: pink;
-    margin-top:-40px;
-}
+
 .title{
     display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
 }
 #showimg{
-    height:180px;
-    width:180px;
+    border:1px solid #99a2aa;;
+    height:140px;
+    width:140px;
     margin-top: -40px;
     margin-left: 10px;
+    border-radius: 4px;
 }
 #file_img{
-        display: block;
+    display: block;
     -webkit-margin-before: 1em;
     -webkit-margin-after: 1em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#ok{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    margin-top: 180px;
+    height:60px;
+    width: 60px;
+    background: url("../image/t01151660f8ab33719d.jpg");
+    background-position: 20px 20px;
+    border-radius: 50%;
+    text-align:center;
+    box-shadow: 0 8px 16px 0 rgba(207,29,82,0.16);
+}
+#form{
+    position: relative;
+    float:left;
+    height:180px;
+    width:400px ;
+    margin-top: -80px;
+    border-radius: 50%;
+    margin-left: 30px;
+    text-align:center;
+    /*box-shadow: 0 32px 64px 0 rgba(207,29,82,0.16);*/
+    /*border: 1px solid pink;*/
+}
+#gif{
+    position: relative;
+    float: left;
+    height: 180px;
+    width: 300px;
+    margin-left: 60px;
+}
+#pht{
+    position: relative;
+    float:right;
+    height: 200px;
+    width: 200px;
+    margin-top:-40px;
+}
+
+
+/*点击上传视频蓝色按钮 这个块消失*/
+.video_send{
+    display: none;
+}
+
+
 
