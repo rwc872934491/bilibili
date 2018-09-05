@@ -1,5 +1,19 @@
 $(function () {
     //
+
+    $.ajax({
+        url: "/SetVideoUrl",
+        type: "post",
+        dataType: "json",
+        success : function (list) {
+            alert(list[0].videoPath);
+            $("#video_abi").attr("src", list[0].videoPath);
+            alert($("#video_abi").attr("src"));
+        }
+    })
+
+
+
     $.ajax({
         url: "/ShowReview",
         type: "post",

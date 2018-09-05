@@ -6,13 +6,13 @@ $(function () {
         alert($span_two);
         //获取一级菜单内容
         var $div_one = $(this).parent().prev().children("div:eq(1)").html();
-        alert($div_one);
         $.ajax({
-            url:"",
-            data:{"typeone":$div_one,"typetwo":$span_two},
+            url:"/TakeTypeVideo",
+            data:{"typeName" : $span_two},
             type:"post",
             dataType:"json",
-            success:function () {
+            success:function (ret) {
+                alert(ret)
                 window.location.href="videoshow.html";
             }
 

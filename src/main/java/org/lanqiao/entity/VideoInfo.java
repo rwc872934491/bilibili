@@ -23,6 +23,15 @@ public class VideoInfo {
     private int videoCollection;
     private int videoReview;
     private int videoBoom;
+    private String videoPath;
+
+    public String getVideoPath() {
+        return videoPath;
+    }
+
+    public void setVideoPath(String videoPath) {
+        this.videoPath = videoPath;
+    }
 
     public int getVideoId() {
         return videoId;
