@@ -1517,6 +1517,8 @@ a {
    margin-top: 180px;
     height:60px;
     width: 60px;
+    background: url("../image/t01151660f8ab33719d.jpg");
+    background-position: 20px 20px;
     border-radius: 50%;
     text-align:center;
     box-shadow: 0 8px 16px 0 rgba(207,29,82,0.16);
@@ -1565,8 +1567,8 @@ a {
 }
 #form{
     float:left;
-    height:240px;
-    width:450px ;
+    height:180px;
+    width:400px ;
     margin-top: -80px;
     border-radius: 50%;
     margin-left: 30px;
@@ -1594,8 +1596,8 @@ a {
     height: 40px;
     width: 80px;
     position: relative;
+    margin-top: 30px;
     border-radius: 10px;
-    margin-left: 120px;
     text-align: center;
     background-color: deepskyblue;
 }
@@ -1604,5 +1606,28 @@ a {
     height: 180px;
     width: 300px;
     margin-left: 60px;
+}
+#pht{
+    float:right;
+    height: 200px;
+    width: 200px;
+    background-color: pink;
+    margin-top:-40px;
+}
+.title{
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+}
+#showimg{
+    height:180px;
+    width:180px;
+    margin-top: -40px;
+    margin-left: 10px;
+}
+#file_img{
+        display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
 }
 
