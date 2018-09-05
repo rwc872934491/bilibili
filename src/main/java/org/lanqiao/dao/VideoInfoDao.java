@@ -23,5 +23,8 @@ public interface VideoInfoDao {
     //根据视频编号增加点击量
     public int ClickVideo(int videoId);
 
+    //根据视频编号显示整个对象
+    public List<VideoInfo> ClickShow(int videoId);
+
 
 }

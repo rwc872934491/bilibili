@@ -58,9 +58,12 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
                 new Object[]{videoId});
     }
 
+    //根据视频编号得到整个对象
+    public List<VideoInfo> ClickShow(int videoId){
+        return executeQuery("Select * From VideoInfo Where videoId = ?",
+                new Object[]{videoId});
+    }
+
     public static void main(String[] args){
-        VideoInfoDaoImpl videoInfoDao = new VideoInfoDaoImpl();
-        int ret = videoInfoDao.ClickVideo(93);
-        System.out.println(ret);
     }
 }
