@@ -170,25 +170,17 @@ $(function () {
     count();
 
     //获取最大楼层
-    var foot=0;
-    $.ajax({
-        url:"/ShowMaxFloor",
-        type:"post",
-        dataType:"json",
-        success:function (ret) {
-            foot=ret;
-        }
-    });
+    maxFloor();
 
     //插入评论功能
-    var userid = 1;
+    // var userid = 1;
     // var vedio = 39;
     // var foot = 8;
     $("#uploadBox").click(function () {
         $.ajax({
             url:"/AddReview",
             type:"post",
-            data:{"ReviewContent": $("textarea[class='area_com']").val(),"TopReviewID":0,"FooterID":(foot+1)},
+            data:{"ReviewContent": $("textarea[class='area_com']").val(),"TopReviewID":0,"FooterID":foot},
             dataType:"json",
             success:function (ret) {
                 if (ret =="1"){
@@ -242,6 +234,7 @@ var PageSize = 4;
 var rid;
 var rids;
 var pageClick;
+var foot=0;
 var arrayback = new Array();
 function back(x,array) {
     $.ajax({
@@ -312,9 +305,22 @@ function count() {
             $countz = count;
             var $pagey = Math.ceil(count/PageSize);
             var $node = $('<span>'+count+'</span>');
+            $("#span_common_head_left").children().remove();
+            $("#span_common_ys").children().remove();
             $("#span_common_head_left").append($node);
             $("#span_common_ys").append('<span style="font: 15px 微软雅黑;">共'+$pagey+'页</span>');
         }
     });
 
+}
+function maxFloor() {
+    //获取最大楼层
+    $.ajax({
+        url:"/ShowMaxFloor",
+        type:"post",
+        dataType:"json",
+        success:function (ret) {
+            foot=ret+1;
+        }
+    });
 }
