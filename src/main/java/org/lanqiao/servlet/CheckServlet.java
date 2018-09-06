@@ -42,13 +42,14 @@ public class CheckServlet extends HttpServlet {
         if(list.size() > 0){
             if(list.get(0).getUserName().equals(userName) && list.get(0).getPassword().equals(password)) {
                 Date now = new Date();
-                if(list.get(0).getUserLocked().getTime() - now.getTime() > 0 || list.get(0).getUserLocked() == null)
-                    ret = 2;
-                else{
+                if(list.get(0).getUserLocked() == null || list.get(0).getUserLocked().getTime() - now.getTime() < 0){
                     if(list.get(0).getUserIdentity() == 0)
                         ret = 3;
                     else
                         ret = 4;
+                }
+                else{
+                    ret = 2;
                 }
 
             }
