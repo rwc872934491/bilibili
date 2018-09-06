@@ -8,7 +8,7 @@
     <link rel="stylesheet"type="text/css"href="css/base.css">
     <link rel="stylesheet"type="text/css"href="css/layer.css">
     <script src="js/jquery-3.3.1.js" type="application/javascript"></script>
-    <script src="js/layer.js"></script>
+    <script src="layer/layer.js"></script>
     <script src="js/jquery.ui.widget.js"></script>
     <script src="js/jquery.fileupload.js"></script>
     <script src="js/jquery.fileupload-process.js"></script>
@@ -17,7 +17,7 @@
     <script src="js/jquery.validate.messages_cn.js" type="application/javascript"></script>
 
 <body>
-<div id=video>
+<div id="video">
     <a href="#" class="video_img"target="_self"></a>
     <div id="background">
         <div id="background_up">
@@ -47,7 +47,7 @@
                     <div id="data">
                         输入标题：<input type="text" id="type_text" name="text" value="请输入标题">
                     </div>
-                    <p id="image">请选择：
+                    <p id="image">视频类型：
                         <select id="firstMenu">请选择</select>
                         <select id="secondMenu"></select>
                     </p>
@@ -197,6 +197,7 @@
             //add函数为选择文件后执行的操作
             add: function (e, data) {
                 $("#ok").click(function () {
+                    // alert("提交");
                     data.submit();
                 });
             },
@@ -207,12 +208,12 @@
                     // 显示上传成功，并循环输出上传内容预览。
                     // $(".preview").append("<div>上传成功:" + ret.result.data + "</div>");
                     $.each(ret.result.data, function (index, fileSrc) {
-                        $(".preview").append("<div style='margin-top:230px;float:left;position: relative; left:-160px' id='show'><embed src=" +
+                        $(".preview").append("<div style='margin-top:70px;float:left;position: relative; left:-50px' id='show'><embed src=" +
                             fileSrc + " allowscriptaccess='always' " +
                             " wmode='opaque' width='400' height='200'>" +
                             "</embed></div>");
-                        var index = layer.load(0, {shade: false});
-                        $(".preview").show(index);
+                        // var index = layer.load(0, {shade: false});
+                        // $(".preview").show(index);
                     });
                 } else {
                     layer.msg('上传失败',{time:3000});
@@ -248,8 +249,9 @@
                 data:{"videoName":$("#type_text").val(),"typeId":$("#secondMenu").children('option:selected').val()},
                 success:function (ret) {
                     e.preventDefault();
-                    layer.msg("上传成功",{time:4000});
-                    window.location.href = "contribute_index.html";
+                    layer.msg("上传成功",{time:2000},function () {
+                        window.location.href = "contribute_index.html";
+                    });
                     // $("#type_text").val("");
                 }
             })

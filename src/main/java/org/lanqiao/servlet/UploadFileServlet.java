@@ -28,10 +28,10 @@ public class UploadFileServlet extends HttpServlet {
                           HttpServletResponse response) throws ServletException, IOException {
         List<String> fileSrcList = UploadFile.upload(request);
 
-        System.out.println("fileSrcList:" + fileSrcList);
+        System.out.println("FileSrcList(UploadFile): " + fileSrcList);
 
         String videoPath = fileSrcList.get(0);
-        System.out.println("videoPath:" + videoPath);
+        System.out.println("videoPath(UploadFile):" + videoPath);
         HttpSession session = request.getSession();
         session.setAttribute("videoPath", videoPath);
 

@@ -92,6 +92,7 @@ $(function () {
             success:function (ret) {
                 if (ret =="1"){
                     load();
+                    count();
                 }
             }
         })
@@ -107,6 +108,7 @@ $(function () {
             success:function (ret) {
                 if (ret =="1"){
                     load();
+                    count();
                 }
             }
         })
@@ -147,6 +149,7 @@ $(function () {
                     layer.msg('回复成功！',{time:800},function () {
                         // location.reload();
                         load();
+                        count();
                     });
                 }
                 // ,"TopReviewID":top
@@ -164,18 +167,7 @@ $(function () {
     })
 
     //显示评论总数及总页数
-    $.ajax({
-        url: "/ShowCount",
-        type: "post",
-        dataType: "json",
-        success: function (count) {
-            $countz = count;
-            var $pagey = Math.ceil(count/PageSize);
-            var $node = $('<span>'+count+'</span>');
-            $("#span_common_head_left").append($node);
-            $("#span_common_ys").append('<span style="font: 15px 微软雅黑;">共'+$pagey+'页</span>');
-        }
-    });
+    count();
 
     //获取最大楼层
     var foot=0;
@@ -203,6 +195,7 @@ $(function () {
                     layer.msg('评论成功！',{time:800},function () {
                         // location.reload()
                         load();
+                        count();
                     });
                 }
             }
@@ -223,6 +216,7 @@ $(function () {
         });
         //分页显示评论
         load();
+        count();
     });
 
 //    按钮按下变色效果
@@ -307,4 +301,20 @@ function load() {
             }
         }
     })
+}
+function count() {
+    //显示评论总数及总页数
+    $.ajax({
+        url: "/ShowCount",
+        type: "post",
+        dataType: "json",
+        success: function (count) {
+            $countz = count;
+            var $pagey = Math.ceil(count/PageSize);
+            var $node = $('<span>'+count+'</span>');
+            $("#span_common_head_left").append($node);
+            $("#span_common_ys").append('<span style="font: 15px 微软雅黑;">共'+$pagey+'页</span>');
+        }
+    });
+
 }

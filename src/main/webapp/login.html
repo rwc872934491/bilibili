@@ -62,8 +62,9 @@
                             }else if(ret == "1"){
                                 layer.msg("用户名或密码不正确!");
                             }else if(ret == "4"){
-                                layer.msg("管理员账户登录成功!");
-                                location.href="Behind.html";
+                                layer.msg("管理员账户登录成功!", {time: 2000}, function () {
+                                    window.location.href="Behind.html";
+                                })
                             }
                         }, 'json');
                 });

@@ -7,6 +7,7 @@
     <link href="http://cdn.bootcss.com/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
     <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="layer/layer.js"></script>
 
     <style type="text/css">
         tr.tableHead {
@@ -32,7 +33,6 @@
 <script>
     $(function () {
 
-        alert(2);
         $("#dropmenu_user").click(function () {
             $.ajax({
                 url: "/BehindShowUser",
@@ -40,7 +40,6 @@
                 data: {"pageNum": 1},
                 dataType: "json",
                 success: function (list) {
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -84,7 +83,6 @@
                 data: {"pageNum": 1},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -117,7 +115,6 @@
                 data: {"pageNum": 1},
                 dataType: "json",
                 success: function (list) {
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -153,7 +150,6 @@
                 data: {"pageNum": 2},
                 dataType: "json",
                 success: function (list) {
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -189,7 +185,6 @@
                 data : {"pageNum" : 3},
                 dataType : "json",
                 success : function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -225,7 +220,6 @@
                 data : {"pageNum" : 4},
                 dataType : "json",
                 success : function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -261,7 +255,6 @@
                 data : {"pageNum" : 5},
                 dataType : "json",
                 success : function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>用户信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>用户编号</th> <th>用户昵称</th> <th>用户账号</th> <th>用户密码</th> <th>操作</th> </tr>' +
@@ -297,7 +290,7 @@
                 data : {"userId" : $("#Lock1").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -310,7 +303,7 @@
                 data : {"userId" : $("#Lock2").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -323,7 +316,7 @@
                 data : {"userId" : $("#Lock3").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -336,7 +329,7 @@
                 data : {"userId" : $("#Lock4").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -349,7 +342,7 @@
                 data : {"userId" : $("#Lock5").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -362,7 +355,7 @@
                 data : {"userId" : $("#Lock6").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -375,7 +368,7 @@
                 data : {"userId" : $("#Lock7").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -388,7 +381,7 @@
                 data : {"userId" : $("#Lock8").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("上锁成功");
                 }
             })
         })
@@ -401,7 +394,6 @@
                 data: {"pageNum": 1},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -433,7 +425,6 @@
                 data: {"pageNum": 2},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -465,7 +456,6 @@
                 data: {"pageNum": 3},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -497,7 +487,6 @@
                 data: {"pageNum": 4},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -529,7 +518,6 @@
                 data: {"pageNum": 5},
                 dataType: "json",
                 success: function (list){
-                    alert(list.length);
                     //头部模板
                     var $node1 = '<div class="text-center" id="node1"> <h1>视频信息</h1> <table class="table table-striped table-bordered table-hover"> <thead>' +
                         '<tr class="tableHead"> <th>视频编号</th> <th>视频标题</th> <th>视频类型</th> <th>作者编号</th> <th>操作</th> </tr>' +
@@ -561,7 +549,7 @@
                 data : {"videoId" : $("#Delete1").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr1").remove();
 
                 }
@@ -576,7 +564,7 @@
                 data : {"videoId" : $("#Delete2").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr2").remove();
                 }
             })
@@ -590,7 +578,7 @@
                 data : {"videoId" : $("#Delete3").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr3").remove();
                 }
             })
@@ -604,7 +592,7 @@
                 data : {"videoId" : $("#Delete4").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr4").remove();
                 }
             })
@@ -618,7 +606,7 @@
                 data : {"videoId" : $("#Delete5").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr5").remove();
                 }
             })
@@ -632,7 +620,7 @@
                 data : {"videoId" : $("#Delete6").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr6").remove();
                 }
             })
@@ -646,7 +634,7 @@
                 data : {"videoId" : $("#Delete7").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr7").remove();
                 }
             })
@@ -660,7 +648,7 @@
                 data : {"videoId" : $("#Delete8").attr("value")},
                 dataType : "json",
                 success : function (ret){
-                    alert(ret);
+                    layer.msg("删除成功");
                     $("#tr8").remove();
                 }
             })

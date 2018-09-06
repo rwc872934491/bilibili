@@ -51,6 +51,7 @@
                         $(".index_islogin").show();
                         $("#index_notlogin").hide();
                         $('#index_user_image_1').attr("src", jsonArray[0].userImage);
+                        $('#user_common_Image').attr("src", jsonArray[0].userImage);
                         $("#user_nickname").html(jsonArray[0].nickname);
                         $("#userMark").html(jsonArray[0].userMark);
                     }else {
@@ -227,7 +228,7 @@
                 <div class="div_common_com">
                     <div class="sa_img">
                         <a href="">
-                            <img src="image/common01.png" alt="" style="width:100%;min-height:100%;">
+                            <img src="image/common01.png" alt="" style="width:100%;min-height:100%;" id="user_common_Image">
                         </a>
                     </div>
                     <textarea placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"
