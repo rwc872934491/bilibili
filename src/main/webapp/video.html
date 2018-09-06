@@ -22,25 +22,25 @@
     <div id="background">
         <div id="background_up">
             <div class="show"></div>
+
             <div class="video_send">
-                <span><i class="icon">
+                <span id="span_icon"><i class="icon">
                     <input id="fileupload" class="fileupload" type="file" name="files" multiple="multiple" >
                     <!--//opacity: 0;-->
                     </i>上传视频</span>
                 <div class="video_person"></div>
-                <button id="ok">确定</button>
             </div>
-            <div id="div"ondrop="drop(event)" ondragover="allowDrop(event)" >
-                <p>拖拽视频到此处也可以上传</p><br/>
-                <i>当前审核队列</i><span>爆满</span>
-                <div class="preview" style="display: none"></div>
-            </div>
-
             <div id="pht">
                 <p class="title" ></p>
                 <img id="showimg" src="image/t01f43bbc421b204dea.jpg">
                 <p id="file_img">
                     <input type="file" class="file" id="img" style="display: none;"></p>
+            </div>
+            <button id="ok">预览</button>
+            <div class="preview" style="display: none"></div>
+            <div id="div" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                <p>拖拽视频到此处也可以上传</p><br/>
+                <i>当前审核队列</i><span>爆满</span>
             </div>
             <div id="form">
                 <form id="frm" action=""type="post">
@@ -82,6 +82,21 @@
 <script>
     //表单验证
     $(function (){
+        $(".video_send").show();
+        $("#pht").hide();
+        $("#form").hide();
+        $("#ok").hide();
+        $(".video_send").click(function (){
+            $("#ok").show();
+            $("#div").hide();
+            $(".preview").show();
+            $(".video_send").hide();
+            $("#pht").show();
+            $("#form").show();
+        })
+
+
+
         $(document).ready(function () {
             $("#frm").validate({
                 rules:{
@@ -192,9 +207,9 @@
                     // 显示上传成功，并循环输出上传内容预览。
                     // $(".preview").append("<div>上传成功:" + ret.result.data + "</div>");
                     $.each(ret.result.data, function (index, fileSrc) {
-                        $(".preview").append("<div style='margin-top:25px;float:left;position: relative;' id='show'><embed src=" +
+                        $(".preview").append("<div style='margin-top:230px;float:left;position: relative; left:-160px' id='show'><embed src=" +
                             fileSrc + " allowscriptaccess='always' " +
-                            " wmode='opaque' width='200' height='100'>" +
+                            " wmode='opaque' width='400' height='200'>" +
                             "</embed></div>");
                         var index = layer.load(0, {shade: false});
                         $(".preview").show(index);
