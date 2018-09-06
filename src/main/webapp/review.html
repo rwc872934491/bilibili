@@ -18,6 +18,20 @@
             header_code_show();
             index_checksession();
             index_show_information();
+
+            //实现用户退出及销毁session及跳转登录页
+            $("#index_user_exit_button").click(function () {
+                $.ajax({
+                    url:"/DestroySession",
+                    type:"post",
+                    dataType:"json",
+                    success:function (ret) {
+                        if (ret=="1"){
+                            window.location.href="login.html";
+                        }
+                    }
+                });
+            });
         })
         function header_code_show() {
             $("#nav_web_download").hover(function () {
@@ -118,7 +132,7 @@
                         </ul>
                     </div>
                     <div id="index_user_exit">
-                        <a href="login.html" id="index_user_exit_button">退出</a>
+                        <a href="#" id="index_user_exit_button">退出</a>
                     </div>
                 </div>
             </div>

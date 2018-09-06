@@ -19,6 +19,20 @@ $(function () {
         });
     });
 
+    //实现用户退出及销毁session及跳转登录页
+    $("#index_user_exit_button").click(function () {
+        $.ajax({
+            url:"/DestroySession",
+            type:"post",
+            dataType:"json",
+            success:function (ret) {
+                if (ret=="1"){
+                    window.location.href="login.html";
+                }
+            }
+        });
+    });
+
     //只单击一级菜单实现跳转页面
     $(".header_list_name").click(function () {
         var $div_one = $(this).html();
