@@ -30,6 +30,7 @@ public class ShowVideoUserServlet extends HttpServlet {
 
         //将list传回前端
         JSONArray jsonArray = JSONArray.fromObject(list);
+        System.out.println("cccccccccccccc"+jsonArray);
         PrintWriter out = response.getWriter();
         out.print(jsonArray);
         out.flush();

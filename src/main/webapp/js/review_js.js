@@ -23,27 +23,35 @@ $(function () {
             $(".video_data_play").html(list[0].videoClick);
         }
     });
+    //显示投稿人的信息及头像
+    $.ajax({
+        url:"/ShowVideoUser",
+        type:"post",
+        dataType:"json",
+        success:function (list) {
+            $("#video_up_name").children().html(list[0].nickname);
+            $("#video_up_mark").children().html(list[0].userMark);
+            $("#video_up_image_head").attr("src",list[0].userImage);
+        }
+    });
     //页面显示关注信息
     $(".video_up_focus_button").click(function () {
         $.ajax({
             url:"/AddFan",
             type:"post",
             dataType:"json",
-            success:function (ret) {
+            success:function () {
                 $(".video_button_gz").html("已关注");
             }
         })
     });
 
-    // alert($("#video_message_middle").children().children().eq(1).html());
     //页面显示一级菜单
     $.ajax({
         url:"/ShowFirst",
         type:"post",
         dataType:"json",
         success:function (list) {
-            // alert(11111111111);
-            // alert(list[0].typeName);
             $("#video_message_middle").children().children().eq(1).html(list[0].typeName);
         }
     });
