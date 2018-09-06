@@ -1,5 +1,6 @@
 package org.lanqiao.dao;
 
+import org.lanqiao.entity.UserInfo;
 import org.lanqiao.entity.VideoInfo;
 
 import java.util.List;
@@ -29,6 +30,9 @@ public interface VideoInfoDao {
 
     //根据视频编号显示整个对象
     public List<VideoInfo> ClickShow(int videoId);
+
+    //根据视频编号找到用户对象(通过List传)
+    public List<UserInfo> ShowVideoUser(int videoId);
 
 
 }

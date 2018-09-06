@@ -1,6 +1,7 @@
 package org.lanqiao.dao;
 
 import org.lanqiao.entity.TypeInfo;
+import org.lanqiao.entity.UserInfo;
 import org.lanqiao.entity.VideoInfo;
 
 import java.util.ArrayList;
@@ -72,6 +73,24 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
                 new Object[]{videoId});
     }
 
+    //根据视频编号找到用户对象(通过List传)
+    public List<UserInfo> ShowVideoUser(int videoId){
+        //通过视频编号找到用户编号
+        List<VideoInfo> video_list = new ArrayList<VideoInfo>();
+        VideoInfoDaoImpl videoInfoDao = new VideoInfoDaoImpl();
+        video_list = videoInfoDao.ClickShow(videoId);
+        int userId = video_list.get(0).getUserId();
+
+        //通过用户编号找到用户对象
+        List<UserInfo> user_List = new ArrayList<UserInfo>();
+        UserInfoDaoImpl userInfoDao = new UserInfoDaoImpl();
+        user_List = userInfoDao.executeQuery("Select * From UserInfo Where userId = ?",
+                new Object[]{userId});
+        return user_List;
+
+    }
+
     public static void main(String[] args){
+
     }
 }
