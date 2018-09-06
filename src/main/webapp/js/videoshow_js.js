@@ -6,7 +6,7 @@ $(function () {
         type: "post",
         dataType: "json",
         success: function (list) {
-            alert(list.length+1);
+            // alert(list.length+1);
             // alert(4);
             for (var i = 0; i < list.length; i++) {
                 // alert(list[1].videoId + "8888888888888888888");
@@ -28,7 +28,7 @@ $(function () {
 
     //    实现选定视频跳转播放页
     $("body").on("click", ".video_show_list", function () {
-        alert($(this).attr("value"));
+        // alert($(this).attr("value"));
         var bfl = $(this).attr("value");
         $.ajax({
             url: "/TakeVideoUrl",

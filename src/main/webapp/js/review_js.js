@@ -6,12 +6,12 @@ $(function () {
         type: "post",
         dataType: "json",
         success : function (list) {
-            alert(list[0].videoPath);
+            // alert(list[0].videoPath);
             $("#video_abi").attr("src", list[0].videoPath);
             $("#video_message_title").children().html(list[0].videoName);
             $("#video_message_middle").children("time").html(list[0].videoTime);
             // $("#video_message_middle").children().children().eq(2).html(list[0].videoType);
-            alert($("#video_abi").attr("src"));
+            // alert($("#video_abi").attr("src"));
         }
     });
     //页面显示浏览数（播放量）

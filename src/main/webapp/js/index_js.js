@@ -3,7 +3,7 @@ $(function () {
     $(".header_list_hidden").children().click(function () {
         //获取二级菜单内容
         var $span_two =  $(this).children().children().html();
-        alert($span_two);
+        // alert($span_two);
         //获取一级菜单内容
         var $div_one = $(this).parent().prev().children("div:eq(1)").html();
         $.ajax({
@@ -12,7 +12,7 @@ $(function () {
             type:"post",
             dataType:"json",
             success:function (ret) {
-                alert(ret)
+                // alert(ret)
                 window.location.href="videoshow.html";
             }
 
