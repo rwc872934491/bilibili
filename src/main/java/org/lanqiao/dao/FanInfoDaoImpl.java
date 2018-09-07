@@ -22,6 +22,12 @@ public class FanInfoDaoImpl extends BaseDao<FanInfo> implements FanInfoDao {
         return list;
     }
 
+    //根据主人编号,得到粉丝数量
+    public int CountFan(int userId){
+        return getRecordCount("Select count(*) From FanInfo Where userId1 = ?",
+                new Object[]{userId});
+    }
+
     public static void main(String[] args){
 
         }

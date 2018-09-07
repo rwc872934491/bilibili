@@ -11,4 +11,7 @@ public interface FanInfoDao {
 
     //根据主人编号,得到其所有粉丝的用户编号
     public List<UserInfo> ShowFanInfo(int userId);
+
+    //根据主人编号,得到粉丝数量
+    public int CountFan(int userId);
 }
