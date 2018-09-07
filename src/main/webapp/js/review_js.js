@@ -194,6 +194,7 @@ $(function () {
                 if (ret =="1"){
                     layer.msg('回复成功！',{time:800},function () {
                         // location.reload();
+
                         load();
                         count();
                     });
@@ -219,10 +220,6 @@ $(function () {
     maxFloor();
 
     //插入评论功能
-    // var userid = 1;
-    // var vedio = 39;
-    // var foot = 8;
-    // maxFloor();
     $("#uploadBox").click(function () {
         $.ajax({
             url:"/AddReview",
@@ -232,7 +229,7 @@ $(function () {
             success:function (ret) {
                 if (ret =="1"){
                     layer.msg('评论成功！',{time:800},function () {
-                        // location.reload()
+                        $("textarea[class='area_com']").val("");
                         load();
                         count();
                         maxFloor();

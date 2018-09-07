@@ -39,6 +39,20 @@
                     }
                 });
             });
+
+            $.ajax({
+                url:"/ShowFenSi",
+                type:"post",
+                dataType:"json",
+                success:function (list) {
+                    for(var i=0;i<list.length;i++){
+                        var $node = $('<div class="myfans"><img src="" class="myfan_image">\n' +
+                            ' <span class="mufan_nickname">'+list[i].nickname+'</span>\n' +
+                            ' <span class="mufan_username">'+list[i].userName+'</span></div>');
+                        $("#d1").append($node);
+                    }
+                }
+            });
         })
 
         function show_UserInfo() {
@@ -331,11 +345,11 @@
                         <span class="div_show_myfan_title">粉丝账号</span>
                     </div>
                     <div id="d1" style="height: 255px;width: 580px;overflow: auto;overflow-x: hidden">
-                        <div class="myfans">
-                            <img src="" class="myfan_image">
-                            <span class="mufan_nickname">蛋蛋啊</span>
-                            <span class="mufan_username">17806274817</span>
-                        </div>
+                        <!--<div class="myfans">-->
+                            <!--<img src="" class="myfan_image">-->
+                            <!--<span class="mufan_nickname">蛋蛋啊</span>-->
+                            <!--<span class="mufan_username">17806274817</span>-->
+                        <!--</div>-->
 
                     </div>
                 </div>
