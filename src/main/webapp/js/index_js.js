@@ -48,6 +48,23 @@ $(function () {
         });
     });
 
+//   模糊搜索
+    $(".header_search_submit").click(function () {
+        var $content = $(".header_search_keyword").val();
+        // alert($content);
+        $.ajax({
+            url:"/TakeMoHuList",
+            data:{"videoName":$content},
+            type:"post",
+            dataType:"json",
+            success:function (ret) {
+                alert(222);
+                window.location.href="videoshow.html";
+            }
+        });
+    });
+
+
 
 
 });

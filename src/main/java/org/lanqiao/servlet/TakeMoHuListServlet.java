@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "TakeMoHuListServlet")
+@WebServlet("/TakeMoHuList")
 public class TakeMoHuListServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //从前端传入模糊信息
@@ -31,6 +32,11 @@ public class TakeMoHuListServlet extends HttpServlet {
         for (int i = 0; i < list.size(); i++){
             session.setAttribute("TwoVideo" + i, list.get(i));
         }
+        int ret =1;
+        PrintWriter out = response.getWriter();
+        out.print(ret);
+        out.flush();
+        out.close();
 
 
     }
