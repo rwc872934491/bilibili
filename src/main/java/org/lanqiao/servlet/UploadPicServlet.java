@@ -22,9 +22,9 @@ public class UploadPicServlet extends HttpServlet {
         String img = request.getParameter("img");
         String imgName = UploadPic.upload(img,request.getServletContext().getRealPath("/") + "upload/");
         JSONObject jsonObj = new  JSONObject();
-        jsonObj.accumulate("imgUrl", "/upload/"+imgName);
+        jsonObj.accumulate("imgUrl", "upload/"+imgName);
         response.getWriter().print(jsonObj.toString());
-        String userImage = "/upload/" + imgName;
+        String userImage = "upload/" + imgName;
         HttpSession session = request.getSession();
         session.setAttribute("userImage", userImage);
         int userId =(int)session.getAttribute("userId");

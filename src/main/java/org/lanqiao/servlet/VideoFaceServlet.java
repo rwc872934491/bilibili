@@ -23,14 +23,14 @@ public class VideoFaceServlet extends HttpServlet {
 
         String img = request.getParameter("img");
         String imgName = UploadPic.upload(img,request.getServletContext().getRealPath("/") + "upload/");
-        String videoImage = "/upload/" + imgName;
+        String videoImage = "upload/" + imgName;
 
         HttpSession session = request.getSession();
         session.setAttribute("videoImage", videoImage);
         System.out.println(videoImage);
 
         JSONObject jsonObj = new  JSONObject();
-        jsonObj.accumulate("imgUrl", "/upload/"+imgName);
+        jsonObj.accumulate("imgUrl", "upload/"+imgName);
         response.getWriter().print(jsonObj.toString());
 
 
