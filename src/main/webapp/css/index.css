@@ -316,6 +316,7 @@
     color: #222;
 }
 .face {
+    background-color: white;
     position: relative;
     top: 4px;
     border: 0 solid #fff;

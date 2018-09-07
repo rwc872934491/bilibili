@@ -231,6 +231,7 @@
     margin: 3px 8px 0 8px;
 }
 .face {
+    background-color: white;
     position: relative;
     top: 4px;
     border: 0 solid #fff;

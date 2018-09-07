@@ -67,6 +67,9 @@
     text-align: center;
     border-radius: 4px;
 }
+.video_show_list_images img{
+    width: 160px;
+}
 .video_show_list_title{
     padding-top: 8px;
     height: 40px;
