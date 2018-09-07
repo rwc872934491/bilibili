@@ -244,6 +244,7 @@ $(function () {
     // var userid = 1;
     // var vedio = 39;
     // var foot = 8;
+    // maxFloor();
     $("#uploadBox").click(function () {
         $.ajax({
             url:"/AddReview",
@@ -256,6 +257,7 @@ $(function () {
                         // location.reload()
                         load();
                         count();
+                        maxFloor();
                     });
                 }
             }
@@ -278,6 +280,22 @@ $(function () {
         load();
         count();
     });
+
+    $("body").on("click",".span_line",function () {
+        pageClick = $(this).html();
+        num = pageClick;
+        //将页数传到session对象中
+        $.ajax({
+            url:"/ShowPage",
+            data:{"page":pageClick},
+            type:"post",
+            dataType:"json",
+            success:function () {}
+        });
+        //分页显示评论
+        load();
+        count();
+    })
 
 //    按钮按下变色效果
 //    评论按钮
@@ -302,7 +320,7 @@ var PageSize = 4;
 var rid;
 var rids;
 var pageClick;
-var foot=0;
+var foot=1;
 var arrayback = new Array();
 function back(x,array) {
     $.ajax({
@@ -363,6 +381,7 @@ function load() {
         }
     })
 }
+var zcount = 1;
 function count() {
     //显示评论总数及总页数
     $.ajax({
@@ -381,6 +400,14 @@ function count() {
             //     var $pagenumss=$('<span class="span_line"></span>\n' +
             //         '<span class="span_line" style="cursor:pointer">'+(i+2)+'</span>');
             // }
+            for (var i=0;i<$pagey;i++){
+                if ($pagey>zcount){
+                    var $pagenumss=$('<span class="span_line"></span>\n' +
+                        '<span class="span_line" style="cursor:pointer">'+(zcount+1)+'</span>');
+                    $("#span_common_head_right").append($pagenumss);
+                    zcount++;
+                }
+            }
         }
     });
 

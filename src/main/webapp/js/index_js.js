@@ -38,8 +38,8 @@ $(function () {
         var $div_one = $(this).html();
         // alert($div_one);
         $.ajax({
-            url:"",
-            data:{"typeone":$div_one},
+            url:"/TakeTypeOneVideo",
+            data:{"typeName":$div_one},
             type:"post",
             dataType:"json",
             success:function () {

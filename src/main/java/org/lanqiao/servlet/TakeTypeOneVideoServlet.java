@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet(name = "TakeTypeOneVideoServlet")
+@WebServlet("/TakeTypeOneVideo")
 public class TakeTypeOneVideoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //从前端传回typeName
