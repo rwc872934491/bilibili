@@ -90,7 +90,14 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
 
     }
 
+    //根据上传人编号取到所有视频列表
+    public List<VideoInfo> ShowVideoList(int userId){
+        return executeQuery("Select * From VideoInfo Where userId = ?",
+                new Object[]{userId});
+    }
+
     public static void main(String[] args){
+
 
     }
 }

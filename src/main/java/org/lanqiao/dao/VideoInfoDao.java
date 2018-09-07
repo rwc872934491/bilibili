@@ -34,5 +34,8 @@ public interface VideoInfoDao {
     //根据视频编号找到用户对象(通过List传)
     public List<UserInfo> ShowVideoUser(int videoId);
 
+    //根据上传人编号取到所有视频列表
+    public List<VideoInfo> ShowVideoList(int userId);
+
 
 }
