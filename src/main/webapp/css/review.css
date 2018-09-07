@@ -11,11 +11,7 @@ body{
     margin-left: 180px;
 }
 #gc{
-    width: 980px;
-    height: 400px;
-    background-color: #a6cbe7;
     float: left;
-
 }
 /*推广………………………………………………………………………………………………*/
 /*#div_implement{*/
@@ -284,6 +280,7 @@ body{
     width: 980px;
 }
 #video_message{
+    height: 160px;
     padding: 5px 0 8px;
     float: left;
     width: 640px;
@@ -462,4 +459,57 @@ body{
 }
 .index_islogin {
     display: none;
+}
+#video_recommend{
+    margin-top: 42px;
+    float: right;
+    position: relative;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    width: 250px;
+    background-color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    height: 408px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+#video_recommend_list_titles{
+    width: 100%;
+    border-bottom: 1px solid #e2e2e2;
+    height: 42px;
+}
+.video_show_list_title{
+    box-sizing: border-box;
+    line-height: 44px;
+    height: 40px;
+    white-space: nowrap;
+    position: relative;
+    font-size: 16px;
+    color: black;
+    padding: 0 15px;
+    text-align: center;
+    outline: none;
+    user-select: none;
+    display: inline-block;
+    overflow: visible;
+    text-align: center;
+}
+.video_recommend_list{
+    height: 105px;
+    margin-bottom: 10px;
+    padding: 10px 0 0 5px;
+}
+.video_recommend_list_image{
+    float: left;
+    width: 150px;
+    height: 100px;
+}
+.video_recommend_list_title{
+    float: right;
+    display: inline-block;
+    width: 90px;
+    height: 100px;
+    font-size: 12px;
+    overflow: hidden;
+    white-space: normal;
 }
