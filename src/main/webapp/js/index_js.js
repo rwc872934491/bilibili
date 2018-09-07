@@ -58,7 +58,6 @@ $(function () {
             type:"post",
             dataType:"json",
             success:function (ret) {
-                alert(222);
                 window.location.href="videoshow.html";
             }
         });
