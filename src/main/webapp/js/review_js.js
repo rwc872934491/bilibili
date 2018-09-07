@@ -309,6 +309,10 @@ function count() {
             $("#span_common_ys").children().remove();
             $("#span_common_head_left").append($node);
             $("#span_common_ys").append('<span style="font: 15px 微软雅黑;">共'+$pagey+'页</span>');
+            // for (var i=0;i<$pagey;i++){
+            //     var $pagenumss=$('<span class="span_line"></span>\n' +
+            //         '<span class="span_line" style="cursor:pointer">'+(i+2)+'</span>');
+            // }
         }
     });
 
