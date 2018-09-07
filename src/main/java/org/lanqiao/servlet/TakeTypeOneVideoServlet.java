@@ -1,8 +1,6 @@
 package org.lanqiao.servlet;
 
-import org.lanqiao.dao.FanInfoDaoImpl;
 import org.lanqiao.dao.TypeInfoDaoImpl;
-import org.lanqiao.dao.VideoInfoDao;
 import org.lanqiao.dao.VideoInfoDaoImpl;
 import org.lanqiao.entity.VideoInfo;
 
@@ -17,8 +15,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-@WebServlet("/TakeTypeVideo")
-public class TakeTypeTwoVideoServlet extends HttpServlet {
+@WebServlet(name = "TakeTypeOneVideoServlet")
+public class TakeTypeOneVideoServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //从前端传回typeName
         String typeName = request.getParameter("typeName");
@@ -28,14 +26,10 @@ public class TakeTypeTwoVideoServlet extends HttpServlet {
         int typeId = typeInfoDao.ShowTypeId(typeName);
         System.out.println("typeId :" + typeId);
 
-        //通过二级菜单的typeId找到所有视频
+        //通过一级菜单编号找到视频列表
         VideoInfoDaoImpl videoInfoDao = new VideoInfoDaoImpl();
         List<VideoInfo> list = new ArrayList<VideoInfo>();
-        list = videoInfoDao.ShowTypeTwoVideo(typeId);
-        System.out.println("List Size() :" + list.size());
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i).getVideoId() + " " + list.get(i).getVideoName());
-        }
+        list = videoInfoDao.ShowTypeOneVideo(typeId);
 
         //创建并封装session
         HttpSession session = request.getSession();
@@ -43,19 +37,14 @@ public class TakeTypeTwoVideoServlet extends HttpServlet {
             session.setAttribute("TwoVideo" + i, list.get(i));
         }
         session.setAttribute("TwoVideoLength", list.size());
-        for(int i = 0; i < list.size(); i++){
-            VideoInfo videoInfo = new VideoInfo();
-            videoInfo = (VideoInfo) session.getAttribute("TwoVideo" + i);
-            System.out.println("TwoVideo" + i + ": " + videoInfo.getVideoId());
-        }
+        System.out.println("List.Size(TakeTypeOneVideoServlet) :" + list.size());
 
-        //将ret返回前端
-        int ret = list.size();
+        //将ret传回前端
+        int ret = 1;
         PrintWriter out = response.getWriter();
         out.print(ret);
         out.flush();
         out.close();
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -26,6 +26,7 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
                 new Object[]{videoId});
     }
 
+    //根据一级菜单显示所有视频
     public List<VideoInfo> ShowTypeOneVideo(int typeId1){
         //根据一级菜单编号找到所有二级菜单
         TypeInfoDaoImpl typeInfoDao = new TypeInfoDaoImpl();
@@ -102,7 +103,5 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
     }
 
     public static void main(String[] args){
-
-
     }
 }

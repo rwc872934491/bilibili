@@ -14,10 +14,10 @@ public interface VideoInfoDao {
     //根据视频Id删除某条视频
     public int DeleteVideo(int videoId);
 
-    //根据一级菜单显示所有视频
+    //根据一级菜单编号显示所有视频
     public List<VideoInfo> ShowTypeOneVideo(int typeId1);
 
-    //根据二级菜单显示所有视频
+    //根据二级菜单编号显示所有视频
     public  List<VideoInfo> ShowTypeTwoVideo(int typeId2);
     public int InsertVideoInfo(VideoInfo videoinfo);
 
