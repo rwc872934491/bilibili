@@ -157,3 +157,54 @@ body{
 #save_button:hover{
     background-color: #20a0ff;
 }
+#div_show_myfans{
+    display: none;
+    position: relative;
+    top: -337px;
+    left: 315px;
+    width: 580px;
+    border: 1px silver solid;
+    border-radius: 4px;
+}
+.myfans{
+    height: 85px;
+    width: 580px;
+    border-bottom: 1px silver solid;
+}
+.myfan_image{
+    height: 85px;
+    width: 85px;
+    float: left;
+    margin:0 52px;
+    border-right: 1px silver solid;
+}
+.div_show_myfan_title{
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    border-right: 1px silver solid;
+    font-size: 14px;
+}
+.mufan_nickname{
+    float: left;
+    height: 85px;
+    width: 194px;
+    display: inline-block;
+    border-left: 1px silver solid;
+    line-height: 85px;
+    text-align: center;
+    font-size: 16px;
+
+}
+.mufan_username{
+    float: left;
+    height: 85px;
+    width: 194px;
+    display: inline-block;
+    border-left: 1px silver solid;
+    line-height: 85px;
+    text-align: center;
+    font-size: 16px;
+}

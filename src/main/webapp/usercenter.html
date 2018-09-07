@@ -29,12 +29,12 @@
             //实现用户退出及销毁session及跳转登录页
             $("#index_user_exit_button").click(function () {
                 $.ajax({
-                    url:"/DestroySession",
-                    type:"post",
-                    dataType:"json",
-                    success:function (ret) {
-                        if (ret=="1"){
-                            window.location.href="login.html";
+                    url: "/DestroySession",
+                    type: "post",
+                    dataType: "json",
+                    success: function (ret) {
+                        if (ret == "1") {
+                            window.location.href = "login.html";
                         }
                     }
                 });
@@ -54,7 +54,7 @@
                     $("input[name='userMark_top']").val(jsonArray[0].userMark);
                     $('#user_image_showimg').attr("src", jsonArray[0].userImage);
                     $('#user_head_image').attr("src", jsonArray[0].userImage);
-                    $("#span_id").html("用户ID："+jsonArray[0].userId);
+                    $("#span_id").html("用户ID：" + jsonArray[0].userId);
                     $('#index_user_image_1').attr("src", jsonArray[0].userImage);
                     $("#user_nickname").html(jsonArray[0].nickname);
                     $("#userMark").html(jsonArray[0].userMark);
@@ -112,13 +112,15 @@
                 $("#input_qm").css("background", "transparent");
             });
         }
+
         function index_show_information() {
             $("#header_nav_personal").hover(function () {
                 $("#index_user_information").show()
-            },function () {
+            }, function () {
                 $("#index_user_information").hide()
             })
         }
+
         // function index_checksession() {
         //     $.ajax({
         //         url: "/IndexCheckServlet",
@@ -167,30 +169,39 @@
                 }
             })
         });
+
         function change_index_show() {
             $("#my_message").click(function () {
                 $("#div_cencent").show();
-                $("#div_upload_image").hide()
+                $("#div_upload_image").hide();
+                $("#div_show_myfans").hide();
             })
             $("#my_image").click(function () {
+                $("#div_show_myfans").hide()
                 $("#div_cencent").hide();
                 $("#div_upload_image").show();
+            })
+            $("#my_fans").click(function () {
+                $("#div_show_myfans").show();
+                $("#div_cencent").hide();
+                $("#div_upload_image").hide();
             })
         }
 
         function click_change_li() {
             $("#div_li_style li").click(function () {
-                $("#div_li_style li").css("background-color","#fafafa")
-                $("#div_li_style li a").css("color","black")
-                $(this).css("background-color","#00a1d7")
-                $(this).children().css("color","white")
+                $("#div_li_style li").css("background-color", "#fafafa")
+                $("#div_li_style li a").css("color", "black")
+                $(this).css("background-color", "#00a1d7")
+                $(this).children().css("color", "white")
             })
         }
+
         function hover_change_li() {
             $("#div_li_style li").hover(function () {
-                $(this).css("background-color","#e5e9ef")
-            },function () {
-                $(this).css("background-color","#fafafa")
+                $(this).css("background-color", "#e5e9ef")
+            }, function () {
+                $(this).css("background-color", "#fafafa")
             })
         }
     </script>
@@ -226,8 +237,8 @@
         </div>
         <div id="header_nav_history">
             <a href="" target="_blank" title="历史记录">历史</a>
-            <a href="" target="_blank" title="消息" >消息</a>
-            <a href="" target="_blank" title="大会员" >大会员</a>
+            <a href="" target="_blank" title="消息">消息</a>
+            <a href="" target="_blank" title="大会员">大会员</a>
         </div>
         <div id="header_nav_personal">
             <a href="usercenter.html" class="t">
@@ -268,7 +279,8 @@
             </div>
             <div id="head_bottom">
                 <div class="div_userimg">
-                    <a href=""><img id="user_head_image" src="" alt="" style="background:white; width: 100%;min-height: 100%"></a>
+                    <a href=""><img id="user_head_image" src="" alt=""
+                                    style="background:white; width: 100%;min-height: 100%"></a>
                 </div>
                 <span id="user_span_font"></span><br>
                 <input id="input_qm" placeholder="编辑你的签名" name="userMark_top">
@@ -279,11 +291,11 @@
                 <ul class="nav nav-pills nav-stacked" id="div_li_style">
                     <li id="my_message"><a>我的信息</a></li>
                     <li id="my_image"><a>我的头像</a></li>
-                    <li><a>我的收藏</a></li>
-                    <li><a>我的历史</a></li>
+                    <li id="my_fans"><a>我的粉丝</a></li>
+                    <li><a>我的</a></li>
                     <li><a>我的投稿</a></li>
                 </ul>
-                <div id="div_cencent" >
+                <div id="div_cencent">
                     <span id="span_nc">昵称：<input id="input_cencent_nc" type="text" name="nickname"></span><br><br>
                     <span id="span_id">用户ID：1</span><br>
                     <span>我的签名：<textarea placeholder="设置您的签名-(゜-゜)つロ" cols="15" rows="3" id="area_com" name="userMark"
@@ -297,7 +309,8 @@
                         <input type="radio" value="保密" id="sex-people" name="userSex"/>保密</label>
                     </span><br>
                     <hr width="80%" style="margin-top: 50px">
-                    <button type="button" id="save_button" class="btn btn-primary" style="margin-left: 170px;margin-top: -80px"
+                    <button type="button" id="save_button" class="btn btn-primary"
+                            style="margin-left: 170px;margin-top: -80px"
                             name="content_userinfo_save">保存
                     </button>
                     <!--添加layer提示-->
@@ -308,7 +321,23 @@
                          style="width: 160px;height: 160px;border: 1px solid #e5e9ef;margin-left: 265px">
                         <img id="user_image_showimg" src="" style="width: 158px;height: 158px">
                     </div>
-                    <input id="fileupload" class="fileupload" type="file" name="files" multiple="multiple" style="margin-left: 265px;">
+                    <input id="fileupload" class="fileupload" type="file" name="files" multiple="multiple"
+                           style="margin-left: 265px;">
+                </div>
+                <div id="div_show_myfans">
+                    <div class="div_show_myfan_titles" style="height: 50px;border-bottom: 1px silver solid">
+                        <span class="div_show_myfan_title">粉丝头像</span>
+                        <span class="div_show_myfan_title">粉丝昵称</span>
+                        <span class="div_show_myfan_title">粉丝账号</span>
+                    </div>
+                    <div id="d1" style="height: 255px;width: 580px;overflow: auto;overflow-x: hidden">
+                        <div class="myfans">
+                            <img src="" class="myfan_image">
+                            <span class="mufan_nickname">蛋蛋啊</span>
+                            <span class="mufan_username">17806274817</span>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
