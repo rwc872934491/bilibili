@@ -39,7 +39,7 @@ public class AddFanServlet extends HttpServlet {
 
         //根据两个用户编号封装FanInfo建立主人粉丝关系
         FanInfoDaoImpl fanInfoDao = new FanInfoDaoImpl();
-        FanInfo fanInfo = new FanInfo(userId, userId2);
+        FanInfo fanInfo = new FanInfo(userId2, userId);
         int ret = fanInfoDao.AddFanInfo(fanInfo);
 
         //将ret返回前端
