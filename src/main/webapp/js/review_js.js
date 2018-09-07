@@ -1,6 +1,7 @@
 $(function () {
     //
     //显示视频
+
     $.ajax({
         url: "/SetVideoUrl",
         type: "post",
@@ -10,6 +11,7 @@ $(function () {
             $("#video_abi").attr("src", list[0].videoPath);
             $("#video_message_title").children().html(list[0].videoName);
             $("#video_message_middle").children("time").html(list[0].videoTime);
+            // $("#video_up_contribution").children().eq(0).html(list[0].)
             // $("#video_message_middle").children().children().eq(2).html(list[0].videoType);
             // alert($("#video_abi").attr("src"));
         }
@@ -26,12 +28,40 @@ $(function () {
     //显示投稿人的信息及头像
     $.ajax({
         url:"/ShowVideoUser",
+        // data:{"uerId":}
         type:"post",
         dataType:"json",
         success:function (list) {
-            $("#video_up_name").children().html(list[0].nickname);
+            $("#video_up_name").children().eq(0).html(list[0].nickname);
+            $("#video_up_name").children().eq(1).val(list[0].userId);
+
             $("#video_up_mark").children().html(list[0].userMark);
             $("#video_up_image_head").attr("src",list[0].userImage);
+
+            //页面显示投稿数信息
+            var tg = $("#video_up_name").children().eq(1).val();
+            // alert(tg)
+            $.ajax({
+                url:"/ShowTouGaoList",
+                data:{"userId":tg},
+                type:"post",
+                dataType:"json",
+                success:function (list) {
+                    $("#video_up_contribution").children().eq(0).html("投稿："+list.length);
+                }
+            })
+            $.ajax({
+                url:"/CountFan",
+                data:{"userId":tg},
+                type:"post",
+                dataType:"json",
+                success:function (ret) {
+                    $("#video_up_contribution").children().eq(1).html("粉丝："+ret);
+                }
+            })
+
+
+
         }
     });
     //页面显示关注信息
