@@ -9,7 +9,7 @@ public interface FanInfoDao {
     //根据封装的的对象,即userId1和userId
     public int AddFanInfo(FanInfo fanInfo);
 
-    //根据主人编号,得到其所有粉丝的用户编号
+    //根据主人编号,得到其所有粉丝的用户信息
     public List<UserInfo> ShowFanInfo(int userId);
 
     //根据主人编号,得到粉丝数量

@@ -35,6 +35,7 @@ public class TuiJianServlet extends HttpServlet {
         list_final = videoInfoDao.ShowTypeTwoVideo(typeId);
         System.out.println("List.Size(TuiJian) :" + list_final);
 
+
         //将list传回前端
         JSONArray jsonArray = JSONArray.fromObject(list_final);
         PrintWriter out = response.getWriter();
