@@ -96,6 +96,11 @@ public class VideoInfoDaoImpl extends BaseDao<VideoInfo> implements VideoInfoDao
                 new Object[]{userId});
     }
 
+    public List<VideoInfo> ShowVideoListFromMOHU(String videoName){
+        return executeQuery("Select * From VideoInfo Where videoName LIKE ?",
+                new Object[]{"%" + videoName + "%"});
+    }
+
     public static void main(String[] args){
 
 

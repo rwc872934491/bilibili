@@ -37,5 +37,8 @@ public interface VideoInfoDao {
     //根据上传人编号取到所有视频列表
     public List<VideoInfo> ShowVideoList(int userId);
 
+    //根据模糊信息找到视频列表
+    public List<VideoInfo> ShowVideoListFromMOHU(String videoName);
+
 
 }
