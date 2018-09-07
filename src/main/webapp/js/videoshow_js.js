@@ -12,8 +12,7 @@ $(function () {
                 // alert(list[1].videoId + "8888888888888888888");
                 var $node = $('<div class="video_show_list" value="' + list[i].videoId + '">\n' +
                     '                <div class="video_show_list_images">\n' +
-                    '                    <img src="image/video_show_list_image1.webp" class="video_show_list_image">\n' +
-                    '                </div>\n' +
+                    '                    <img src="'+list[i].videoImage+'" class="video_show_list_image"></div>\n' +
                     '                <p class="video_show_list_title">' + list[i].videoName + '</p>\n' +
                     '                <div class="video_show_list_data">\n' +
                     '                    <span class="video_show_list_click"><i class="video_show_list_data_icon"></i>2.5万</span>\n' +

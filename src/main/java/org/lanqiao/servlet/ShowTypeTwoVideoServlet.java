@@ -26,7 +26,7 @@ public class ShowTypeTwoVideoServlet extends HttpServlet {
         for (int i = 0; i < lenth; i++){
             VideoInfo videoInfo = new VideoInfo();
             videoInfo = (VideoInfo) session.getAttribute("TwoVideo" + i);
-            System.out.println("VedioInfo :" + videoInfo.getVideoId() + " " + videoInfo.getVideoName());
+            System.out.println("VedioInfo :" + videoInfo.getVideoId() + " " + videoInfo.getVideoName()+videoInfo.getVideoImage());
             list.add(videoInfo);
         }
 

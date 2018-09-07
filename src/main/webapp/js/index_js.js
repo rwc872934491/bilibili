@@ -36,7 +36,7 @@ $(function () {
     //只单击一级菜单实现跳转页面
     $(".header_list_name").click(function () {
         var $div_one = $(this).html();
-        alert($div_one);
+        // alert($div_one);
         $.ajax({
             url:"",
             data:{"typeone":$div_one},
