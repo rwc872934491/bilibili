@@ -7,12 +7,38 @@ $(function () {
         type: "post",
         dataType: "json",
         success : function (list) {
-            // alert(list[0].videoPath);
             $("#video_abi").attr("src", list[0].videoPath);
             $("#video_message_title").children().html(list[0].videoName);
             $("#video_message_middle").children("time").html(list[0].videoTime);
+            $(".video_message_data").children().eq(1).html(list[0].videoBoom);
         }
     });
+    //显示推荐视频(同类视频推荐三条)
+    $.ajax({
+        url:"/TuiJian",
+        type:"post",
+        dataType:"json",
+        success:function (list) {
+            if (list.length<3) {
+                for (var i = 0; i < list.length; i++) {
+                    var $node = $('<div class="video_recommend_list">\n' +
+                        '<img class="video_recommend_list_image" src="' + list[i].videoImage + '">\n' +
+                        '<span class="video_recommend_list_title">' + list[i].videoName + '</span></div>');
+                    $(".video_recommend_lists").append($node);
+                }
+            }
+            if (list.length>=3){
+                for (var i=0;i<3;i++){
+                    var $node = $('<div class="video_recommend_list">\n' +
+                        '<img class="video_recommend_list_image" src="'+list[i].videoImage+'">\n' +
+                        '<span class="video_recommend_list_title">'+list[i].videoName+'</span></div>');
+                    $(".video_recommend_lists").append($node);
+                }
+            }
+        }
+    });
+    
+    
     //页面显示浏览数（播放量）
     $.ajax({
         url:"/ShowClick",
@@ -20,6 +46,7 @@ $(function () {
         dataType:"json",
         success:function (list) {
             $(".video_data_play").html(list[0].videoClick);
+
         }
     });
 

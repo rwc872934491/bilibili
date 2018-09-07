@@ -15,8 +15,8 @@ $(function () {
                     '                    <img src="'+list[i].videoImage+'" class="video_show_list_image"></div>\n' +
                     '                <p class="video_show_list_title">' + list[i].videoName + '</p>\n' +
                     '                <div class="video_show_list_data">\n' +
-                    '                    <span class="video_show_list_click"><i class="video_show_list_data_icon"></i>2.5万</span>\n' +
-                    '                    <span class="video_show_list_review"><i class="video_show_list_data_icon"></i>185</span>\n' +
+                    '                    <span class="video_show_list_click"><i class="video_show_list_data_icon"></i>'+list[i].videoClick+'</span>\n' +
+                    '                    <span class="video_show_list_review"><i class="video_show_list_data_icon"></i>'+list[i].videoBoom+'</span>\n' +
                     '                </div>\n' +
                     '        </div>');
                 $("#video_show_lists").append($node);
