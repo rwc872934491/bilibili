@@ -46,7 +46,7 @@
                 dataType:"json",
                 success:function (list) {
                     for(var i=0;i<list.length;i++){
-                        var $node = $('<div class="myfans"><img src="" class="myfan_image">\n' +
+                        var $node = $('<div class="myfans"><img src="'+list[i].userImage+'" class="myfan_image">\n' +
                             ' <span class="mufan_nickname">'+list[i].nickname+'</span>\n' +
                             ' <span class="mufan_username">'+list[i].userName+'</span></div>');
                         $("#d1").append($node);
